@@ -1,0 +1,223 @@
+**********************09-Mar-2022 13:05:13**********************
+----------------------jaws----------------------
+select_idx: 0.22481
+reconstruct 5 / 572
+reconstruct 10 / 572
+reconstruct 15 / 572
+reconstruct 22 / 572
+reconstruct 30 / 572
+reconstruct 37 / 572
+reconstruct 44 / 572
+reconstruct 51 / 572
+reconstruct 58 / 572
+reconstruct 63 / 572
+reconstruct 70 / 572
+reconstruct 77 / 572
+reconstruct 83 / 572
+reconstruct 90 / 572
+reconstruct 95 / 572
+reconstruct 102 / 572
+reconstruct 108 / 572
+reconstruct 115 / 572
+reconstruct 122 / 572
+reconstruct 127 / 572
+reconstruct 134 / 572
+reconstruct 141 / 572
+reconstruct 147 / 572
+reconstruct 153 / 572
+reconstruct 160 / 572
+reconstruct 166 / 572
+reconstruct 172 / 572
+reconstruct 180 / 572
+reconstruct 186 / 572
+reconstruct 192 / 572
+reconstruct 195 / 572
+reconstruct 199 / 572
+reconstruct 202 / 572
+reconstruct 204 / 572
+reconstruct 208 / 572
+reconstruct 211 / 572
+reconstruct 216 / 572
+reconstruct 222 / 572
+reconstruct 228 / 572
+reconstruct 233 / 572
+reconstruct 240 / 572
+reconstruct 245 / 572
+reconstruct 252 / 572
+reconstruct 257 / 572
+reconstruct 260 / 572
+reconstruct 264 / 572
+reconstruct 268 / 572
+reconstruct 274 / 572
+reconstruct 278 / 572
+reconstruct 283 / 572
+reconstruct 287 / 572
+reconstruct 290 / 572
+reconstruct 293 / 572
+reconstruct 297 / 572
+reconstruct 301 / 572
+reconstruct 304 / 572
+reconstruct 307 / 572
+reconstruct 310 / 572
+reconstruct 314 / 572
+reconstruct 317 / 572
+reconstruct 320 / 572
+reconstruct 324 / 572
+reconstruct 327 / 572
+reconstruct 330 / 572
+reconstruct 333 / 572
+reconstruct 336 / 572
+reconstruct 340 / 572
+reconstruct 344 / 572
+reconstruct 347 / 572
+reconstruct 351 / 572
+reconstruct 354 / 572
+reconstruct 358 / 572
+reconstruct 361 / 572
+reconstruct 364 / 572
+reconstruct 369 / 572
+reconstruct 372 / 572
+reconstruct 375 / 572
+reconstruct 378 / 572
+reconstruct 382 / 572
+reconstruct 386 / 572
+reconstruct 389 / 572
+reconstruct 393 / 572
+reconstruct 397 / 572
+reconstruct 400 / 572
+reconstruct 403 / 572
+reconstruct 407 / 572
+reconstruct 411 / 572
+reconstruct 415 / 572
+reconstruct 419 / 572
+reconstruct 423 / 572
+reconstruct 426 / 572
+reconstruct 430 / 572
+reconstruct 433 / 572
+reconstruct 436 / 572
+reconstruct 440 / 572
+reconstruct 442 / 572
+reconstruct 446 / 572
+reconstruct 450 / 572
+reconstruct 453 / 572
+reconstruct 457 / 572
+reconstruct 459 / 572
+reconstruct 463 / 572
+reconstruct 465 / 572
+reconstruct 467 / 572
+reconstruct 470 / 572
+reconstruct 473 / 572
+reconstruct 476 / 572
+reconstruct 479 / 572
+reconstruct 483 / 572
+reconstruct 487 / 572
+reconstruct 492 / 572
+reconstruct 496 / 572
+reconstruct 499 / 572
+reconstruct 501 / 572
+reconstruct 505 / 572
+reconstruct 508 / 572
+reconstruct 512 / 572
+reconstruct 515 / 572
+reconstruct 519 / 572
+reconstruct 522 / 572
+reconstruct 526 / 572
+reconstruct 531 / 572
+reconstruct 534 / 572
+reconstruct 537 / 572
+reconstruct 541 / 572
+reconstruct 544 / 572
+reconstruct 548 / 572
+reconstruct 552 / 572
+reconstruct 556 / 572
+reconstruct 560 / 572
+reconstruct 563 / 572
+reconstruct 567 / 572
+reconstruct 572 / 572
+reconstruct total: 156.129
+part_reflection 5.2293e-09
+part_reflection 6.0283e-10
+part_reflection 5.2108e-10
+part_reflection 6.7656e-10
+part_reflection 5.9949e-10
+part_reflection 3.6777e-10
+part_reflection 1.7617e-10
+part_reflection 7.8221e-11
+part_reflection 3.4613e-11
+part_reflection 1.4796e-11
+part_reflection 5.8063e-12
+part_reflection 2.3046e-12
+part_reflection 9.1331e-13
+part_reflection 3.9683e-13
+part_reflection 1.7507e-13
+part_reflection 8.2147e-14
+part_reflection 3.7372e-14
+part_reflection 1.7808e-14
+part_reflection 8.1015e-15
+part_reflection 3.2074e-15
+part_reflection 1.4591e-15
+part_reflection 6.1447e-16
+part_reflection 2.4705e-16
+part_reflection: 26.299
+combine 2 / 240
+combine 5 / 240
+combine 8 / 240
+combine 11 / 240
+combine 14 / 240
+combine 17 / 240
+combine 20 / 240
+combine 23 / 240
+combine 26 / 240
+combine 29 / 240
+combine 33 / 240
+combine 37 / 240
+combine 40 / 240
+combine 44 / 240
+combine 47 / 240
+combine 50 / 240
+combine 53 / 240
+combine 56 / 240
+combine 59 / 240
+combine 62 / 240
+combine 66 / 240
+combine 69 / 240
+combine 72 / 240
+combine 75 / 240
+combine 78 / 240
+combine 82 / 240
+combine 85 / 240
+combine 88 / 240
+combine 92 / 240
+combine 95 / 240
+combine 98 / 240
+combine 101 / 240
+combine 104 / 240
+combine 107 / 240
+combine 110 / 240
+combine 113 / 240
+combine 117 / 240
+combine 122 / 240
+combine 127 / 240
+combine 133 / 240
+combine 139 / 240
+combine 146 / 240
+combine 151 / 240
+combine 156 / 240
+combine 161 / 240
+combine 167 / 240
+combine 173 / 240
+combine 179 / 240
+combine 185 / 240
+combine 191 / 240
+combine 197 / 240
+combine 203 / 240
+combine 209 / 240
+combine 215 / 240
+combine 221 / 240
+combine 227 / 240
+combine 233 / 240
+combine 239 / 240
+combine: 65.0281
+Elapsed time is 247.688408 seconds.
+--------------------------MEAN ERROR---------------------------
+mean error : 0.083156

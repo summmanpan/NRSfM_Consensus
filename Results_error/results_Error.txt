@@ -1,0 +1,9 @@
+
+dance: mean error : 0.075112
+walking: mean error : 0.039141
+
+drink: mean error : 0.015087
+pickup: mean error : 0.056465
+stretch: mean error : 0.035837
+yoga: mean error : 0.038612
+

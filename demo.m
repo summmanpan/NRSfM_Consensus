@@ -33,8 +33,15 @@ clear; close all; clc;
 % TODO: You have to load a ground truth 3D data (named "GT") here, e.g.;
 % 
 % load dance; % This file should contain GT
-load ./data/yoga_rearranged.mat
-%
+datapath = './data_set/';
+% datatype = 'benchmark/';dataname = 'walking';
+% datatype = 'symthetic_camera_rotations/';
+dataname = 'jaws'; % drink, pickup, stretch, yoga
+filename = '_rearranged.mat';
+% data = [datapath,datatype,dataname, filename];
+data = [datapath,dataname, filename];
+load(data)
+
 % 
 % GT should be (3 x p x f) dimensional, of the form;
 % p 
@@ -56,6 +63,14 @@ GT = X;
 % Input data generation
 D = GT(1:2, :, :);
 
+% Diary save for command window
+resulpath = './Results_error/';
+final_name_data = sprintf("%s%s",resulpath,'RESULTS_',dataname,'.txt');
+diary(final_name_data)
+d = datetime(now,'ConvertFrom','datenum');
+disp(['**********************'+string(datetime)+'**********************'])
+disp(['----------------------'+string(dataname)+'----------------------'])
+
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D);
 
@@ -65,12 +80,19 @@ vind = sum((GT(3, :, :)-X(3, :, :)).^2) > sum((GT(3, :, :)+X(3, :, :)).^2);
 X(3, :, vind) = -X(3, :, vind);
 
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
-disp(['mean error : ' num2str(mean(perf))]);
+disp("--------------------------MEAN ERROR---------------------------")
+disp(['mean error : ' num2str(mean(perf))]); % string(dataname)+':'+
 
-% Plot results
+diary off
+
+%% Plot results
 for i=1:numel(perf)
     scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');
     hold on; scatter3(X(1, :, i), X(3, :, i), X(2, :, i), 'b.'); hold off;
     axis equal; drawnow;
 end
+%% Save the reconstruct X
+X_path = ['./Reconst_matlab_files/X_'+string(dataname)+'.mat'];
+save(X_path,"X")
 
+% saveas(Figure 1,dataname)

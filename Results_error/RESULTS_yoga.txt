@@ -1,0 +1,183 @@
+**********************09-Mar-2022 12:53:01**********************
+----------------------yoga----------------------
+select_idx: 0.1075
+reconstruct 2 / 260
+reconstruct 5 / 260
+reconstruct 8 / 260
+reconstruct 11 / 260
+reconstruct 14 / 260
+reconstruct 16 / 260
+reconstruct 19 / 260
+reconstruct 22 / 260
+reconstruct 23 / 260
+reconstruct 25 / 260
+reconstruct 27 / 260
+reconstruct 30 / 260
+reconstruct 33 / 260
+reconstruct 35 / 260
+reconstruct 37 / 260
+reconstruct 39 / 260
+reconstruct 41 / 260
+reconstruct 43 / 260
+reconstruct 45 / 260
+reconstruct 46 / 260
+reconstruct 48 / 260
+reconstruct 50 / 260
+reconstruct 52 / 260
+reconstruct 54 / 260
+reconstruct 56 / 260
+reconstruct 57 / 260
+reconstruct 59 / 260
+reconstruct 61 / 260
+reconstruct 63 / 260
+reconstruct 65 / 260
+reconstruct 66 / 260
+reconstruct 68 / 260
+reconstruct 70 / 260
+reconstruct 72 / 260
+reconstruct 74 / 260
+reconstruct 75 / 260
+reconstruct 77 / 260
+reconstruct 79 / 260
+reconstruct 81 / 260
+reconstruct 83 / 260
+reconstruct 85 / 260
+reconstruct 87 / 260
+reconstruct 89 / 260
+reconstruct 91 / 260
+reconstruct 93 / 260
+reconstruct 95 / 260
+reconstruct 97 / 260
+reconstruct 99 / 260
+reconstruct 101 / 260
+reconstruct 103 / 260
+reconstruct 105 / 260
+reconstruct 107 / 260
+reconstruct 109 / 260
+reconstruct 111 / 260
+reconstruct 113 / 260
+reconstruct 115 / 260
+reconstruct 117 / 260
+reconstruct 119 / 260
+reconstruct 121 / 260
+reconstruct 123 / 260
+reconstruct 125 / 260
+reconstruct 126 / 260
+reconstruct 128 / 260
+reconstruct 130 / 260
+reconstruct 132 / 260
+reconstruct 134 / 260
+reconstruct 136 / 260
+reconstruct 138 / 260
+reconstruct 140 / 260
+reconstruct 142 / 260
+reconstruct 143 / 260
+reconstruct 145 / 260
+reconstruct 147 / 260
+reconstruct 149 / 260
+reconstruct 151 / 260
+reconstruct 153 / 260
+reconstruct 155 / 260
+reconstruct 157 / 260
+reconstruct 159 / 260
+reconstruct 161 / 260
+reconstruct 163 / 260
+reconstruct 166 / 260
+reconstruct 169 / 260
+reconstruct 173 / 260
+reconstruct 176 / 260
+reconstruct 179 / 260
+reconstruct 182 / 260
+reconstruct 185 / 260
+reconstruct 188 / 260
+reconstruct 191 / 260
+reconstruct 194 / 260
+reconstruct 197 / 260
+reconstruct 200 / 260
+reconstruct 203 / 260
+reconstruct 206 / 260
+reconstruct 209 / 260
+reconstruct 213 / 260
+reconstruct 216 / 260
+reconstruct 219 / 260
+reconstruct 222 / 260
+reconstruct 225 / 260
+reconstruct 227 / 260
+reconstruct 231 / 260
+reconstruct 234 / 260
+reconstruct 237 / 260
+reconstruct 240 / 260
+reconstruct 243 / 260
+reconstruct 246 / 260
+reconstruct 249 / 260
+reconstruct 252 / 260
+reconstruct 255 / 260
+reconstruct 258 / 260
+reconstruct total: 145.3438
+part_reflection 1.7995e-15
+part_reflection: 1.3842
+combine 14 / 307
+combine 28 / 307
+combine 42 / 307
+combine 56 / 307
+combine 70 / 307
+combine 84 / 307
+combine 97 / 307
+combine 111 / 307
+combine 126 / 307
+combine 140 / 307
+combine 154 / 307
+combine 168 / 307
+combine 182 / 307
+combine 195 / 307
+combine 210 / 307
+combine 224 / 307
+combine 238 / 307
+combine 252 / 307
+combine 266 / 307
+combine 280 / 307
+combine 294 / 307
+combine: 22.717
+Elapsed time is 169.557717 seconds.
+--------------------------MEAN ERROR---------------------------
+mean error : 0.038612
+**********************09-Mar-2022 12:59:48**********************
+----------------------yoga----------------------
+dbstep
+select_idx: 0.11434
+reconstruct 3 / 264
+reconstruct 5 / 264
+reconstruct 8 / 264
+reconstruct 11 / 264
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>cal_GG_m', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 327)" style="font-weight:bold">reconstruct>cal_GG_m</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',327,0)">line 327</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>cal_rotation', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 219)" style="font-weight:bold">reconstruct>cal_rotation</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',219,0)">line 219</a>)
+        [GG, G] = cal_GG_m(A, [G zeros(size(G, 1), 3-size(G, 2)); zeros(K-size(G, 1), 3)], 3);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 23)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',23,0)">line 23</a>)
+[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % la funcion de dentro: Convert (k x p x f) tensor to (kf x p) matrix
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 36)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',36,0)">line 36</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE1683322197', 'C:\Users\pansu\AppData\Local\Temp\Editor_jvopc\LiveEditorEvaluationHelperE1683322197.m', 72)" style="font-weight:bold">LiveEditorEvaluationHelperE1683322197</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_jvopc\LiveEditorEvaluationHelperE1683322197.m',72,0)">line 72</a>)
+X = NRSfM_Consensus(D);
+} 
+**********************09-Mar-2022 12:59:59**********************
+----------------------yoga----------------------
+dbstep in;
+dbcont
+select_idx: 0.18106
+clc
+display off
+off
+dbquit
+clc
+demo
+{Unrecognized function or variable 'datatype'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 41)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',41,0)">line 41</a>)
+data = [datapath,datatype,dataname, filename];
+} 
+demo
