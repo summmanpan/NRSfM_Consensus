@@ -84,7 +84,7 @@ function idx = select_group(lP, nsamp, mgroup)
         idx(j, count) = true;
         npidx(j) = npidx(j)+1;
         tgind = idx(j, 1:count-1); % coge valores de idx, de la fila j todas las columnas hasta count
-        tlP = tlP + lP(j, :); % esta acumulando las probabilidades, why???
+        tlP = tlP + lP(j, :); % esta acumulando las probabilidades, de gasussian
         % first traj is based on a uniform distribution
         % ahora, second traj based on gaussian!
         for i=2:nsamp 
@@ -132,7 +132,7 @@ function r = check_comb(x, n, k)
 %
 % Check whether there are no remaining combinations to speed up the process
 
-    if log(max(x)) > -betaln(n-k+1, k+1)-log(n+1)-1 
+    if log(max(x)) > -betaln(n-k+1, k+1) - log(n+1)-1 
     % If the log of maximum is larger than log(nchoosek/exp) 
     % log(nchoosek/exp) ?????
         r = (x == nchoosek(n, k));

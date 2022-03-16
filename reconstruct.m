@@ -202,12 +202,14 @@ function [R, s] = cal_rotation(X, th)
 
 [U, S, ~] = svd(X, 'econ');
 ss = diag(S);
-ss = cumsum(ss(1:end-1).^2);
-maxK = sum(ss/ss(end) < th)+1;
-maxK = min(ceil(maxK/3)*3, numel(ss));
+ss = cumsum(ss(1:end-1).^2); % poq sabe que la ultima es un numero peq?
+maxK = sum(ss/ss(end) < th)+1; % 6 +1
+maxK = min(ceil(maxK/3)*3, numel(ss)); % ceil redondea hacia arriba
 F = U(:, 1:maxK);
 
 lcost = inf;
+% empieza en 3 en pasos de 3 hasta col de F-1, y añade el ultimo
+% ex: 3 6 9
 for K = [3:3:size(F, 2)-1 size(F, 2)]
     plcost = lcost;
 
@@ -219,16 +221,16 @@ for K = [3:3:size(F, 2)-1 size(F, 2)]
         [GG, G] = cal_GG_m(A, [G zeros(size(G, 1), 3-size(G, 2)); zeros(K-size(G, 1), 3)], 3);
     end
 
-    lcost = norm(A*GG(:))^2*LA;
+    lcost = norm(A*GG(:))^2*LA;%????????
     
 %     disp([num2str(K) ' : ' num2str(plcost-lcost) ' / ' num2str(lcost)]);
     
-    if lcost < eps
+    if lcost < eps % eps is 2.2204e-16
         break;
     end
 end
 
-[R, s] = F2R(F(:, 1:K)*[G zeros(size(G, 1), 3-size(G, 2))]);
+[R, s] = F2R(F(:, 1:K)*[ G  zeros( size(G, 1), 3-size(G, 2) )   ]   );
 
 end
 
@@ -252,7 +254,10 @@ function [A, LA] = pre(A)
 % Precondition A matrix
 
     if diff(size(A)) < 0
-        [~, A] = qr(A, 0);
+        [~, A] = qr(A, 0); % qr(A,0) produces an economy-size decomposition 
+%     [Q,R] = qr(A) performs a qr decomposition on m-by-n matrix A such that
+%     A = Q*R. The factor R is an m-by-n upper triangular matrix and Q is an
+%     m-by-m unitary matrix.
     end
     LA = max(eig(A*A'));
     A = A/sqrt(LA);
@@ -355,12 +360,19 @@ function [AA1, AA2, off] = cal_A_parts(U)
 
 K = size(U, 2);
 
-A1 = U(1:2:end, :);
-A2 = U(2:2:end, :);
+A1 = U(1:2:end, :); % cogemos los impares
+A2 = U(2:2:end, :); % coge los pares
 
+%  kron(A1, ones(1, K)) -> repite cada col K veces, a a a b b b c c c 
+% repmat(A1, 1, K) -> repite toda los elem k veces, a b c a b c a b c
 AA1 = kron(A1, ones(1, K)).*repmat(A1, 1, K);
 AA2 = kron(A2, ones(1, K)).*repmat(A2, 1, K);
+
+% A1 , (:,:,1) = aaa, (:,:,2)=bbb, ccc
+% hace 3 copias mismas de A2 y lo guarda para cada dimension
 off = repmat(reshape(A1, [], 1, K), 1, K).*repmat(A2, [1 1 K]);
+%  off       307x3x3 pasa a ser 307x9
+% no entiendo como lo ha hecho con el cod de abajo
 off = reshape(off + permute(off, [1 3 2]), size(off, 1), []);
 
 end
