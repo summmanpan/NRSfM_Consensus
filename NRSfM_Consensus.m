@@ -31,7 +31,7 @@ ngroup = size(idx, 2);
 tic;
 % solve for each group
 tID = tic;
-Xi = cell(1, ngroup); % 563 grupos, cada grupo hay com0 10 tray??
+Xi = cell(1, ngroup); % x grupos, cada grupo hay com0 10 tray??
 for i=1:ngroup
     Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
     if toc(tID) > 1

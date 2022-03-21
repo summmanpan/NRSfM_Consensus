@@ -12,11 +12,11 @@ clear; close all; clc;
 % TODO: You have to load a ground truth 3D data (named "GT") here, e.g.;
 
 datapath = './data_set/';
-% datatype = 'benchmark/';
-% dataname = 'walking'; %'walking';
+datatype = 'benchmark/';
+dataname = 'walking'; %'walking';
 
-datatype = 'symthetic_camera_rotations/';
-dataname = 'yoga'; % drink, pickup, stretch, yoga
+% datatype = 'symthetic_camera_rotations/';
+% dataname = 'yoga'; % drink, pickup, stretch, yoga
 filename = '_rearranged.mat';
 data = [datapath,datatype,dataname, filename];
 
@@ -34,11 +34,11 @@ GT = X;
 % Here, x_ki, y_ki, and z_ki are the 3D coordinates of the ith point of the kth frame.
 %*************************************************************************************
 %% add rotation
-ang = 5;
-GT_rot = addRotation(ang,GT); 
+ang = -90;
+GT_rot = addRotation(ang,GT,dataname); 
 % intentar de crear que pueda add y remove rotation entre un rg de frames
 % que quiera el usuario...
-% creo q deberia funcionar con el inverse matrix, pero no ! mirar porque!
+% creo q deberia funcionar con el inverse matrix, pero no ! mirar por que!
 plot_2D(GT_rot,dataname)
 %%
 % plot_2D(GT,dataname)

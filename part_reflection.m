@@ -22,15 +22,36 @@ end
 Z = zeros(p, f, n);
 for i=1:n
     Z(idx(:, i), :, i) = X{i}(3, :, :);
+    % cada Zi o Z_grupo o Zk guarda el 3º componente en col de todos los
+    % frames para cada grupo i, X{i}
 end
 Z = reshape(Z, [], n);
-Z = bsxfun(@rdivide, Z, sqrt(sum(Z.^2)));
+
+% hacemos la normalizacion con su modulo
+Z = bsxfun(@rdivide, Z, sqrt(sum(Z.^2))); 
+% Z / ||Z||, y por q hacemos esto?
+%sum(X) is the sum of the elements of the vector X. If X is a matrix,
+%     S is a row vector with the sum over each column
+% sum(,2) es la suma por col, ie. queda una col con todas las sumas de cada
+% vector fila
 
 nmax = max(sum(idx, 2));
-if min(size(Z)) < 1500
+% esto es la suma de para cada uno de los puntos p, el punto que ha
+% parecido mas veces en el random sampling¿¿??
+% y vemos q al menos el nº de apariciones son mayor que 50.
+% que significa el número de ....???
+
+if min(size(Z)) < 1500 % compara el n < 1500
     [U, ~, ~] = svd(Z, 'econ');
     U = U(:, 1);
+    %produces the "economy size" decomposition.
+    % if Z is this case is m>=n, then ç
+    %only the first n columns of U are computed and 
+    % S is n-by-n.
+
 else
+    %Find a few singular values and vectors.
+    %svds(A,K):computes the K largest singular values of A.
     [U, ~, ~] = svds(Z, 1);
 end
 

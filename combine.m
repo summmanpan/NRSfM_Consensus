@@ -1,17 +1,13 @@
 function [X, T] = combine(D, Xi, idx)
 % function [X, T] = combine(D, Xi, idx)
-%
 % Obtain strong reconstruction
-%
 % Inputs:
 %     D: Input 2D trajectory data                     (k x p x f)
 %     Xi: 3D trajectory groups (corrected sign)       (1 x m cell)
 %     idx: Sample indices for trajectory groups       (p x m)
-%
 % Outputs:
 %     X: Strong 3D reconstruction                     (k x p x f)
 %     T: Corrected signs of trajectory groups         (m x f)
-%
 
     f = size(Xi{1}, 3);
     p = size(idx, 1);
@@ -19,19 +15,20 @@ function [X, T] = combine(D, Xi, idx)
     tID = tic;
     Z = zeros(p, f);
     T = zeros(numel(Xi), f);
-    [Az, At] = build_A(idx);
+    [Az, At] = build_A(idx); %Az??
     A = [Az At];
     Ap = A(1:end-1, :);
     AAp = Ap'*Ap;
-    lp = eigs(A'*A, 1);
+    lp = eigs(A'*A, 1); % el maximo eigenvalue
     for l=1:f
         Yl = build_Y(Xi, l);
-        x = solve(Yl, A, AAp, lp, p);
+        x = solve(Yl, A, AAp, lp, p); % ADMM problem
         Z(:, l) = x(1:p);
         T(:, l) = x(p+1:end);
         
-        if toc(tID) > 1
+        if toc(tID) > 1 % if Elapsed time  pasa mas de 1 min , pero porque asi??
             disp(['combine ' num2str(l) ' / ' num2str(f)]);
+            % ha combinado 1 de 260 frames
             tID = tic;
         end
     end
@@ -91,8 +88,9 @@ function Y = build_Y(Xi, l)
 % l: Frame index
 % Y: Concatenated data
 
-    d = size(Xi{1}, 1);
-    Y = cell2mat(cellfun(@(x) {x(d, :, l)'}, reshape(Xi, [], 1)));
+    d = size(Xi{1}, 1); % d es la dimension, en este caso la z, el 3er axis
+    Y = cell2mat( cellfun(@(x) { x(d, :, l)'}, reshape(Xi, [], 1)) );
+%     Xi = 1x361, Y = 361*10 = 3610x1 size, ya q hay 10 pts
     Y = [Y; 0];
 end
 
@@ -103,6 +101,8 @@ function [Az, At] = build_A(idx)
 % At: Part for translations
 
     Az = cell2mat(cellfun(@(x) {selection_A(x)}, num2cell(idx, 1)'));
+    %A = cellfun(FUN, C) applies the function specified by FUN to the
+%     contents of each cell of cell array C
     tmp = arrayfun(@(n) {sparse(1:n, 1, 1)}, full(sum(idx)));
     At = blkdiag(tmp{:});
     
@@ -112,9 +112,7 @@ end
 
 function E = selection_A(idx)
 % Create a mapping matrix
-
-    s = sum(idx);
+    s = sum(idx); %???
     E = sparse(1:s, find(idx), 1, s, numel(idx));
     
 end
-
