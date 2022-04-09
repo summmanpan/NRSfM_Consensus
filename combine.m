@@ -20,9 +20,10 @@ function [X, T] = combine(D, Xi, idx)
     Ap = A(1:end-1, :);
     AAp = Ap'*Ap;
     lp = eigs(A'*A, 1); % el maximo eigenvalue
+    cost_list_frames = {};
     for l=1:f
-        Yl = build_Y(Xi, l);
-        x = solve(Yl, A, AAp, lp, p); % ADMM problem
+        Yl = build_Y(Xi, l); % para cada una de las 361 grupos coge el z coord y esto lo hace para cada frame.
+        [x,cost_list_frames] = solve(Yl, A, AAp, lp, p, l, cost_list_frames); % solve ADMM problem
         Z(:, l) = x(1:p);
         T(:, l) = x(p+1:end);
         
@@ -38,48 +39,86 @@ function [X, T] = combine(D, Xi, idx)
 
 end
 
-function x = solve(y, A, AAp, lp, p)
+function [x,cost_list_frames] = solve(y, A, AAp, lp, p, frame,cost_list_frames)
 % Solve ADMM problem
 %
-% minimize || y - A x ||_1
+% minimize || y - A x ||_1 --> ec 28
 % AAp: Part of A'*A (precomputed for efficiency)
 % lp: Lipschitz constant
 % p: Number of landmarks
 % x: Reconstructed frame (Z and T)
 
     mu = 1e-4;
-    rho = 1.01;
+    rho = 1.01; %rho is the augmented Lagrangian parameter.
     
     x = zeros(length(AAp), 1);
-    L = zeros(numel(y), 1);
+    L = zeros(numel(y), 1);%?????
     yAx = y;
     
     count = 0;
     cost = inf;
+    cost_list = [];
     while cost > 1e-10
         
         tmp = yAx + L;
         E = sign(tmp).*max(abs(tmp)-1/mu, 0);
-        
+        % 1/mu es 10000, la funcion sign busca el signo 
+
         AAx = AAp*x;
-        AAx(1:p) = AAx(1:p) + sum(x(1:p));
-        x = x - (AAx - A'*(y - E + L))/lp;
-        yAx = y-A*x;
+%         %??? lineas que no entiendo!
+        AAx(1:p) = AAx(1:p) + sum(x(1:p)); 
+        % hace una suma/ponderacion solo para 1 : hasta points
+        x = x - (AAx - A'*(y - E + L)) /lp;
+%         AAx - A'*(y - E + L)????
+        % actualizamos la x, 
+         
+        % A es z_1_'
+        yAx = y-A*x;%???? eesta bajando los valores
         
-        Q = yAx - E;
-        L = L + Q;
-        cost = norm(Q(:))^2;
+
+        Q = yAx - E; %Q es la ui que vamos acutualizando
+        L = L + Q; % lo guardamos en un vector vara que vaya ir acumuladno? why?
+        cost = norm(Q(:))^2; %l1_norm
 
         L = L/rho;
         mu = mu*rho;
         
         count = count + 1;
-%         if mod(count, 1e2) == 0
+        if mod(count, 1e2) == 0 % pintame cada 100...
 %             disp(['solve ' num2str(count) ' : ' num2str(sum(abs(E(:)))) ' / ' num2str(cost) ' / ' num2str(mu)]);
-%         end
+        end
+        cost_list(end+1)=cost;
     end
 %     disp(['solve ' num2str(count) ' : ' num2str(sum(abs(E(:)))) ' / ' num2str(cost) ' / ' num2str(mu)]);
+%     cost_list_frames{end+1} = cost_list;
+
     
+    %plot of the cost function 
+%     if frame ==1 % for now, i just plot for the 1º frame
+%         h = figure;
+%         plot(1:length(cost_list), cost_list, 'k', 'MarkerSize', 10, 'LineWidth', 2);
+%         ylabel('|| y-Ax||_1'); xlabel('iter (k)');
+%         hold on 
+%         p = plot(length(cost_list), cost_list(end),'o-','MarkerFaceColor','red','MarkerEdgeColor','red') ;
+%         title(sprintf("L1 via ADMM for the frame %d, with min cost %d",frame,cost))
+%         hold off
+% 
+%     end
+
+    % plot of diff cost function accordinf with the frame number 
+
+%     h = figure(2);
+%     for i=1:length(cost_list_frames) % for now, i just plot for the 1º frame
+%        
+%         plot(1:length(cost_list_frames{i}), cost_list_frames{i});
+% %         ylabel('|| y-Ax||_1'); xlabel('iter (k)');
+%         hold on 
+%         disp(i)
+% %         p = plot(length(cost_list), cost_list(end),'o-','MarkerFaceColor','red','MarkerEdgeColor','red') ;
+% %         title(sprintf("L1 via ADMM for the frame %d, with min cost %d",frame,cost))
+%     end
+%     hold off
+
 end
 
 function Y = build_Y(Xi, l)

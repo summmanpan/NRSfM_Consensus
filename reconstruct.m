@@ -15,12 +15,12 @@ function X = reconstruct(D, rotK_th)
 
 % translate and normalize
 [X, TX] = pout_trans(D);
-sX = sqrt(sum(sum(X.^2))); % suma las inf de 2D a un numero
-X = bsxfun(@rdivide, X, sX); % divide con el cuadrado de X
-% creo que de alguna menera lo he normalizado 
+sX = sqrt(sum(sum(X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
+X = bsxfun(@rdivide, X, sX); % divide con el sX
+
 
 % calculate rotation
-[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % la funcion de dentro: Convert (k x p x f) tensor to (kf x p) matrix
+[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % reshape q sea matriz de 10 col, y cada2 filas como va ir cambiando
 sX = sX.*ts;
 X = bsxfun(@rdivide, X, ts); % X(:, :, i) <- X(:, :, i)/ts(i) for all i
 X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all i
@@ -67,7 +67,8 @@ mu = 1e-0;
 rho = 1.02;
 
 if k*p < nSample
-    rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v');
+    rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v'); 
+    %f(u,s,v)= (u .* s') * v'
 else
     rest_svd = @(u, s, v) (u*bsxfun(@times, s, v'));
 end
@@ -82,7 +83,7 @@ while cost > 1e-10
     Y = pXRZ - L;
     [U, S, V] = rsvd(reshape(Y, [], nSample));
     s = max(diag(S) - 1/mu, 0);
-    Y = reshape(rest_svd(U, s, V), k, p, nSample);
+    Y = reshape(rest_svd(U, s, V), k, p, nSample); % restarur A=SVD
     
     Z = Z - inner(R, pXRZ - Y - L);
     Z = pout_trans(Z);
@@ -109,13 +110,13 @@ end
 
 
 function R = outer(X, Y)
-% Outer product
+% Outer product -> element by element
 
     R = bsxfun(@times, X, Y);
 end
 
 function R = inner(X, Y)
-% Inner product
+% Inner product ->  which takes a pair of coordinate vectors as input and produces a scalar
 
     R = sum(bsxfun(@times, X, Y));
 end
@@ -124,14 +125,15 @@ end
 function [U, S, V] = rsvd(X)
 % SVD based on EVD (sometimes built-in SVD function fails)
 
-if diff(size(X)) > 0
+if diff(size(X)) > 0 % hay mas columnas que filas
     [U, D] = eig(X*X');
     [s, ind] = sort(sqrt(max(diag(D), 0)), 'descend');
     U = U(:, ind);
     S = diag(s);
     [V, H] = qr(X'*U, 0);
-    ind = diag(H) < 0;
-    V(:, ind) = -V(:, ind);
+    ind = diag(H) < 0; % logical variable
+    V(:, ind) = -V(:, ind); % change the sign acording to the ind value (1->yes),(0->not)
+    % if it sigular value is less than 0, we change the sign 
 else
     [V, D] = eig(X'*X);
     [s, ind] = sort(sqrt(max(diag(D), 0)), 'descend');
@@ -202,8 +204,8 @@ function [R, s] = cal_rotation(X, th)
 
 [U, S, ~] = svd(X, 'econ');
 ss = diag(S);
-ss = cumsum(ss(1:end-1).^2); % poq sabe que la ultima es un numero peq?
-maxK = sum(ss/ss(end) < th)+1; % 6 +1
+ss = cumsum(ss(1:end-1).^2); % poq borramos el ultimo
+maxK = sum(ss/ss(end) < th)+1; % 7 +1
 maxK = min(ceil(maxK/3)*3, numel(ss)); % ceil redondea hacia arriba
 F = U(:, 1:maxK);
 
@@ -221,7 +223,7 @@ for K = [3:3:size(F, 2)-1 size(F, 2)]
         [GG, G] = cal_GG_m(A, [G zeros(size(G, 1), 3-size(G, 2)); zeros(K-size(G, 1), 3)], 3);
     end
 
-    lcost = norm(A*GG(:))^2*LA;%????????
+    lcost = norm(A*GG(:))^2 * LA; %????????
     
 %     disp([num2str(K) ' : ' num2str(plcost-lcost) ' / ' num2str(lcost)]);
     
@@ -244,7 +246,7 @@ function [R, s] = F2R(F)
     for i=1:numel(s)
         [U, S, V] = svd(R(:, :, i));
         R(:, :, i) = U*V';
-        s(i) = trace(S)/2;
+        s(i) = trace(S)/2; % trace  Sum of diagonal elements.
     end
     s = s/min(s);
 end
@@ -252,8 +254,8 @@ end
 
 function [A, LA] = pre(A)
 % Precondition A matrix
-
-    if diff(size(A)) < 0
+        
+    if diff(size(A)) < 0 % cuando hay mas filas que col
         [~, A] = qr(A, 0); % qr(A,0) produces an economy-size decomposition 
 %     [Q,R] = qr(A) performs a qr decomposition on m-by-n matrix A such that
 %     A = Q*R. The factor R is an m-by-n upper triangular matrix and Q is an
@@ -301,11 +303,13 @@ function [GG, G, r] = cal_GG(A, GG, th)
         tAGG = AGG + (pt-1)/t*(AGG-pAGG);
 
         cnt = cnt+1;
-%         if mod(cnt, 1e4) == 0
+        %%%
+%         if mod(cnt, 1e4) == 0 %cada 10000 iteraciones
 %             disp(['cal_GG ' num2str(cnt) ' : ' num2str(vcost - cost) ' / ' num2str(vcost) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(length(GG))]);
 %         end
     end
 %     disp(['cal_GG ' num2str(cnt) ' : ' num2str(vcost - cost) ' / ' num2str(vcost) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(length(GG))]);
+
 end
 
 function [GG, G, r] = cal_GG_m(A, G, m, th)
@@ -392,7 +396,8 @@ function [GG, G, r] = prj_GG_u(GG, m)
     else
         [s, ind] = prj_s_u(diag(S), m);
     end
-    G = bsxfun(@times, V(:, ind), sqrt(s)');
+    G = bsxfun(@times, V(:, ind), sqrt(s)'); 
+    % V(:, ind).* sqrt(s)'
     GG = G*G';
     r = sum(s > 0);
 end
@@ -409,7 +414,7 @@ function [s, ind] = prj_s_u(s, m)
     if nargin == 2
         s = s(1:m);
     end
-    dcs = cumsum(s)-s.*(1:numel(s))';
+    dcs = cumsum(s)-s.*(1:numel(s))'; 
     k = sum(dcs < 1);
     s = s(1:k) - s(k) + (1-dcs(k))/k;
     ind = ind(1:k);
