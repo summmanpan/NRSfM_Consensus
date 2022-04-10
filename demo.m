@@ -94,7 +94,7 @@ end
 % save(X_path,"X")
 % saveas(Figure 1,dataname)
 
-%% 3D plots Xi reconstruct parts
+%% 3D plots Xi reconstruct parts CLUSTERS
 hFig = figure();
 axh = axes('Parent', hFig);
 hold(axh, 'all');
@@ -142,38 +142,6 @@ xlabel('X')
 ylabel('Y')
 zlabel('Z')
 
-
-%%
-% hFig = figure();
-% axh = axes('Parent', hFig);
-% hold(axh, 'all');
-% h1 = scatter3(rand(20,1),rand(20,1),rand(20,1),20,'b','filled');
-% h2 = scatter3(rand(20,1),rand(20,1),rand(20,1),20,'r','filled');
-% view(axh, -33, 22);
-% grid(axh, 'on');
-% legend(axh, [h1,h2], {'Alpha', 'Beta'});
-
-S_perm = reshape(permute(S,[3 2 1]),3,[],307);
-
-for i=1:307
-    plot3(S(3*i-2,:),S(3*i-1,:),S(3*i,:),'.r');
-%     axis equal; drawnow;
-end
-
-%%
-for i=1:size(S,1)/3
-%     plot3(S(3*i-2,:),S(3*i-1,:),S(3*i,:),'.r');
-    subplot(1,2,1)
-    scatter3(S(3*i-2,:),S(3*i-1,:), S(3*i,:),'.r')
-    view(3)
-    axis equal; drawnow;
-    subplot(1,2,2)
-    plot3(S(3*i-2,:),S(3*i-1,:),S(3*i,:),'.r');
-%     scatter3(S(3*i-2,:),S(3*i,:), S(3*i-1,:))
-%     view(3)
-    axis equal; drawnow;
-end
-
 %%
 
 R*S(3i-2:3i,:); % matrix de size 3xp
@@ -192,4 +160,37 @@ S_new = [S_new; R*S(3i-2:3i,:)]; % esto los contatena ; size 3fxp
 % luego adaptar el data al de Lee!
 
 
+
+%%
+% figure
+% for i=1:10% size(S,1)/3
+%     plot3(S(3*i-2,:),S(3*i-1,:),S(3*i,:),'o')
+%     for j = 1:length(list)
+%         % add line according to the position of points in the list variable
+%         hold on; point_pos = list(j,:);
+%         p_xyz = [S(3*i-2:3*i,point_pos(1)), S(3*i-2:3*i,point_pos(2))];
+%         plot3(p_xyz(1,:),p_xyz(2,:),p_xyz(3,:),'-',Color='black');
+%     end
+%     hold off
+%     axis equal; drawnow limitrate;
+% end
+% title('S')
+% view(3) %view(1,70)
+% xlabel('x')   
+% ylabel('y')  
+% zlabel('z') 
+% drawnow
+
+%%
+
+% xp_1 = x(:,list(:,1));
+% xp_2 = x(:,list(:,2));
+% 
+% yp_1 = y(:,list(:,1));
+% yp_2 = y(:,list(:,2));
+% 
+% zp_1 = z(:,list(:,1));
+% zp_2 = z(:,list(:,2));
+
+%         plot3([xp_1(i,j) xp_2(i,j)],[yp_1(i,j) yp_2(i,j)],[zp_1(i,j) zp_2(i,j)],'-',Color='black');
 
