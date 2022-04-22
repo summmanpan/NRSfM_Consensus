@@ -61,7 +61,12 @@ function Y = BMM(X, R)
 % "A Simple Prior-free Method for Non-rigid Structure-from-Motion Factorization,"
 % Int'l J. Computer Vision, vol. 107, no. 2, pp. 101-122, April 2014.
 
-[k, p, nSample] = size(X);
+[k, p, nSample] = size(X); % nSample = n de frames
+
+frames = nSample;
+L1 = -eye(frames,frames-1); % n_frames x n_frames-1 %eliminate last colum
+L1(2:frames+1:end)=1;
+L1_s = sparse(L1);
 
 mu = 1e-0;
 rho = 1.02;
@@ -78,22 +83,26 @@ cost = inf;
 Z = zeros(1, p, nSample);
 pXRZ = pout_sample(X);
 L = zeros(size(X));
-while cost > 1e-10
-
+while cost > 1e-10 % Check Convergence
+    
+    % Update Model Parameters
     Y = pXRZ - L;
     [U, S, V] = rsvd(reshape(Y, [], nSample));
     s = max(diag(S) - 1/mu, 0);
     Y = reshape(rest_svd(U, s, V), k, p, nSample); % restarur A=SVD
     
-    Z = Z - inner(R, pXRZ - Y - L);
+    Z = Z - inner(R, pXRZ - Y - L); % es la S
     Z = pout_trans(Z);
     
     XRZ = X + outer(R, Z);
     pXRZ = pout_sample(XRZ);
-    Q = Y - pXRZ;
+    Q = Y - pXRZ; % La Y es la D % D - RS
+
+    % Update Lagrange Multipliers 
     L = L + Q;
     cost = norm(Q(:))^2;
-
+    
+    % Update penalty weights
     mu = mu*rho;
     L = L/rho;
 

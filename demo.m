@@ -46,8 +46,8 @@ plot_2D(GT_rot,dataname)
 D = GT(1:2, :, :);
 
 % Diary save for command window
-resulpath = './Results_error/';
-final_name_data = sprintf("%s%s",resulpath,'RESULTS_',dataname,'.txt');
+resulpath = './Results_error/with_paper_rot/';
+final_name_data = sprintf("%s%s",resulpath,'RESULTS_',dataname,'_120_2.txt');
 % diary(final_name_data)
 d = datetime(now,'ConvertFrom','datenum');
 disp(['**********************'+string(datetime)+'**********************'])
@@ -56,12 +56,18 @@ disp(['----------------------'+string(dataname)+'----------------------'])
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D);
 
-%%
-load Reconst_matlab_files\X_yoga.mat
+%
+% load Reconst_matlab_files\X_yoga.mat
 
-%% Evaluation
+% Evaluation
 GT = bsxfun(@minus, GT, mean(GT, 2));
 vind = sum((GT(3, :, :)-X(3, :, :)).^2) > sum((GT(3, :, :)+X(3, :, :)).^2);
+% > q hay mas diff GT que X, es decir si GT es 10, y X 7, pues la diff si
+% es mas mas grande que la suma de 10 mas 7 , quiero decir que
+% si es 10-10=0 > 20-> no errror
+% si error es mayor que 0, o no error, lo invertimos.
+% si es 3 > ?? 1-10=-9 > 10 -> falso-> es neg -> invertimos
+% aseguramos de que la diff de GT - X, es positivo 
 X(3, :, vind) = -X(3, :, vind);
 
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
@@ -159,38 +165,4 @@ S_new = [S_new; R*S(3i-2:3i,:)]; % esto los contatena ; size 3fxp
 
 % luego adaptar el data al de Lee!
 
-
-
-%%
-% figure
-% for i=1:10% size(S,1)/3
-%     plot3(S(3*i-2,:),S(3*i-1,:),S(3*i,:),'o')
-%     for j = 1:length(list)
-%         % add line according to the position of points in the list variable
-%         hold on; point_pos = list(j,:);
-%         p_xyz = [S(3*i-2:3*i,point_pos(1)), S(3*i-2:3*i,point_pos(2))];
-%         plot3(p_xyz(1,:),p_xyz(2,:),p_xyz(3,:),'-',Color='black');
-%     end
-%     hold off
-%     axis equal; drawnow limitrate;
-% end
-% title('S')
-% view(3) %view(1,70)
-% xlabel('x')   
-% ylabel('y')  
-% zlabel('z') 
-% drawnow
-
-%%
-
-% xp_1 = x(:,list(:,1));
-% xp_2 = x(:,list(:,2));
-% 
-% yp_1 = y(:,list(:,1));
-% yp_2 = y(:,list(:,2));
-% 
-% zp_1 = z(:,list(:,1));
-% zp_2 = z(:,list(:,2));
-
-%         plot3([xp_1(i,j) xp_2(i,j)],[yp_1(i,j) yp_2(i,j)],[zp_1(i,j) zp_2(i,j)],'-',Color='black');
 

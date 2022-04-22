@@ -1,0 +1,647 @@
+>> clear
+>> load('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\data_set\without_rot\drink.mat')
+>> S_drink_60 = addRotation(60,S,'drink',list);
+Not enough input arguments.
+
+Error in addRotation (line 31)
+if exis(~plot_flag)
+ 
+>> S_drink_60 = addRotation(60,S,'drink',list);
+Unrecognized function or variable 'exis'.
+
+Error in addRotation (line 31)
+if ~exis('plot_flag','var')
+ 
+>> S_drink_60 = addRotation(60,S,'drink',list);
+Unrecognized function or variable 'exis'.
+
+Error in addRotation (line 31)
+if exis('plot_flag','var')==0
+ 
+>> S_drink_60 = addRotation(60,S,'drink',list);
+>> save('X_drink_60','S_drink_60')
+>> size(S_drink_60)
+
+ans =
+
+        3306          41
+
+>> size(S_drink_60,1)/3
+
+ans =
+
+        1102
+
+>> X = adapt_rearrange(S_drink_60);
+7   z = X(3:3:end, :);
+K>> [1,1,1]
+
+ans =
+
+     1     1     1
+
+K>> [1;1;1]
+
+ans =
+
+     1
+     1
+     1
+
+K>> X = adapt_rearrange(S_drink_60);
+Unrecognized function or variable 'S_drink_60'.
+ 
+>> X = adapt_rearrange(S_drink_60);
+7   z = X(3:3:end, :);
+Error using vertcat
+Dimensions of arrays being concatenated are not consistent.
+
+Error in adapt_rearrange (line 10)
+    X_new(:,:,i) = [x(i,:);y(i,:);z(i,:),i];
+ 
+>> X = adapt_rearrange(S_drink_60);
+7   z = X(3:3:end, :);
+Error using vertcat
+Dimensions of arrays being concatenated are not consistent.
+
+Error in adapt_rearrange (line 10)
+    a = [x(i,:);y(i,:);z(i,:),i];
+ 
+>> X = adapt_rearrange(S_drink_60);
+7   z = X(3:3:end, :);
+>> X = adapt_rearrange(S_drink_60);
+13  end
+>> X = adapt_rearrange(S_drink_60);
+>> X = adapt_rearrange(S_drink_60);
+>> GT = X;
+Unrecognized function or variable 'dataname'.
+
+Error in demo (line 50)
+final_name_data = sprintf("%s%s",resulpath,'RESULTS_',dataname,'.txt');
+
+>> dataname = 'drink'
+
+dataname =
+
+    'drink'
+
+**********************11-Apr-2022 00:28:44**********************
+----------------------drink----------------------
+select_idx: 0.6662
+reconstruct 2 / 308
+reconstruct 4 / 308
+reconstruct 6 / 308
+reconstruct 8 / 308
+reconstruct 10 / 308
+reconstruct 12 / 308
+reconstruct 14 / 308
+reconstruct 16 / 308
+reconstruct 18 / 308
+reconstruct 20 / 308
+reconstruct 22 / 308
+reconstruct 24 / 308
+reconstruct 26 / 308
+reconstruct 28 / 308
+reconstruct 30 / 308
+reconstruct 32 / 308
+reconstruct 34 / 308
+reconstruct 36 / 308
+reconstruct 38 / 308
+reconstruct 40 / 308
+reconstruct 42 / 308
+reconstruct 44 / 308
+reconstruct 46 / 308
+reconstruct 48 / 308
+reconstruct 50 / 308
+reconstruct 52 / 308
+reconstruct 54 / 308
+reconstruct 56 / 308
+reconstruct 58 / 308
+reconstruct 60 / 308
+reconstruct 62 / 308
+reconstruct 64 / 308
+reconstruct 66 / 308
+reconstruct 68 / 308
+reconstruct 70 / 308
+reconstruct 72 / 308
+reconstruct 74 / 308
+reconstruct 76 / 308
+reconstruct 78 / 308
+reconstruct 80 / 308
+reconstruct 82 / 308
+reconstruct 84 / 308
+reconstruct 86 / 308
+reconstruct 88 / 308
+reconstruct 90 / 308
+reconstruct 92 / 308
+reconstruct 94 / 308
+reconstruct 96 / 308
+reconstruct 98 / 308
+reconstruct 100 / 308
+reconstruct 102 / 308
+reconstruct 104 / 308
+reconstruct 106 / 308
+reconstruct 108 / 308
+reconstruct 110 / 308
+reconstruct 112 / 308
+reconstruct 114 / 308
+reconstruct 116 / 308
+reconstruct 118 / 308
+reconstruct 120 / 308
+reconstruct 122 / 308
+reconstruct 124 / 308
+reconstruct 126 / 308
+reconstruct 127 / 308
+reconstruct 129 / 308
+reconstruct 131 / 308
+reconstruct 133 / 308
+reconstruct 135 / 308
+reconstruct 137 / 308
+reconstruct 139 / 308
+reconstruct 141 / 308
+reconstruct 143 / 308
+reconstruct 145 / 308
+reconstruct 147 / 308
+reconstruct 149 / 308
+reconstruct 151 / 308
+reconstruct 153 / 308
+reconstruct 155 / 308
+reconstruct 157 / 308
+reconstruct 159 / 308
+reconstruct 161 / 308
+reconstruct 163 / 308
+reconstruct 165 / 308
+reconstruct 167 / 308
+reconstruct 169 / 308
+reconstruct 171 / 308
+reconstruct 173 / 308
+reconstruct 175 / 308
+reconstruct 177 / 308
+reconstruct 179 / 308
+reconstruct 181 / 308
+reconstruct 183 / 308
+reconstruct 185 / 308
+reconstruct 187 / 308
+reconstruct 189 / 308
+reconstruct 191 / 308
+reconstruct 193 / 308
+reconstruct 195 / 308
+reconstruct 197 / 308
+reconstruct 199 / 308
+reconstruct 201 / 308
+reconstruct 203 / 308
+reconstruct 205 / 308
+reconstruct 207 / 308
+reconstruct 209 / 308
+reconstruct 211 / 308
+reconstruct 213 / 308
+reconstruct 215 / 308
+reconstruct 217 / 308
+reconstruct 219 / 308
+reconstruct 221 / 308
+reconstruct 223 / 308
+reconstruct 225 / 308
+reconstruct 226 / 308
+reconstruct 228 / 308
+reconstruct 230 / 308
+reconstruct 232 / 308
+reconstruct 234 / 308
+reconstruct 236 / 308
+reconstruct 238 / 308
+reconstruct 240 / 308
+reconstruct 242 / 308
+reconstruct 244 / 308
+reconstruct 246 / 308
+reconstruct 248 / 308
+reconstruct 250 / 308
+reconstruct 252 / 308
+reconstruct 254 / 308
+reconstruct 256 / 308
+reconstruct 258 / 308
+reconstruct 260 / 308
+reconstruct 261 / 308
+reconstruct 262 / 308
+reconstruct 264 / 308
+reconstruct 266 / 308
+reconstruct 268 / 308
+reconstruct 270 / 308
+reconstruct 272 / 308
+reconstruct 274 / 308
+reconstruct 276 / 308
+reconstruct 278 / 308
+reconstruct 280 / 308
+reconstruct 282 / 308
+reconstruct 284 / 308
+reconstruct 286 / 308
+reconstruct 288 / 308
+reconstruct 290 / 308
+reconstruct 292 / 308
+reconstruct 294 / 308
+reconstruct 296 / 308
+reconstruct 298 / 308
+reconstruct 300 / 308
+reconstruct 302 / 308
+reconstruct 304 / 308
+reconstruct 306 / 308
+reconstruct 308 / 308
+reconstruct total: 230.1059
+part_reflection 1.0667e-09
+part_reflection 3.8692e-11
+part_reflection 1.7303e-12
+part_reflection 8.5839e-14
+part_reflection 4.7007e-15
+part_reflection 5.3431e-12
+part_reflection 3.9716e-08
+part_reflection 1.0753e-11
+part_reflection 4.9711e-16
+part_reflection: 10.9238
+combine 6 / 1102
+combine 17 / 1102
+combine 28 / 1102
+combine 39 / 1102
+combine 50 / 1102
+combine 61 / 1102
+combine 71 / 1102
+combine 79 / 1102
+combine 88 / 1102
+combine 96 / 1102
+combine 105 / 1102
+combine 115 / 1102
+combine 125 / 1102
+combine 134 / 1102
+combine 142 / 1102
+combine 150 / 1102
+combine 158 / 1102
+combine 166 / 1102
+combine 173 / 1102
+combine 182 / 1102
+combine 189 / 1102
+combine 196 / 1102
+combine 203 / 1102
+combine 210 / 1102
+combine 219 / 1102
+combine 227 / 1102
+combine 234 / 1102
+combine 242 / 1102
+combine 250 / 1102
+combine 259 / 1102
+combine 267 / 1102
+combine 274 / 1102
+combine 281 / 1102
+combine 288 / 1102
+combine 295 / 1102
+combine 302 / 1102
+combine 310 / 1102
+combine 318 / 1102
+combine 325 / 1102
+combine 332 / 1102
+combine 340 / 1102
+combine 349 / 1102
+combine 357 / 1102
+combine 365 / 1102
+combine 373 / 1102
+combine 380 / 1102
+combine 388 / 1102
+combine 397 / 1102
+combine 405 / 1102
+combine 413 / 1102
+combine 420 / 1102
+combine 429 / 1102
+combine 438 / 1102
+combine 446 / 1102
+combine 454 / 1102
+combine 461 / 1102
+combine 470 / 1102
+combine 477 / 1102
+combine 485 / 1102
+combine 492 / 1102
+combine 499 / 1102
+combine 507 / 1102
+combine 514 / 1102
+combine 522 / 1102
+combine 529 / 1102
+combine 537 / 1102
+combine 545 / 1102
+combine 554 / 1102
+combine 563 / 1102
+combine 571 / 1102
+combine 578 / 1102
+combine 586 / 1102
+combine 594 / 1102
+combine 602 / 1102
+combine 610 / 1102
+combine 617 / 1102
+combine 625 / 1102
+combine 632 / 1102
+combine 639 / 1102
+combine 647 / 1102
+combine 654 / 1102
+combine 663 / 1102
+combine 670 / 1102
+combine 678 / 1102
+combine 687 / 1102
+combine 696 / 1102
+combine 705 / 1102
+combine 713 / 1102
+combine 720 / 1102
+combine 727 / 1102
+combine 734 / 1102
+combine 742 / 1102
+combine 751 / 1102
+combine 758 / 1102
+combine 765 / 1102
+combine 774 / 1102
+combine 782 / 1102
+combine 790 / 1102
+combine 797 / 1102
+combine 805 / 1102
+combine 814 / 1102
+combine 824 / 1102
+combine 834 / 1102
+combine 843 / 1102
+combine 853 / 1102
+combine 863 / 1102
+combine 873 / 1102
+combine 883 / 1102
+combine 892 / 1102
+combine 901 / 1102
+combine 910 / 1102
+combine 919 / 1102
+combine 928 / 1102
+combine 937 / 1102
+combine 947 / 1102
+combine 956 / 1102
+combine 966 / 1102
+combine 975 / 1102
+combine 984 / 1102
+combine 992 / 1102
+combine 1000 / 1102
+combine 1007 / 1102
+combine 1016 / 1102
+combine 1025 / 1102
+combine 1034 / 1102
+combine 1043 / 1102
+combine 1051 / 1102
+combine 1060 / 1102
+combine 1069 / 1102
+combine 1078 / 1102
+combine 1087 / 1102
+combine 1096 / 1102
+combine: 140.8656
+Elapsed time is 382.609435 seconds.
+--------------------------MEAN ERROR---------------------------
+mean error : 0.91236
+Operation terminated by user during matlab.graphics.internal.configureAxes
+
+
+In matlab.graphics.internal.configureAxes
+
+In matlab.graphics.internal.configureAxes
+
+In scatter3>matrixScatter (line 233)
+matlab.graphics.internal.configureAxes(cax,x,y,z);
+
+In scatter3 (line 54)
+        [s, ancestorAxes] = matrixScatter(varargin{:});
+
+In LiveEditorEvaluationHelperE324973328 (line 76)
+    scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% OJOO Q EL LO TIENE REVES, Y PINTA Y -> AXIZ Z
+ 
+>> 
+Operation terminated by user during matlab.graphics.chart.primitive.internal.AbstractScatter/dataPropertyValueChanged
+
+
+In matlab.graphics.chart.primitive.internal.AbstractScatter/set.XData
+
+In scatter3>matrixScatter (line 237)
+    set(h,'Parent',parax, ...
+
+In scatter3 (line 54)
+        [s, ancestorAxes] = matrixScatter(varargin{:});
+
+In LiveEditorEvaluationHelperE324973328 (line 76)
+    scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% OJOO Q EL LO TIENE REVES, Y PINTA Y -> AXIZ Z
+ 
+>> 
+Warning: Error updating Scatter.
+
+ Data lengths must match.
+ 
+>> X_d = adapt_rearrange(S_drink_60);
+>> GT = X_d;
+**********************11-Apr-2022 00:49:28**********************
+----------------------drink----------------------
+select_idx: 0.083908
+reconstruct 2 / 263
+reconstruct 4 / 263
+reconstruct 6 / 263
+reconstruct 8 / 263
+reconstruct 10 / 263
+reconstruct 12 / 263
+reconstruct 14 / 263
+reconstruct 16 / 263
+reconstruct 18 / 263
+reconstruct 20 / 263
+reconstruct 22 / 263
+reconstruct 24 / 263
+reconstruct 26 / 263
+reconstruct 28 / 263
+reconstruct 30 / 263
+reconstruct 31 / 263
+reconstruct 33 / 263
+reconstruct 35 / 263
+reconstruct 37 / 263
+reconstruct 38 / 263
+reconstruct 40 / 263
+reconstruct 42 / 263
+reconstruct 44 / 263
+reconstruct 46 / 263
+reconstruct 48 / 263
+reconstruct 50 / 263
+reconstruct 52 / 263
+reconstruct 54 / 263
+reconstruct 56 / 263
+reconstruct 58 / 263
+reconstruct 60 / 263
+reconstruct 62 / 263
+reconstruct 64 / 263
+reconstruct 66 / 263
+reconstruct 68 / 263
+reconstruct 70 / 263
+reconstruct 72 / 263
+reconstruct 74 / 263
+reconstruct 76 / 263
+reconstruct 78 / 263
+reconstruct 80 / 263
+reconstruct 82 / 263
+reconstruct 84 / 263
+reconstruct 86 / 263
+reconstruct 88 / 263
+reconstruct 90 / 263
+reconstruct 92 / 263
+reconstruct 94 / 263
+reconstruct 96 / 263
+reconstruct 98 / 263
+reconstruct 100 / 263
+reconstruct 102 / 263
+reconstruct 104 / 263
+reconstruct 106 / 263
+reconstruct 108 / 263
+reconstruct 110 / 263
+reconstruct 112 / 263
+reconstruct 114 / 263
+reconstruct 116 / 263
+reconstruct 118 / 263
+reconstruct 120 / 263
+reconstruct 122 / 263
+reconstruct 124 / 263
+reconstruct 126 / 263
+reconstruct 128 / 263
+reconstruct 130 / 263
+reconstruct 132 / 263
+reconstruct 134 / 263
+reconstruct 136 / 263
+reconstruct 138 / 263
+reconstruct 140 / 263
+reconstruct 142 / 263
+reconstruct 144 / 263
+reconstruct 146 / 263
+reconstruct 148 / 263
+reconstruct 150 / 263
+reconstruct 152 / 263
+reconstruct 154 / 263
+reconstruct 156 / 263
+reconstruct 158 / 263
+reconstruct 160 / 263
+reconstruct 162 / 263
+reconstruct 164 / 263
+reconstruct 166 / 263
+reconstruct 168 / 263
+reconstruct 170 / 263
+reconstruct 172 / 263
+reconstruct 174 / 263
+reconstruct 176 / 263
+reconstruct 178 / 263
+reconstruct 180 / 263
+reconstruct 182 / 263
+reconstruct 184 / 263
+reconstruct 186 / 263
+reconstruct 188 / 263
+reconstruct 190 / 263
+reconstruct 192 / 263
+reconstruct 194 / 263
+reconstruct 196 / 263
+reconstruct 198 / 263
+reconstruct 200 / 263
+reconstruct 202 / 263
+reconstruct 204 / 263
+reconstruct 206 / 263
+reconstruct 208 / 263
+reconstruct 210 / 263
+reconstruct 212 / 263
+reconstruct 214 / 263
+reconstruct 216 / 263
+reconstruct 218 / 263
+reconstruct 220 / 263
+reconstruct 222 / 263
+reconstruct 224 / 263
+reconstruct 226 / 263
+reconstruct 228 / 263
+reconstruct 230 / 263
+reconstruct 232 / 263
+reconstruct 234 / 263
+reconstruct 236 / 263
+reconstruct 238 / 263
+reconstruct 240 / 263
+reconstruct 242 / 263
+reconstruct 244 / 263
+reconstruct 246 / 263
+reconstruct 248 / 263
+reconstruct 250 / 263
+reconstruct 252 / 263
+reconstruct 254 / 263
+reconstruct 256 / 263
+reconstruct 258 / 263
+reconstruct 260 / 263
+reconstruct 262 / 263
+reconstruct total: 203.5113
+part_reflection 2.1517e-12
+part_reflection: 3.2067
+combine 15 / 1102
+combine 30 / 1102
+combine 45 / 1102
+combine 60 / 1102
+combine 75 / 1102
+combine 91 / 1102
+combine 105 / 1102
+combine 120 / 1102
+combine 136 / 1102
+combine 150 / 1102
+combine 166 / 1102
+combine 181 / 1102
+combine 196 / 1102
+combine 211 / 1102
+combine 226 / 1102
+combine 237 / 1102
+combine 252 / 1102
+combine 265 / 1102
+combine 280 / 1102
+combine 296 / 1102
+combine 312 / 1102
+combine 327 / 1102
+combine 342 / 1102
+combine 358 / 1102
+combine 373 / 1102
+combine 389 / 1102
+combine 403 / 1102
+combine 418 / 1102
+combine 433 / 1102
+combine 448 / 1102
+combine 464 / 1102
+combine 479 / 1102
+combine 494 / 1102
+combine 508 / 1102
+combine 523 / 1102
+combine 538 / 1102
+combine 553 / 1102
+combine 568 / 1102
+combine 583 / 1102
+combine 598 / 1102
+combine 614 / 1102
+combine 628 / 1102
+combine 643 / 1102
+combine 656 / 1102
+combine 671 / 1102
+combine 685 / 1102
+combine 700 / 1102
+combine 716 / 1102
+combine 731 / 1102
+combine 747 / 1102
+combine 762 / 1102
+combine 778 / 1102
+combine 793 / 1102
+combine 808 / 1102
+combine 823 / 1102
+combine 838 / 1102
+combine 854 / 1102
+combine 869 / 1102
+combine 884 / 1102
+combine 898 / 1102
+combine 912 / 1102
+combine 927 / 1102
+combine 941 / 1102
+combine 956 / 1102
+combine 971 / 1102
+combine 986 / 1102
+combine 1001 / 1102
+combine 1016 / 1102
+combine 1031 / 1102
+combine 1045 / 1102
+combine 1060 / 1102
+combine 1075 / 1102
+combine 1089 / 1102
+combine: 76.3028
+Elapsed time is 283.111291 seconds.
+--------------------------MEAN ERROR---------------------------
+mean error : 0.04324
+>> 

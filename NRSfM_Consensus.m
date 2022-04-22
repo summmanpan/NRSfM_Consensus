@@ -33,7 +33,7 @@ tic;
 % solve for each group
 tID = tic;
 Xi = cell(1, ngroup); % x grupos, cada grupo hay com0 10 tray??
-for i=1:ngroup
+for i=1:ngroup % reconstruye grupo por grupo!!!
     Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
     % enviamos las 10 trayctorias/puntos para todos los frames.
     if toc(tID) > 1
@@ -59,5 +59,6 @@ X = combine(D, Xi, idx);
 disp(['combine: ' num2str(toc)]);
 
 toc(tID_total);
-
+fprintf(1, 'Total time: %dm %ds\n', ...
+     int16( toc(tID_total)/60), int16(mod( toc(tID_total), 60)) );
 end
