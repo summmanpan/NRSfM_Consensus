@@ -23,7 +23,7 @@ X = bsxfun(@rdivide, X, sX); % divide con el sX
 [R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % reshape q sea matriz de 10 col, y cada2 filas como va ir cambiando
 sX = sX.*ts;
 X = bsxfun(@rdivide, X, ts); % X(:, :, i) <- X(:, :, i)/ts(i) for all i
-X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all i
+X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all iNICIALI
 [X, R] = correct_reflection(X, R); % correct reflections
 % Correct reflections signs between different frames
 
@@ -44,14 +44,6 @@ function Y = K_P_F2KF_P(X)
     Y = reshape(permute(X, [1 3 2]), [], size(X, 2));
 end
 
-
-function Y = BMM(X, R)
-% Block matrix method
-%
-% X: 2D shapes (aligned in 3D)
-% R: Third rows of rotation matrices
-% Y: Reconstructed shapes
-%
 % This is a modified version of the block matrix method in
 % Yuchao Dai, Hongdong Li, and Mingyi He,
 % "A Simple Prior-free Method for Non-Rigid Structure-from-Motion Factorization,"
@@ -60,17 +52,21 @@ function Y = BMM(X, R)
 % Yuchao Dai, Hongdong Li, and Mingyi He,
 % "A Simple Prior-free Method for Non-rigid Structure-from-Motion Factorization,"
 % Int'l J. Computer Vision, vol. 107, no. 2, pp. 101-122, April 2014.
+function Y = BMM(X, R)
+% Block matrix method
+%
+% X: 2D shapes (aligned in 3D)
+% R: Third rows of rotation matrices
+% Y: Reconstructed shapes
 
 [k, p, nSample] = size(X); % nSample = n de frames
 
-frames = nSample;
-L1 = -eye(frames,frames-1); % n_frames x n_frames-1 %eliminate last colum
-L1(2:frames+1:end)=1;
-L1_s = sparse(L1);
+% get L temporal smoothness priors matrix
+L_t = get_L(nSample,2);
 
 mu = 1e-0;
 rho = 1.02;
-
+peso=2; %mean error : 84.2981
 if k*p < nSample
     rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v'); 
     %f(u,s,v)= (u .* s') * v'
@@ -78,32 +74,46 @@ else
     rest_svd = @(u, s, v) (u*bsxfun(@times, s, v'));
 end
 
+% parameters initializations
 count = 0;
 cost = inf;
+% cost_2 = inf;
 Z = zeros(1, p, nSample);
-pXRZ = pout_sample(X);
+pXRZ = pout_sample(X); % eliminate mean component-> use to initializaze
 L = zeros(size(X));
-while cost > 1e-10 % Check Convergence
+L_tt = L_t.*L_t;
+while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update Model Parameters
     Y = pXRZ - L;
-    [U, S, V] = rsvd(reshape(Y, [], nSample));
-    s = max(diag(S) - 1/mu, 0);
-    Y = reshape(rest_svd(U, s, V), k, p, nSample); % restarur A=SVD
-    
-    Z = Z - inner(R, pXRZ - Y - L); % es la S
+    Y_reshape = reshape(Y, [], nSample);
+%     Y_reshape = Y_reshape - inv(L_tt); % incompatible size, since Y_reshape es [pxF], Ltt es [FxF]...???
+    Y_reshape = Y_reshape * L_tt; % ...??? 
+    [U, S, V] = rsvd(Y_reshape);
+ 
+    s = max(diag(S) - 1/mu, 0);% + temp; %+ 1/2*norm(temp_const(:), 2); % nuclear norm
+
+%     [u,ss,v] = rsvd(S_resized*L_t);
+%     ss_norm = 1/2*norm(diag(ss(:)), 2);
+
+    Y = reshape(rest_svd(U, s, V), k, p, nSample); 
+   
+    Z = Z - inner(R, pXRZ - Y - L); 
     Z = pout_trans(Z);
     
-    XRZ = X + outer(R, Z);
-    pXRZ = pout_sample(XRZ);
-    Q = Y - pXRZ; % La Y es la D % D - RS
+    XRZ = X + outer(R, Z); % S
+    pXRZ = pout_sample(XRZ); 
+    %calculate the loss, btw S^# and f(S), than is the minimum diff btw thm
+    Q = Y - pXRZ; 
 
     % Update Lagrange Multipliers 
     L = L + Q;
     cost = norm(Q(:))^2;
+%     cost_2 = norm(S_resized*L_t);
     
     % Update penalty weights
     mu = mu*rho;
+    peso= peso*rho;
     L = L/rho;
 
     count = count + 1;
@@ -115,6 +125,48 @@ end
 
 Y = XRZ;
 
+end
+
+function L = get_L(frames,order)
+% return a F × F matrix encoding temporal smoothness priors.
+    switch(order)
+        case 1
+            % FIRST-ORDER
+            % only 2 frames are consider to impulse the temporal constraint, 
+            % 2 entries per columns
+            L = -eye(frames,frames-1); % n_frames x n_frames-1 %eliminate last colum
+            L(2:frames+1:end)=1;
+
+        case 2
+            %SECOND-ORDER
+            L = eye(frames)*2;
+            L(2:frames+1:end)=-1;
+            L(frames+1:frames+1:end)=-1;
+            % add boundary conditions to the 1st and last entries
+            L(1,1)=1;
+            L(frames,frames)=1;
+
+        case 4
+            % FOURTH-ORDER
+            L = eye(frames)*-30;
+            variable = 0;
+            for i= 1:2
+                if i~=1
+                    variable = -16;
+                end
+                L(i+1:frames+1:end)= 16/(2-i+variable); 
+                L((frames*i)+1:frames+1:end)= 16/(2-i+variable);
+                % boundary conditions
+                L(i,i)=variable;
+                L(frames-(i-1),frames-(i-1))=variable;
+                L(i,3-i)=1;
+                L(frames-(i-1),frames-(2-i))=1; 
+            end
+            L(1,frames)=0; 
+        otherwise
+            disp('no exist')
+            L=0;
+    end
 end
 
 

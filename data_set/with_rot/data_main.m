@@ -3,11 +3,11 @@
 clear all
 close all
 clc
-load data_set\without_rot\yoga.mat
+load data_set\without_rot\pickup.mat
 %%
 ang = 60;
 dataname = 'pickup';
-S_yoga_60_2 = addRotation(ang,S,dataname,list);
+S_yoga_60_2 = addRotation(ang,S,dataname,list,1); % para plotear, añadir el flag de 1
 save('./data_set/with_rot/S_yoga_60_2',"S_yoga_60_2")
 %%
 

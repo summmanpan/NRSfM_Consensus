@@ -34,12 +34,12 @@ GT = X;
 % Here, x_ki, y_ki, and z_ki are the 3D coordinates of the ith point of the kth frame.
 %*************************************************************************************
 %% add rotation
-ang = 60;
-GT_rot = addRotation(ang,GT,dataname); 
+% ang = 60;
+% GT_rot = addRotation(ang,GT,dataname); 
 % intentar de crear que pueda add y remove rotation entre un rg de frames
 % que quiera el usuario...
 % creo q deberia funcionar con el inverse matrix, pero no ! mirar por que!
-plot_2D(GT_rot,dataname)
+% plot_2D(GT_rot,dataname)
 %%
 % plot_2D(GT,dataname)
 % Input data generation

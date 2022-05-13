@@ -49,7 +49,8 @@ function idx = select_idx(D, nsamp, mgroup, lambda)
     lP = lP - max(lP(:)); % log(P(V_k)) % restamos con el numero max 
     
     idx = select_group(lP, nsamp, mgroup);
-    % QUe es idx???
+    %  idx es el sparse matrix donde guardo todos mis clusters!
+    % 55 son el número total de puntos para mi imagen...
     % Sparse logical, con los coord de los puntos , de 10 puntos, hasta
     % 55x2750 hasta ser 55x362 columnas
     % contiene los 362 grupos, para cada 10 trajectorias.

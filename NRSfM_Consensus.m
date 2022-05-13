@@ -23,7 +23,7 @@ tic;
 nsamp = 10; %must be less than 55
 mgroup = 50;
 lambda = 0.1;
-idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda);
+idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda); %[55, 358 grupos]
 disp(['select_idx: ' num2str(toc)]); % why we print the toc ? 
 
 ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
