@@ -59,12 +59,12 @@ end
 
 % plot the original data and with rotation added, per frame in 2 subplots
 % if there is the list variable, use it to align the points of each frame
-for i = 1:size(S,1)/3
+for i = 1:total_frame
     subplot(1,2,1)
     title('Original')
     scatter3(x(i,:),y(i,:),z(i,:),'.r');
     if exist('list','var')
-        for j = 1:length(list)
+        for j = 1:length(list) % we draw the lines, line by line, according with 2 points
             hold on;plot3([xp(i,j) xp(i,length(list)+j)],[yp(i,j) yp(i,length(list)+j)],[zp(i,j) zp(i,length(list)+j)],'-',Color='black');
         end
         hold off
@@ -75,7 +75,7 @@ for i = 1:size(S,1)/3
     title("With rotations")
     scatter3(x_new(i,:),y_new(i,:),z_new(i,:),'filled');
     if exist('list','var')
-        for j = 1:length(list)
+        for j = 1:length(list) % we draw the lines, line by line, according with 2 points
             hold on;plot3([xp_new(i,j) xp_new(i,length(list)+j)],[yp_new(i,j) yp_new(i,length(list)+j)],[zp_new(i,j) zp_new(i,length(list)+j)],'-',Color='black');
         end
         hold off
