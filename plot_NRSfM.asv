@@ -75,7 +75,8 @@ set(h, 'Color', 'w');
 
 % put the access variables separalately to accelerate the coordinate access
 if ~isempty(list)
-
+%     gXX = reshape(gX,nSample,[]);
+%     x = gX(1:3:end, :);
     gXX = reshape(gX,3*nP,[]);
     x = gXX(1:3:end,:)';
     z = gXX(2:3:end,:)';

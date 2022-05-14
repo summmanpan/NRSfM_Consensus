@@ -18,7 +18,7 @@ clear; close all; clc;
 % elements are missing or not. (false = missing)
 
 % Experimental setting
-dataname = 'walking'; % choice of data set 
+dataname = 'yoga'; % choice of data set 
 % drink, pickup, stretch, yoga
 noise = 0;            % noise level. paper use 10^-3
 rmiss = 0;            % missing rate, value lower than 1
@@ -35,9 +35,9 @@ load(data) % load the X as GT,or save it as X
 GT = X;
 
 %% Input data generation
-[k, p, nSample] = size(X);
-D = zeros(k-1, p, nSample);
-temp = X(1:2, :, :);
+[k, p, nSample] = size(GT);
+D = zeros(k, p, nSample);
+temp = GT(1:2, :, :);
 % add normal random number
 weight_noise = noise*max(abs(reshape(bsxfun(@minus, temp, mean(temp, 2)), [], 1)));
 D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
@@ -85,7 +85,7 @@ disp(['mean error : ' num2str(mean(perf))]); % string(dataname)+':'+
 %% Plot 3D results
 
 % for i=1:numel(perf)
-%     scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% OJOO Q EL LO TIENE REVES, Y PINTA Y -> AXIZ Z
+%     scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% LO TIENE REVES, Y PINTA Y -> AXIZ Z
 %     hold on; scatter3(X(1, :, i), X(3, :, i), X(2, :, i), 'b.'); hold off;
 %     axis equal; title(dataname); drawnow;
 % end
@@ -94,7 +94,8 @@ disp(['mean error : ' num2str(mean(perf))]); % string(dataname)+':'+
 % v_obj = VideoWriter(['./results/videos/' dataname '_video.avi']);
 % plot_NRSfM(D, W, GT, X, plot_NRSfM(D, W, GT, X););
 
-plot_NRSfM(D, W, GT, X);
+% list = [];
+plot_NRSfM(D, W, list, GT, X);
 
 
 

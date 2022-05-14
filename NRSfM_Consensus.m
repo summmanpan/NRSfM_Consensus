@@ -4,7 +4,8 @@ function X = NRSfM_Consensus(D,W)
 % Solve NRSfM by obtaining consensus from part reconstructions
 %
 % Inputs:
-%     D: Input 2D trajectory data (k-1 x p x f)
+%     D: Input 2D trajectory data (k-1 x p x f) nooo
+%     D: Input 2D trajectory data (k x p x f) but with 3 axis 0s
 %     W: Weights - observed (true) or missing (false) (3 x p x n)
 % 
 %
@@ -15,7 +16,7 @@ rotK_ratio = 1-1e-5;
 tID_total = tic;
 
 % preprocessing
-D(3, 1) = 0;
+% D(3, 1) = 0;
 D = pout_trans(D);
 
 %% 1) RANSOM SAMPLING
