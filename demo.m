@@ -17,12 +17,9 @@ clear; close all; clc;
 % W is the weight mask that indicates whether the
 % elements are missing or not. (false = missing)
 
-% Experimental setting
+
 dataname = 'yoga'; % choice of data set 
 % drink, pickup, stretch, yoga
-noise = 0;            % noise level. paper use 10^-3
-rmiss = 0;            % missing rate, value lower than 1
-
 
 % datatype = 'benchmark/';
 % datatype = 'symthetic_camera_rotations/';
@@ -34,7 +31,18 @@ data = [datapath,dataname,filename];
 load(data) % load the X as GT,or save it as X
 GT = X;
 
+%% Dense Data Set
+% seq = {'nikos', 'back', 'heart'}; % mostñy imposible run in my computer...
+ss  = 1;
+dataname = seq{ss};
+load(['./Data/dense/' seq{ss} '_rearranged.mat']);
+
 %% Input data generation
+
+% Experimental setting
+noise = 0;            % noise level. paper use 10^-3
+rmiss = 0;            % missing rate, value lower than 1
+
 [k, p, nSample] = size(GT);
 D = zeros(k, p, nSample);
 temp = GT(1:2, :, :);

@@ -1,4 +1,4 @@
-function X_new = adapt_rearrange(P3_gt)
+function X_new = adapt_rearrange(P3_gt, triD)
 
 % n_frames = size(X,1)/3;
 % x = X(1:3:end, :);
@@ -18,10 +18,12 @@ function X_new = adapt_rearrange(P3_gt)
 % 
 %  Output:
 %  X     (3 x p x f)
-
+axis=0;
+if triD == 1
+    axis = 3;
+end
 [~,p] = size(P3_gt);
-X = reshape(reshape(P3_gt , [] , 3*p)', 3, p, []);
+X = reshape(reshape(P3_gt , [] , axis*p)', axis, p, []);
 save(['Data_rearranged/' seq '_rearranged.mat'], 'X');
 disp([seq ' done.']);
-
 end

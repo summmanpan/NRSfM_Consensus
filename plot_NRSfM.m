@@ -50,22 +50,18 @@ if isempty(list)
     list = [];
 end
 
-% if ~exist(list,'var') || isempty(list)
-%   list = [];
-% end
-
 
 nSample = size(D, 3);
 nP = size(D, 2);
 
-
 D = bsxfun(@minus, D, sum(D.*W, 2)./sum(W, 2)).*W;
 D(isnan(D)) = 0; % quizas la linea de arriba borrar, y dejarlo con D(3,:)=0 ya de fuera
-gX = bsxfun(@minus, gX, mean(gX, 2));
+gX = bsxfun(@minus, gX, mean(gX, 2)); % estas medias son muy pequeñas
 rX = bsxfun(@minus, rX, mean(rX, 2));
 ind = sum((gX(3, :, :)-rX(3, :, :)).^2) > sum((gX(3, :, :)+rX(3, :, :)).^2);
 rX(3, :, ind) = -rX(3, :, ind);
 
+% axis
 axD = [min(D(1, W(1, :))) max(D(1, W(1, :))) min(D(2, W(2, :))) max(D(2, W(2, :)))];
 axX = [min([gX(1, :) rX(1, :)]) max([gX(1, :) rX(1, :)]) min([gX(3, :) rX(3, :)]) max([gX(3, :) rX(3, :)]) min([gX(2, :) rX(2, :)]) max([gX(2, :) rX(2, :)])];
 
