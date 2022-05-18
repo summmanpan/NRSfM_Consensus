@@ -36,19 +36,20 @@ function plot_NRSfM(D, W, list, gX, rX, vidObj)
 % You should have received a copy of the GNU General Public License
 % along with NRSfM_PND.  If not, see <http://www.gnu.org/licenses/>.
 
-
-if isempty(vidObj) %nargin < 6 ||
+% init for vidObj
+if  nargin < 6 || isempty(vidObj) %(nargin == 5 && ~ me lie en como gestionar para que list sea tamb variable vacio sin pasar desde el princiìo
     f_rate = 30;
     v_flag = false;
+    % q entre cuando OBj es vacio
 else
     open(vidObj) %
     f_rate = vidObj.FrameRate;
     v_flag = true;
 end
 
-if isempty(list)
-    list = [];
-end
+% if isempty(list) %nargin < 4
+%     list = [];
+% end
 
 
 nSample = size(D, 3);

@@ -88,13 +88,13 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update Model Parameters
     Y = pXRZ - L;
-    Y_reshape = reshape(Y, [], nSample); % S^#
+    Y_reshape = reshape(Y, [], nSample); % S^# 
 
     %--- add my temporal regulatization:
-    smooth_c =  Y_reshape*L_t; % que hacer cuando es con L1, [F,F-1]
-    Y_reshape = Y_reshape + smooth_c;
-%     Y_reshape = Y_reshape - inv(L_tt); % incompatible size, since Y_reshape es [pxF], Ltt es [FxF]...???
-%     Y_reshape = Y_reshape * L_tt; % ...??? 
+%     smooth_c =  Y_reshape*L_t; % que hacer cuando es con L1, [F,F-1]
+%     Y_reshape = Y_reshape + smooth_c;
+% %     Y_reshape = Y_reshape - inv(L_tt); % incompatible size, since Y_reshape es [pxF], Ltt es [FxF]...???
+% %     Y_reshape = Y_reshape * L_tt; % ...??? 
 
     % prepara para hacer la minimización nuclear
     [U, S, V] = rsvd(Y_reshape); % de hecho Lee, tamb lo convierte en 3pxF para calcualr el svd
@@ -111,7 +111,8 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     pXRZ = pout_sample(XRZ); 
     %calculate the loss, btw S^# and f(S), than is the minimum diff btw thm
     Q = Y - pXRZ; 
-
+    
+    %%% Covergence check / calculating the cost value %%%
     % Update Lagrange Multipliers 
     L = L + Q;
     cost = norm(Q(:))^2;
@@ -119,9 +120,11 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update penalty weights
     mu = mu*rho;
-    peso= peso*rho;
+    peso = peso*rho;
     L = L/rho;
-
+%  to see the parameters size!
+%     whos
+%     pause
     count = count + 1;
 %     if mod(count, 1e2) == 0
 %         disp(['init ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
@@ -285,12 +288,12 @@ for K = [3:3:size(F, 2)-1 size(F, 2)]
     [AA1, AA2, off] = cal_A_parts(F(:, 1:K));
     [A, LA] = pre([AA1-AA2; off]);
     if K == 3
-        [GG, G] = cal_GG(A, eye(3)/3, 1e-12);
+        [GG, G] = cal_GG(A, eye(3)/3, 1e-12); % M o M'
     else
         [GG, G] = cal_GG_m(A, [G zeros(size(G, 1), 3-size(G, 2)); zeros(K-size(G, 1), 3)], 3);
     end
-
-    lcost = norm(A*GG(:))^2 * LA; %????????
+    %%% Covergence check / calculating the cost value %%%
+    lcost = norm(A*GG(:))^2 * LA; 
     
 %     disp([num2str(K) ' : ' num2str(plcost-lcost) ' / ' num2str(lcost)]);
     

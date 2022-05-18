@@ -17,7 +17,13 @@ tID_total = tic;
 
 % preprocessing
 % D(3, 1) = 0;
-D = pout_trans(D);
+% D = pout_trans(D,W);
+[k, p, nSample] = size(D);
+tdim = k*p;
+% Remove translation components / normalize
+D = pout_trans(D, W);
+nD = sqrt(mse(D(W))*tdim);
+D = D/nD;
 
 %% 1) RANSOM SAMPLING
 tic;

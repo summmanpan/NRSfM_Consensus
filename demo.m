@@ -18,7 +18,7 @@ clear; close all; clc;
 % elements are missing or not. (false = missing)
 
 
-dataname = 'yoga'; % choice of data set 
+dataname = 'walking'; % choice of data set 
 % drink, pickup, stretch, yoga
 
 % datatype = 'benchmark/';
@@ -32,7 +32,7 @@ load(data) % load the X as GT,or save it as X
 GT = X;
 
 %% Dense Data Set
-% seq = {'nikos', 'back', 'heart'}; % mostñy imposible run in my computer...
+% seq = {'nikos', 'back', 'heart'}; % mostly imposible to run in my computer...
 ss  = 1;
 dataname = seq{ss};
 load(['./Data/dense/' seq{ss} '_rearranged.mat']);
@@ -40,7 +40,7 @@ load(['./Data/dense/' seq{ss} '_rearranged.mat']);
 %% Input data generation
 
 % Experimental setting
-noise = 0;            % noise level. paper use 10^-3
+noise = 10^-3;            % noise level. paper use 10^-3
 rmiss = 0;            % missing rate, value lower than 1
 
 [k, p, nSample] = size(GT);
@@ -63,8 +63,8 @@ resulpath = './Results_error/with_paper_rot/';
 final_name_data = sprintf("%s%s",resulpath,'RESULTS_',dataname,'_120_2.txt');
 % diary(final_name_data)
 % d = datetime(now,'ConvertFrom','datenum'); % remove
-disp(['**********************'+string(datetime)+'**********************'])
-disp(['----------------------'+string(dataname)+'----------------------'])
+disp(['***'+string(datetime)+'***'])
+disp(['---'+string(dataname)+'---'])
 
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D,W);
@@ -86,7 +86,22 @@ X(3, :, vind) = -X(3, :, vind);
 
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
 disp("--------------------------MEAN ERROR---------------------------")
-disp(['mean error : ' num2str(mean(perf))]); % string(dataname)+':'+
+
+if rmiss>0 && noise<0
+    disp(['***WITH:***''Missing rate: '+string(rmiss)+'***'])
+%     disp(['mean error : ' num2str(mean(perf))]); 
+elseif  noise > 0 && rmiss<0
+    disp(['***WITH:***''Noise rate: '+string(noise)+'***'])
+%     disp(['mean error : ' num2str(mean(perf))]); 
+elseif noise > 0 && rmiss>0
+    disp(['***WITH:***''Noise rate: '+string(noise)+' AND ''Missing rate: '+string(rmiss)+'***'])
+end
+%     disp(['mean error : ' num2str(mean(perf))]); 
+% else
+%     disp(['mean error : ' num2str(mean(perf))]);
+% end
+ 
+disp(['mean error : ' num2str(mean(perf))]);
 
 % diary off
 
@@ -102,7 +117,7 @@ disp(['mean error : ' num2str(mean(perf))]); % string(dataname)+':'+
 % v_obj = VideoWriter(['./results/videos/' dataname '_video.avi']);
 % plot_NRSfM(D, W, GT, X, plot_NRSfM(D, W, GT, X););
 
-% list = [];
+list = [];
 plot_NRSfM(D, W, list, GT, X);
 
 
