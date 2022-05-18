@@ -40,7 +40,7 @@ load(['./Data/dense/' seq{ss} '_rearranged.mat']);
 %% Input data generation
 
 % Experimental setting
-noise = 10^-3;            % noise level. paper use 10^-3
+noise = 0; %10^-3;            % noise level. paper use 10^-3
 rmiss = 0;            % missing rate, value lower than 1
 
 [k, p, nSample] = size(GT);

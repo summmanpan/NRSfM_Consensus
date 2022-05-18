@@ -52,7 +52,7 @@ end
 tdim = k*p;
 
 % Remove translation components / normalize
-D = pout_trans(D, W);
+D = pout_trans(D, W); % AQUI USAN W 
 nD = sqrt(mse(D(W))*tdim);
 D = D/nD;
 

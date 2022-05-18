@@ -63,7 +63,7 @@ function Y = BMM(X, R)
 [k, p, nSample] = size(X); % nSample = n de frames
 
 % get L temporal smoothness priors matrix
-L_t = get_L(nSample,2); % last parm order of L
+L_t = get_L(nSample,1); % last parm order of L
 
 mu = 1e-0;
 rho = 1.02;
@@ -82,13 +82,20 @@ cost = inf;
 Z = zeros(1, p, nSample);
 pXRZ = pout_sample(X); % eliminate mean component-> use to initializaze
 L = zeros(size(X));
-L_tt = L_t.*L_t;
-alpha = 0.1;
+% MI L2 HAY QUE INICIALIZAR LO CON SU TAMAÑO Q TOCA, -> LO NORMAL NO ES HACER ESTO, -> YA QUE MI GOL ES HACER QUE ESTE SEA 0.
+
+L_tt = L_t*L_t.' ; % MULTIPLICATION L AND L^T (ORDEN 2)
+I1 = ones(nSample,nSample);
+regu_T = (L_tt + I1);
 while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update Model Parameters
-    Y = pXRZ - L;
-    Y_reshape = reshape(Y, [], nSample); % S^# 
+    Y = pXRZ - L; % since Y is tensor, we have to apply reshape
+%   to conv it as a matrix, then do it after reshape.
+    Y_reshape = reshape( Y, [], nSample); % S^# 
+    Y_reshape = Y_reshape/regu_T; % is same as *inv()
+
+%     Y_reshape = reshape((pXRZ - L), [], nSample)/(L_tt + I1);
 
     %--- add my temporal regulatization:
 %     smooth_c =  Y_reshape*L_t; % que hacer cuando es con L1, [F,F-1]
@@ -98,10 +105,7 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
 
     % prepara para hacer la minimización nuclear
     [U, S, V] = rsvd(Y_reshape); % de hecho Lee, tamb lo convierte en 3pxF para calcualr el svd
-    s = max(diag(S) - 1/mu, 0);% + temp; %+ 1/2*norm(temp_const(:), 2); % nuclear norm
-
-%     [u,ss,v] = rsvd(S_resized*L_t);
-%     ss_norm = 1/2*norm(diag(ss(:)), 2);
+    s = max(diag(S) - 1/mu, 0); % nuclear norm
     Y = reshape(rest_svd(U, s, V), k, p, nSample); % vuelve a la estructura de tensor !
    
     Z = Z - inner(R, pXRZ - Y - L); 
