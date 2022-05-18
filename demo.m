@@ -87,10 +87,10 @@ X(3, :, vind) = -X(3, :, vind);
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
 disp("--------------------------MEAN ERROR---------------------------")
 
-if rmiss>0 && noise<0
+if rmiss>0 && noise==0
     disp(['***WITH:***''Missing rate: '+string(rmiss)+'***'])
 %     disp(['mean error : ' num2str(mean(perf))]); 
-elseif  noise > 0 && rmiss<0
+elseif  noise > 0 && rmiss==0
     disp(['***WITH:***''Noise rate: '+string(noise)+'***'])
 %     disp(['mean error : ' num2str(mean(perf))]); 
 elseif noise > 0 && rmiss>0
