@@ -18,7 +18,7 @@ clear; close all; clc;
 % elements are missing or not. (false = missing)
 
 
-dataname = 'walking'; % choice of data set 
+dataname = 'face'; % choice of data set 
 % drink, pickup, stretch, yoga
 
 % datatype = 'benchmark/';

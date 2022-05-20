@@ -28,6 +28,7 @@ X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))),
 [X, R] = correct_reflection(X, R); 
 % Correct reflections signs between different frames
 
+
 % calculate shapes
 X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
 
@@ -67,7 +68,7 @@ L_t = get_L(nSample,1); % last parm order of L
 
 mu = 1e-0;
 rho = 1.02;
-peso=2; %mean error : 84.2981
+
 if k*p < nSample
     rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v'); 
     %f(u,s,v)= (u .* s') * v'
@@ -82,19 +83,39 @@ cost = inf;
 Z = zeros(1, p, nSample);
 pXRZ = pout_sample(X); % eliminate mean component-> use to initializaze
 L = zeros(size(X));
+L2 = zeros(size(nSample));
 % MI L2 HAY QUE INICIALIZAR LO CON SU TAMAÑO Q TOCA, -> LO NORMAL NO ES HACER ESTO, -> YA QUE MI GOL ES HACER QUE ESTE SEA 0.
 
-L_tt = L_t*L_t.' ; % MULTIPLICATION L AND L^T (ORDEN 2)
+L_tt_old = L_t*L_t' ; % MULTIPLICATION L AND L^T (ORDEN 2)
+
+
+% translate and normalize the regu term
+[L_tt_X, L_tt_TX] = pout_trans(L_tt_old);
+L_tt_sX = sqrt(sum(sum(L_tt_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
+L_tt = bsxfun(@rdivide, L_tt_X, L_tt_sX);
+
 I1 = ones(nSample,nSample);
+
 regu_T = (L_tt + I1);
+
+
+% regu_T = pout_trans(regu_T) ; % normalize
 while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update Model Parameters
-    Y = pXRZ - L; % since Y is tensor, we have to apply reshape
-%   to conv it as a matrix, then do it after reshape.
-    Y_reshape = reshape( Y, [], nSample); % S^# 
-    Y_reshape = Y_reshape/regu_T; % is same as *inv()
+    Y = pXRZ - L - L2 * (L_t)'; % L_t -> ? x F
+    % since Y is a tensor, we have to apply reshape
+    %   to conv it as a matrix
 
+    % vectorizar cada Y(:,:,1), para que tenga el shape de S^#
+    Y_3pF_old = reshape(permute(Y,[2 1 3]),3*p,[]); % x...x,y...y,z....z
+    Y_3pF = Y_3pF_old/regu_T;
+    Y = permute(reshape(Y_3pF, p,3,[]),[2 1 3]); % mezclar para q tenga la extructura de antes, [xyz,p,F]
+    %Y_reshape = reshape( Y, [], nSample); la línea de arriba se puede
+    %simplificar reshepear que sea directamente forma de Y, [], nSample...
+
+
+    Y_reshape = reshape( Y, [], nSample);
 %     Y_reshape = reshape((pXRZ - L), [], nSample)/(L_tt + I1);
 
     %--- add my temporal regulatization:
@@ -105,6 +126,7 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
 
     % prepara para hacer la minimización nuclear
     [U, S, V] = rsvd(Y_reshape); % de hecho Lee, tamb lo convierte en 3pxF para calcualr el svd
+    
     s = max(diag(S) - 1/mu, 0); % nuclear norm
     Y = reshape(rest_svd(U, s, V), k, p, nSample); % vuelve a la estructura de tensor !
    
@@ -115,17 +137,19 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     pXRZ = pout_sample(XRZ); 
     %calculate the loss, btw S^# and f(S), than is the minimum diff btw thm
     Q = Y - pXRZ; 
-    
+    Q2 = (Y*L_t)-zeros(size(Y)); % el segundo termino 0 es de tañamo 3pXF
+
     %%% Covergence check / calculating the cost value %%%
     % Update Lagrange Multipliers 
     L = L + Q;
+    L2 = L2 + Q2;
     cost = norm(Q(:))^2;
-%     cost_2 = norm(S_resized*L_t);
     
     % Update penalty weights
     mu = mu*rho;
-    peso = peso*rho;
     L = L/rho;
+    L2 = L2/rho; % second constraint
+
 %  to see the parameters size!
 %     whos
 %     pause
