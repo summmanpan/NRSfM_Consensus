@@ -1,44 +1,38 @@
 
-% create init dataset
+seq = 'dinosaur_real'; % face_mocap; face_real; dinosaur_real; ogre_synthetic
+
+% load(fprintf('./data_set/falta_rearenged/%s.mat',seq))
+load(['./data_set/data_cv/falta_rearenged/' seq]) 
+
+X1 = GT.shape3D;
+X = adapt_rearrange(X1,seq);
+
+%% LOAD DATA SET
+
 clear all
 close all
 clc
-load data_set\without_rot\pickup.mat
+load data_set\without_rot\yoga.mat
+dataname = 'yoga';
 %%
 ang = 60;
-dataname = 'pickup';
-S_yoga_60_2 = addRotation(ang,S,dataname,list,1); % para plotear, añadir el flag de 1
-% save('./data_set/with_rot/S_yoga_60_2',"S_yoga_60_2")
+
+S_60 = addRotation(ang,S,dataname,list,0); % para plotear, añadir el flag de 1
+seq = ['rot_60/' dataname '_60'];
+X = adapt_rearrange(S_60,seq,1);
+
 %%
 
 ang = 90;
-dataname = 'pickup';
-S_pickup_90_2 = addRotation(ang,S,dataname,list);
-save('./data_set/with_rot/S_pickup_90_2',"S_pickup_90_2")
+S_90 = addRotation(ang,S,dataname,list,0);
+seq = ['rot_90/' dataname '_90'];
+X = adapt_rearrange(S_90,seq,1);
+
 %%
 
 ang = 120;
-dataname = 'pickup';
-S_yoga_120_2 = addRotation(ang,S,dataname,list);
-save('./data_set/with_rot/S_yoga_120_2',"S_yoga_120_2")
-
-
-%%
-
-% adapt data form
-clear all
-close all
-clc
-load data_set\with_rot\S_yoga_60_2.mat
-X_yoga_60_2 = adapt_rearrange(S_yoga_60_2);
-save('./data_set/with_rot/adapt_datas/X_yoga_60_2',"X_yoga_60_2")
-%%
-load data_set\with_rot\S_pickup_90_2.mat
-X_pickup_90_2 = adapt_rearrange(S_pickup_90_2);
-save('./data_set/with_rot/adapt_datas/X_pickup_90_2',"X_pickup_90_2")
-%%
-load data_set\with_rot\S_yoga_120_2.mat
-X_yoga_120_2 = adapt_rearrange(S_yoga_120_2);
-save('./data_set/with_rot/adapt_datas/X_yoga_120_2',"X_yoga_120_2")
+S_120 = addRotation(ang,S,dataname,list,0);
+seq = ['rot_120/' dataname '_120'];
+X = adapt_rearrange(S_120,seq,1);
 
 

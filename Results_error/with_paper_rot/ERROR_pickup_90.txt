@@ -1,0 +1,200 @@
+***31-May-2022 19:44:16***
+---pickup---
+select_idx: 0.12952
+reconstruct 2 / 269
+reconstruct 4 / 269
+reconstruct 6 / 269
+reconstruct 9 / 269
+reconstruct 12 / 269
+reconstruct 15 / 269
+reconstruct 18 / 269
+reconstruct 21 / 269
+reconstruct 24 / 269
+reconstruct 26 / 269
+reconstruct 29 / 269
+reconstruct 32 / 269
+reconstruct 35 / 269
+reconstruct 38 / 269
+reconstruct 41 / 269
+reconstruct 44 / 269
+reconstruct 47 / 269
+reconstruct 50 / 269
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>rsvd', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 228)" style="font-weight:bold">reconstruct>rsvd</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',228,0)">line 228</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 131)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',131,0)">line 131</a>)
+    [U, S, V] = rsvd(Y_reshape); % de hecho Lee, tamb lo convierte en 3pxF para calcualr el svd
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 33)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',33,0)">line 33</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 52)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',52,0)">line 52</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\main.m', 39)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\main.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE2048413932', 'C:\Users\pansu\AppData\Local\Temp\Editor_xflax\LiveEditorEvaluationHelperE2048413932.m', 37)" style="font-weight:bold">LiveEditorEvaluationHelperE2048413932</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_xflax\LiveEditorEvaluationHelperE2048413932.m',37,0)">line 37</a>)
+        X_cell{i,j}, err_cell{i,j} = main(X,dataname{j},rot_list{i});
+} 
+***31-May-2022 19:50:39***
+---pickup---
+select_idx: 0.079092
+reconstruct 2 / 273
+reconstruct 5 / 273
+reconstruct 8 / 273
+reconstruct 10 / 273
+reconstruct 12 / 273
+reconstruct 15 / 273
+reconstruct 18 / 273
+reconstruct 21 / 273
+reconstruct 23 / 273
+reconstruct 25 / 273
+reconstruct 27 / 273
+reconstruct 29 / 273
+reconstruct 31 / 273
+reconstruct 33 / 273
+reconstruct 35 / 273
+reconstruct 37 / 273
+reconstruct 39 / 273
+reconstruct 41 / 273
+reconstruct 43 / 273
+reconstruct 46 / 273
+reconstruct 48 / 273
+reconstruct 51 / 273
+reconstruct 53 / 273
+reconstruct 56 / 273
+reconstruct 58 / 273
+reconstruct 59 / 273
+reconstruct 61 / 273
+reconstruct 63 / 273
+reconstruct 66 / 273
+reconstruct 69 / 273
+reconstruct 71 / 273
+reconstruct 73 / 273
+reconstruct 76 / 273
+reconstruct 78 / 273
+reconstruct 80 / 273
+reconstruct 82 / 273
+reconstruct 85 / 273
+reconstruct 88 / 273
+reconstruct 90 / 273
+reconstruct 93 / 273
+reconstruct 95 / 273
+reconstruct 97 / 273
+reconstruct 100 / 273
+reconstruct 102 / 273
+reconstruct 104 / 273
+reconstruct 106 / 273
+reconstruct 108 / 273
+reconstruct 111 / 273
+reconstruct 113 / 273
+reconstruct 115 / 273
+reconstruct 117 / 273
+reconstruct 119 / 273
+reconstruct 121 / 273
+reconstruct 123 / 273
+reconstruct 125 / 273
+reconstruct 127 / 273
+reconstruct 129 / 273
+reconstruct 131 / 273
+reconstruct 133 / 273
+reconstruct 135 / 273
+reconstruct 137 / 273
+reconstruct 139 / 273
+reconstruct 141 / 273
+reconstruct 143 / 273
+reconstruct 145 / 273
+reconstruct 147 / 273
+reconstruct 150 / 273
+reconstruct 152 / 273
+reconstruct 154 / 273
+reconstruct 157 / 273
+reconstruct 158 / 273
+reconstruct 159 / 273
+reconstruct 161 / 273
+reconstruct 164 / 273
+reconstruct 166 / 273
+reconstruct 168 / 273
+reconstruct 170 / 273
+reconstruct 172 / 273
+reconstruct 174 / 273
+reconstruct 176 / 273
+reconstruct 178 / 273
+reconstruct 180 / 273
+reconstruct 182 / 273
+reconstruct 184 / 273
+reconstruct 187 / 273
+reconstruct 188 / 273
+reconstruct 190 / 273
+reconstruct 192 / 273
+reconstruct 194 / 273
+reconstruct 196 / 273
+reconstruct 198 / 273
+reconstruct 201 / 273
+reconstruct 204 / 273
+reconstruct 206 / 273
+reconstruct 209 / 273
+reconstruct 211 / 273
+reconstruct 213 / 273
+reconstruct 215 / 273
+reconstruct 218 / 273
+reconstruct 221 / 273
+reconstruct 223 / 273
+reconstruct 225 / 273
+reconstruct 227 / 273
+reconstruct 229 / 273
+reconstruct 231 / 273
+reconstruct 233 / 273
+reconstruct 235 / 273
+reconstruct 237 / 273
+reconstruct 240 / 273
+reconstruct 242 / 273
+reconstruct 244 / 273
+reconstruct 247 / 273
+reconstruct 249 / 273
+reconstruct 251 / 273
+reconstruct 253 / 273
+reconstruct 255 / 273
+reconstruct 257 / 273
+reconstruct 259 / 273
+reconstruct 261 / 273
+reconstruct 262 / 273
+reconstruct 264 / 273
+reconstruct 265 / 273
+reconstruct 267 / 273
+reconstruct 269 / 273
+reconstruct 271 / 273
+reconstruct 273 / 273
+reconstruct total: 158.7855
+part_reflection: 0.93686
+combine 10 / 357
+combine 24 / 357
+combine 38 / 357
+combine 51 / 357
+combine 65 / 357
+combine 80 / 357
+combine 94 / 357
+combine 109 / 357
+combine 124 / 357
+combine 139 / 357
+combine 154 / 357
+combine 169 / 357
+combine 183 / 357
+combine 197 / 357
+combine 211 / 357
+combine 226 / 357
+combine 240 / 357
+combine 254 / 357
+combine 268 / 357
+combine 282 / 357
+combine 296 / 357
+combine 310 / 357
+combine 324 / 357
+combine 337 / 357
+combine 350 / 357
+combine: 26.4129
+Elapsed time is 186.215959 seconds.
+Total time: 3m 6s
+---------------pickup-90MEAN ERROR---------------------------
+mean error : 0.091393

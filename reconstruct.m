@@ -39,13 +39,14 @@ X = bsxfun(@plus, X, TX);
 
 end
 
-
+%--------------------------------------------------------------------------
 function Y = K_P_F2KF_P(X)
 % Convert (k x p x f) tensor to (kf x p) matrix
 
     Y = reshape(permute(X, [1 3 2]), [], size(X, 2));
 end
 
+%--------------------------------------------------------------------------
 % This is a modified version of the block matrix method in
 % Yuchao Dai, Hongdong Li, and Mingyi He,
 % "A Simple Prior-free Method for Non-Rigid Structure-from-Motion Factorization,"
@@ -79,19 +80,17 @@ end
 % parameters initializations
 count = 0;
 cost = inf;
-% cost_2 = inf;
 Z = zeros(1, p, nSample);
-pXRZ = pout_sample(X); % eliminate mean component-> use to initializaze
+pXRZ = pout_sample(X); % eliminate mean component
 L = zeros(size(X));
-% MI L2 HAY QUE INICIALIZAR LO CON SU TAMAÑO Q TOCA, -> LO NORMAL NO ES HACER ESTO, -> YA QUE MI GOL ES HACER QUE ESTE SEA 0.
 
-L_tt_old = L_t*L_t' ; % MULTIPLICATION L AND L^T (ORDEN 2)
+% MULTIPLICATION L AND L^T 
+L_tt = L_t*(L_t.') ;
 
-
-% translate and normalize the regu term
-[L_tt_X, L_tt_TX] = pout_trans(L_tt_old);
-L_tt_sX = sqrt(sum(sum(L_tt_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
-L_tt = bsxfun(@rdivide, L_tt_X, L_tt_sX);
+% translate and normalize the regu term ?
+% [L_tt_X, L_tt_TX] = pout_trans(L_tt_old);
+% L_tt_sX = sqrt(sum(sum(L_tt_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
+% L_tt = bsxfun(@rdivide, L_tt_X, L_tt_sX);
 
 I1 = ones(nSample,nSample);
 % I1_o = ones(nSample,nSample);
@@ -99,67 +98,61 @@ I1 = ones(nSample,nSample);
 % I1_sX = sqrt(sum(sum(I1_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
 % I1 = bsxfun(@rdivide, I1_X, I1_sX);
 
-regu_T = (L_tt + I1);
-% [X, TX] = pout_trans(D);
-% sX = sqrt(sum(sum(X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
-% X = bsxfun(@rdivide, X, sX);
+regu_T = L_tt + I1;
+% regu_T = pout_trans(regu_T); % normalize
 
-% regu_T = pout_trans(regu_T) ; % normalize
+
 while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     
     % Update Model Parameters
-    Y = pXRZ - L; % since Y is a tensor, we have to apply reshape
-%   to conv it as a matrix
+    % since Y is a tensor, we have to apply reshape to conv it as a matrix 
+    Y = pXRZ - L;
 
-%     YS_x = squeeze(Y(1,:,:));
-%     YS_y = squeeze(Y(2,:,:));
-%     YS_z = squeeze(Y(3,:,:));
-%     YS= [YS_x;YS_y;YS_z];
+%----Add my temporal regulatization:----
     % vectorizar cada Y(:,:,1), para que tenga el shape de S^#
-    Y_3pF_old = reshape(permute(Y,[2 1 3]),3*p,[]); % x...x,y...y,z....z
-    Y_3pF = Y_3pF_old/regu_T;
-   
-%     YSx = YS(1:p,:);
-%     YSY = YS(p:p*2,:);
-%     YSZ = YS(p*2:p*3,:);
-    Y = permute(reshape(Y_3pF, p,3,[]),[2 1 3]); % mezclar para q tenga la extructura de antes, [xyz,p,F]
+%     Y_3pF_old = reshape(permute(Y,[2 1 3]),3*p,[]); % x...x,y...y,z....z
+%     Y_3pF = Y_3pF_old / regu_T; % same using inv in matlab()
+
+    % all in one line:
+%     Y_3pF = reshape(permute(pXRZ - L,[2 1 3]), 3*p ,[]) / (regu_T); % x...x,y...y,z....z
     
+    % back to before shape 
+    % mezclar para q tenga la estructura de antes, [xyz,p,F]
+%     Y = permute(reshape(Y_3pF, p,3,[]),[2 1 3]); 
+%----------------------------------------
 
-    Y_reshape = reshape( Y, [], nSample);
-%     Y_reshape = reshape((pXRZ - L), [], nSample)/(L_tt + I1);
+    Y_reshape = reshape( Y, [], nSample) ; 
+%     whos
+%     pause
 
-    %--- add my temporal regulatization:
-%     smooth_c =  Y_reshape*L_t; % que hacer cuando es con L1, [F,F-1]
-%     Y_reshape = Y_reshape + smooth_c;
-% %     Y_reshape = Y_reshape - inv(L_tt); % incompatible size, since Y_reshape es [pxF], Ltt es [FxF]...???
-% %     Y_reshape = Y_reshape * L_tt; % ...??? 
-
-    % prepara para hacer la minimización nuclear
-    [U, S, V] = rsvd(Y_reshape); % de hecho Lee, tamb lo convierte en 3pxF para calcualr el svd
-    
+    % prepares for Nuclear Minimization
+    [U, S, V] = rsvd(Y_reshape); 
     s = max(diag(S) - 1/mu, 0); % nuclear norm
-    Y = reshape(rest_svd(U, s, V), k, p, nSample); % vuelve a la estructura de tensor !
+    Y = reshape(rest_svd(U, s, V), k, p, nSample); % back to structure tensor
    
     Z = Z - inner(R, pXRZ - Y - L); 
     Z = pout_trans(Z);
     
-    XRZ = X + outer(R, Z); % S
+    XRZ = X + outer(R, Z); % is S
     pXRZ = pout_sample(XRZ); 
-    %calculate the loss, btw S^# and f(S), than is the minimum diff btw thm
+
+    % calculate the Loss
+    % btw S^# and f(S), than is the minimum diff btw thm
     Q = Y - pXRZ; 
     
     %%% Covergence check / calculating the cost value %%%
     % Update Lagrange Multipliers 
     L = L + Q;
     cost = norm(Q(:))^2;
-%     cost_2 = norm(S_resized*L_t);
     
     % Update penalty weights
     mu = mu*rho;
     L = L/rho;
+
 %  to see the parameters size!
 %     whos
 %     pause
+
     count = count + 1;
 %     if mod(count, 1e2) == 0
 %         disp(['init ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
@@ -167,12 +160,14 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
 end
 % disp(['reconstruct ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
 
-Y = XRZ;
+Y = XRZ; % final estimate S_bar
 
 end
 
-function L = get_L(frames,order)
+%--------------------------------------------------------------------------
+function L = get_L(frames, order)
 % return a F × F matrix encoding temporal smoothness priors.
+
     switch(order)
         case 1
             % FIRST-ORDER
@@ -214,12 +209,15 @@ function L = get_L(frames,order)
 end
 
 
+%--------------------------------------------------------------------------
 function R = outer(X, Y)
 % Outer product -> element by element
 
     R = bsxfun(@times, X, Y);
 end
 
+
+%--------------------------------------------------------------------------
 function R = inner(X, Y)
 % Inner product ->  which takes a pair of coordinate vectors as input and produces a scalar
 
@@ -227,6 +225,7 @@ function R = inner(X, Y)
 end
 
 
+%--------------------------------------------------------------------------
 function [U, S, V] = rsvd(X)
 % SVD based on EVD (sometimes built-in SVD function fails)
 
@@ -252,6 +251,7 @@ end
 end
 
 
+%--------------------------------------------------------------------------
 function X = pout_sample(X)
 % Eliminate mean component
 
@@ -259,7 +259,7 @@ function X = pout_sample(X)
 
 end
 
-
+%--------------------------------------------------------------------------
 function [X, R] = correct_reflection(X, R)
 % Correct reflections signs between different frames
 %
@@ -293,7 +293,7 @@ R(3, :, r) = -R(3, :, r);
 
 end
 
-
+%--------------------------------------------------------------------------
 function [R, s] = cal_rotation(X, th)
 % Non-rigid factorization (rotation calculation)
 %
@@ -341,7 +341,7 @@ end
 
 end
 
-
+%--------------------------------------------------------------------------
 function [R, s] = F2R(F)
 % Project to rotation matrices
 
@@ -356,7 +356,7 @@ function [R, s] = F2R(F)
     s = s/min(s);
 end
 
-
+%--------------------------------------------------------------------------
 function [A, LA] = pre(A)
 % Precondition A matrix
         
@@ -370,6 +370,7 @@ function [A, LA] = pre(A)
     A = A/sqrt(LA);
 end
 
+%--------------------------------------------------------------------------
 function [GG, G, r] = cal_GG(A, GG, th)
 % APG method for finding "rectification" matrix
 %
@@ -417,6 +418,7 @@ function [GG, G, r] = cal_GG(A, GG, th)
 
 end
 
+%--------------------------------------------------------------------------
 function [GG, G, r] = cal_GG_m(A, G, m, th)
 % PG method for finding "rectification" matrix (when K > 3)
 %
@@ -456,14 +458,14 @@ function [GG, G, r] = cal_GG_m(A, G, m, th)
 %     disp(['cal_GG_m ' num2str(cnt) ' : ' num2str(pcost/cost - 1) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(m)]);
 end
 
-
+%--------------------------------------------------------------------------
 function G = fro_normalize(G)
 % Normalize based on Frobenius norm
 
     G = G/norm(G(:));
 end
 
-
+%--------------------------------------------------------------------------
 function [AA1, AA2, off] = cal_A_parts(U)
 % Calculate basis matrix for rotation calculation
 
@@ -486,7 +488,7 @@ off = reshape(off + permute(off, [1 3 2]), size(off, 1), []);
 
 end
 
-
+%--------------------------------------------------------------------------
 function [GG, G, r] = prj_GG_u(GG, m)
 % Project to rank-m PSD matrix with unit trace
 %
@@ -507,7 +509,7 @@ function [GG, G, r] = prj_GG_u(GG, m)
     r = sum(s > 0);
 end
 
-
+%--------------------------------------------------------------------------
 function [s, ind] = prj_s_u(s, m)
 % Project to nonnegative vector with m nonzero elements and unit sum
 %

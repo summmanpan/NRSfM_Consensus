@@ -19,7 +19,7 @@ tID_total = tic;
 % D(3, 1) = 0;
 D = pout_trans(D);
 
-% VERSION CON W
+% ----VERSION CON W----
 % [k, p, nSample] = size(D);
 % tdim = k*p;
 % Remove translation components / normalize
@@ -27,14 +27,16 @@ D = pout_trans(D);
 % nD = sqrt(mse(D(W))*tdim);
 % D = D/nD;
 
-%% 1) RANSOM SAMPLING
+%% 1) RANDOM SAMPLING
 tic;
 % select random groups
-nsamp = 10; %must be less than 55
+
+% parameters to change for user
+nsamp = 10; % less 55?
 mgroup = 50;
 lambda = 0.1;
-idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda); %[55, 358 grupos]
-disp(['select_idx: ' num2str(toc)]); % why we print the toc ? 
+idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda); % [55, 358 grupos]
+disp(['select_idx: ' num2str(toc)]);
 
 ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
 % spy(idx);title("IDX of 365 ngruops of walking dataser") ;
@@ -47,7 +49,7 @@ ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
 tic;
 % solve for each group
 tID = tic;
-Xi = cell(1, ngroup); % x grupos, cada grupo hay com0 10 tray??
+Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
 for i=1:ngroup % reconstruye grupo por grupo!!!
     Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
     % enviamos las 10 trayctorias/puntos para todos los frames.
