@@ -1,4 +1,4 @@
-function X = reconstruct2(D, rotK_th,max_ite)
+function X = reconstruct(D, rotK_th)
 % function X = reconstruct(D, rotK_th)
 %
 % Weak reconstructor
@@ -10,48 +10,27 @@ function X = reconstruct2(D, rotK_th,max_ite)
 % Outputs:
 %     X: 3D reconstruction                            (k x p x f)
 %
-% Ref: Minsik Lee, Jungchan Cho, and Songhwai Oh,
-% "Consensus of Non-Rigid Reconstructions,"
-% CVPR 2016, Las Vegas, Nevada, June 26-July 1, 2016.
-%
-% Author: Minsik Lee (mlee.paper@gmail.com)
-% Last update: 2016-09-07
-% License: GPLv3
-
-%
-% Copyright (C) 2016 Minsik Lee
-% This file is part of NRSfM_Consensus.
-%
-% NRSfM_Consensus is free software; you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation; either version 3 of the License, or
-% (at your option) any later version.
-%
-% NRSfM_Consensus is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-%
-% You should have received a copy of the GNU General Public License
-% along with NRSfM_Consensus. If not, see <http://www.gnu.org/licenses/>.
-
 
 [k, p, f] = size(D);
 
 % translate and normalize
 [X, TX] = pout_trans(D);
 sX = sqrt(sum(sum(X.^2)));
-X = bsxfun(@rdivide, X, sX);
+X = bsxfun(@rdivide, X, sX); % divide con el sX
 
 % calculate rotation
-[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th);
+[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % reshape q sea matriz de 10 col, y cada2 filas como va ir cambiando
 sX = sX.*ts;
 X = bsxfun(@rdivide, X, ts); % X(:, :, i) <- X(:, :, i)/ts(i) for all i
-X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all i
-[X, R] = correct_reflection(X, R); % correct reflections
+
+X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all iNICIALI
+% correct reflections
+[X, R] = correct_reflection(X, R); 
+% Correct reflections signs between different frames
+
 
 % calculate shapes
-X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
 
 % restore coordinates
 X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, 1, k, p, f)), 2), k, p, f);
@@ -60,21 +39,14 @@ X = bsxfun(@plus, X, TX);
 
 end
 
-
+%--------------------------------------------------------------------------
 function Y = K_P_F2KF_P(X)
 % Convert (k x p x f) tensor to (kf x p) matrix
 
     Y = reshape(permute(X, [1 3 2]), [], size(X, 2));
 end
 
-
-function Y = BMM(X, R, max_ite)
-% Block matrix method
-%
-% X: 2D shapes (aligned in 3D)
-% R: Third rows of rotation matrices
-% Y: Reconstructed shapes
-%
+%--------------------------------------------------------------------------
 % This is a modified version of the block matrix method in
 % Yuchao Dai, Hongdong Li, and Mingyi He,
 % "A Simple Prior-free Method for Non-Rigid Structure-from-Motion Factorization,"
@@ -83,66 +55,69 @@ function Y = BMM(X, R, max_ite)
 % Yuchao Dai, Hongdong Li, and Mingyi He,
 % "A Simple Prior-free Method for Non-rigid Structure-from-Motion Factorization,"
 % Int'l J. Computer Vision, vol. 107, no. 2, pp. 101-122, April 2014.
+function Y = BMM(X, R)
+% Block matrix method
+%
+% X: 2D shapes (aligned in 3D)
+% R: Third rows of rotation matrices
+% Y: Reconstructed shapes
 
-[k, p, nSample] = size(X);
-
-mu = 1e-0;
-rho = 1.02;
-
-
-if k*p < nSample
-    rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v');
-else
-    rest_svd = @(u, s, v) (u*bsxfun(@times, s, v'));
-end
-
-count = 0;
-cost = inf; cost2=inf;
-Z = zeros(1, p, nSample);
-pXRZ = pout_sample(X);
+[k, p, nSample] = size(X); % nSample = n de frames
 
 % get L temporal smoothness priors matrix
 L_t = get_L(nSample,1); % last parm order of L
 
+mu = 1e-0;
+rho = 1.02;
+
+if k*p < nSample
+    rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v'); 
+    %f(u,s,v)= (u .* s') * v'
+else
+    rest_svd = @(u, s, v) (u*bsxfun(@times, s, v'));
+end
+
+% parameters initializations
+count = 0;
+cost = inf;
+Z = zeros(1, p, nSample);
+pXRZ = pout_sample(X); % eliminate mean component
 L = zeros(size(X));
-L2 = zeros(size(X));% HARD CONSTRAINT
 
 % MULTIPLICATION L AND L^T 
-L_tt = L_t*L_t' ;
+L_tt = L_t*(L_t.') ;
 I1 = eye(nSample);
-regu_T = (L_tt + I1);
-flag_soft = false;
-while cost > 1e-10 && count < max_ite && cost2 > 1e-10
+regu_T = L_tt + I1;
 
-%     if flag_soft==1
-    Y = pXRZ - L;
-%     else
-%         Y = pXRZ - L - L2 * (L_t)';
-%     end
 
-    if flag_soft==1
-        [U, S, V] = rsvd(reshape(Y, [], nSample) / regu_T );
-    else
-        [U, S, V] = rsvd((reshape(Y, [], nSample) - (L2 * (L_t)')) / regu_T );
-    end
-    s = max(diag(S) - 1/mu, 0);
-    Y = reshape(rest_svd(U, s, V), k, p, nSample); % nuclear norm
+
+while cost > 1e-10 && count<400 % Check Convergence
     
-    Z = Z - inner(R, pXRZ - Y - L);
+    % Update Model Parameters
+    % since Y is a tensor, we have to apply reshape to conv it as a matrix 
+    Y = pXRZ - L;
+
+%----Add my temporal regulatization:
+ 
+    % prepares for Nuclear Minimization
+    [U, S, V] = rsvd(  reshape( Y, [], nSample)/( regu_T )); 
+    s = max(diag(S) - 1/mu, 0); % nuclear norm
+    Y = reshape(rest_svd(U, s, V), k, p, nSample); % back to structure tensor
+   
+    Z = Z - inner(R, pXRZ - Y - L); 
     Z = pout_trans(Z);
     
-    XRZ = X + outer(R, Z);
-    pXRZ = pout_sample(XRZ);
-    Q = Y - pXRZ;
-    Y_temp = reshape(Y, [], nSample);
-    Q2 = (Y_temp*L_t)-zeros(Y_temp); % el segundo termino 0 es de tañamo 3pXF
+    XRZ = X + outer(R, Z); % is S
+    pXRZ = pout_sample(XRZ); 
+
+    % calculate the Loss
+    % btw S^# and f(S), than is the minimum diff btw thm
+    Q = Y - pXRZ; 
     
     %%% Covergence check / calculating the cost value %%%
     % Update Lagrange Multipliers 
     L = L + Q;
-    L2 = L2 + Q2;
     cost = norm(Q(:))^2;
-    cost2= norm(Q2(:))^2;
     
     % Update penalty weights
     mu = mu*rho;
@@ -155,10 +130,11 @@ while cost > 1e-10 && count < max_ite && cost2 > 1e-10
 end
 % disp(['reconstruct ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
 
-Y = XRZ;
+Y = XRZ; % final estimate S_bar
 
 end
 
+%--------------------------------------------------------------------------
 function L = get_L(frames, order)
 % return a F × F matrix encoding temporal smoothness priors.
 
@@ -203,31 +179,35 @@ function L = get_L(frames, order)
 end
 
 
-
+%--------------------------------------------------------------------------
 function R = outer(X, Y)
-% Outer product
+% Outer product -> element by element
 
     R = bsxfun(@times, X, Y);
 end
 
+
+%--------------------------------------------------------------------------
 function R = inner(X, Y)
-% Inner product
+% Inner product ->  which takes a pair of coordinate vectors as input and produces a scalar
 
     R = sum(bsxfun(@times, X, Y));
 end
 
 
+%--------------------------------------------------------------------------
 function [U, S, V] = rsvd(X)
 % SVD based on EVD (sometimes built-in SVD function fails)
 
-if diff(size(X)) > 0
+if diff(size(X)) > 0 % hay mas columnas que filas
     [U, D] = eig(X*X');
     [s, ind] = sort(sqrt(max(diag(D), 0)), 'descend');
     U = U(:, ind);
     S = diag(s);
     [V, H] = qr(X'*U, 0);
-    ind = diag(H) < 0;
-    V(:, ind) = -V(:, ind);
+    ind = diag(H) < 0; % logical variable
+    V(:, ind) = -V(:, ind); % change the sign acording to the ind value (1->yes),(0->not)
+    % if it sigular value is less than 0, we change the sign 
 else
     [V, D] = eig(X'*X);
     [s, ind] = sort(sqrt(max(diag(D), 0)), 'descend');
@@ -241,6 +221,7 @@ end
 end
 
 
+%--------------------------------------------------------------------------
 function X = pout_sample(X)
 % Eliminate mean component
 
@@ -248,7 +229,7 @@ function X = pout_sample(X)
 
 end
 
-
+%--------------------------------------------------------------------------
 function [X, R] = correct_reflection(X, R)
 % Correct reflections signs between different frames
 %
@@ -282,7 +263,7 @@ R(3, :, r) = -R(3, :, r);
 
 end
 
-
+%--------------------------------------------------------------------------
 function [R, s] = cal_rotation(X, th)
 % Non-rigid factorization (rotation calculation)
 %
@@ -298,37 +279,39 @@ function [R, s] = cal_rotation(X, th)
 
 [U, S, ~] = svd(X, 'econ');
 ss = diag(S);
-ss = cumsum(ss(1:end-1).^2);
-maxK = sum(ss/ss(end) < th)+1;
-maxK = min(ceil(maxK/3)*3, numel(ss));
+ss = cumsum(ss(1:end-1).^2); % poq borramos el ultimo
+maxK = sum(ss/ss(end) < th)+1; % 7 +1
+maxK = min(ceil(maxK/3)*3, numel(ss)); % ceil redondea hacia arriba
 F = U(:, 1:maxK);
 
 lcost = inf;
+% empieza en 3 en pasos de 3 hasta col de F-1, y añade el ultimo
+% ex: 3 6 9
 for K = [3:3:size(F, 2)-1 size(F, 2)]
     plcost = lcost;
 
     [AA1, AA2, off] = cal_A_parts(F(:, 1:K));
     [A, LA] = pre([AA1-AA2; off]);
     if K == 3
-        [GG, G] = cal_GG(A, eye(3)/3, 1e-12);
+        [GG, G] = cal_GG(A, eye(3)/3, 1e-12); % M o M'
     else
         [GG, G] = cal_GG_m(A, [G zeros(size(G, 1), 3-size(G, 2)); zeros(K-size(G, 1), 3)], 3);
     end
-
-    lcost = norm(A*GG(:))^2*LA;
+    %%% Covergence check / calculating the cost value %%%
+    lcost = norm(A*GG(:))^2 * LA; 
     
 %     disp([num2str(K) ' : ' num2str(plcost-lcost) ' / ' num2str(lcost)]);
     
-    if lcost < eps
+    if lcost < eps % eps is 2.2204e-16
         break;
     end
 end
 
-[R, s] = F2R(F(:, 1:K)*[G zeros(size(G, 1), 3-size(G, 2))]);
+[R, s] = F2R(F(:, 1:K)*[ G  zeros( size(G, 1), 3-size(G, 2) )   ]   );
 
 end
 
-
+%--------------------------------------------------------------------------
 function [R, s] = F2R(F)
 % Project to rotation matrices
 
@@ -338,22 +321,26 @@ function [R, s] = F2R(F)
     for i=1:numel(s)
         [U, S, V] = svd(R(:, :, i));
         R(:, :, i) = U*V';
-        s(i) = trace(S)/2;
+        s(i) = trace(S)/2; % trace  Sum of diagonal elements.
     end
     s = s/min(s);
 end
 
-
+%--------------------------------------------------------------------------
 function [A, LA] = pre(A)
 % Precondition A matrix
-
-    if diff(size(A)) < 0
-        [~, A] = qr(A, 0);
+        
+    if diff(size(A)) < 0 % cuando hay mas filas que col
+        [~, A] = qr(A, 0); % qr(A,0) produces an economy-size decomposition 
+%     [Q,R] = qr(A) performs a qr decomposition on m-by-n matrix A such that
+%     A = Q*R. The factor R is an m-by-n upper triangular matrix and Q is an
+%     m-by-m unitary matrix.
     end
     LA = max(eig(A*A'));
     A = A/sqrt(LA);
 end
 
+%--------------------------------------------------------------------------
 function [GG, G, r] = cal_GG(A, GG, th)
 % APG method for finding "rectification" matrix
 %
@@ -392,13 +379,16 @@ function [GG, G, r] = cal_GG(A, GG, th)
         tAGG = AGG + (pt-1)/t*(AGG-pAGG);
 
         cnt = cnt+1;
-%         if mod(cnt, 1e4) == 0
+        %%%
+%         if mod(cnt, 1e4) == 0 %cada 10000 iteraciones
 %             disp(['cal_GG ' num2str(cnt) ' : ' num2str(vcost - cost) ' / ' num2str(vcost) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(length(GG))]);
 %         end
     end
 %     disp(['cal_GG ' num2str(cnt) ' : ' num2str(vcost - cost) ' / ' num2str(vcost) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(length(GG))]);
+
 end
 
+%--------------------------------------------------------------------------
 function [GG, G, r] = cal_GG_m(A, G, m, th)
 % PG method for finding "rectification" matrix (when K > 3)
 %
@@ -438,30 +428,37 @@ function [GG, G, r] = cal_GG_m(A, G, m, th)
 %     disp(['cal_GG_m ' num2str(cnt) ' : ' num2str(pcost/cost - 1) ' / ' num2str(cost) ' / ' num2str(norm(pGG(:)-GG(:))^2) ' / ' num2str(r) ' / ' num2str(m)]);
 end
 
-
+%--------------------------------------------------------------------------
 function G = fro_normalize(G)
 % Normalize based on Frobenius norm
 
     G = G/norm(G(:));
 end
 
-
+%--------------------------------------------------------------------------
 function [AA1, AA2, off] = cal_A_parts(U)
 % Calculate basis matrix for rotation calculation
 
 K = size(U, 2);
 
-A1 = U(1:2:end, :);
-A2 = U(2:2:end, :);
+A1 = U(1:2:end, :); % cogemos los impares
+A2 = U(2:2:end, :); % coge los pares
 
+%  kron(A1, ones(1, K)) -> repite cada col K veces, a a a b b b c c c 
+% repmat(A1, 1, K) -> repite toda los elem k veces, a b c a b c a b c
 AA1 = kron(A1, ones(1, K)).*repmat(A1, 1, K);
 AA2 = kron(A2, ones(1, K)).*repmat(A2, 1, K);
+
+% A1 , (:,:,1) = aaa, (:,:,2)=bbb, ccc
+% hace 3 copias mismas de A2 y lo guarda para cada dimension
 off = repmat(reshape(A1, [], 1, K), 1, K).*repmat(A2, [1 1 K]);
+%  off       307x3x3 pasa a ser 307x9
+% no entiendo como lo ha hecho con el cod de abajo
 off = reshape(off + permute(off, [1 3 2]), size(off, 1), []);
 
 end
 
-
+%--------------------------------------------------------------------------
 function [GG, G, r] = prj_GG_u(GG, m)
 % Project to rank-m PSD matrix with unit trace
 %
@@ -476,12 +473,13 @@ function [GG, G, r] = prj_GG_u(GG, m)
     else
         [s, ind] = prj_s_u(diag(S), m);
     end
-    G = bsxfun(@times, V(:, ind), sqrt(s)');
+    G = bsxfun(@times, V(:, ind), sqrt(s)'); 
+    % V(:, ind).* sqrt(s)'
     GG = G*G';
     r = sum(s > 0);
 end
 
-
+%--------------------------------------------------------------------------
 function [s, ind] = prj_s_u(s, m)
 % Project to nonnegative vector with m nonzero elements and unit sum
 %
@@ -493,7 +491,7 @@ function [s, ind] = prj_s_u(s, m)
     if nargin == 2
         s = s(1:m);
     end
-    dcs = cumsum(s)-s.*(1:numel(s))';
+    dcs = cumsum(s)-s.*(1:numel(s))'; 
     k = sum(dcs < 1);
     s = s(1:k) - s(k) + (1-dcs(k))/k;
     ind = ind(1:k);

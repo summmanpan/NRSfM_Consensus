@@ -89,7 +89,6 @@ function Y = BMM(X, R, max_ite,order_L)
 mu = 1e-0;
 rho = 1.02;
 
-
 if k*p < nSample
     rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v');
 else
@@ -98,60 +97,55 @@ end
 
 count = 0;
 cost = inf; 
-cost2=inf;
 Z = zeros(1, p, nSample);
 pXRZ = pout_sample(X);
 
-% get L temporal smoothness priors matrix
+% Get L temporal smoothness priors matrix
 L_t = get_L(nSample,order_L); % last parm order of L
-
 L = zeros(size(X));
-L2 = zeros(3*p,nSample-1);% HARD CONSTRAINT
+L2 = zeros(k*p, size(L_t,2));% HARD CONSTRAINT L2
 
-% MULTIPLICATION L AND L^T 
-L_tt = L_t*L_t' ;
+
+L_tt = L_t*L_t' ; % MULTIPLICATION L AND L^T 
 I1 = eye(nSample);
 regu_T = (L_tt + I1);
 flag_soft = false;
 
-while cost > 1e-10 && count < max_ite && cost2 > 1e-10
+while cost > 1e-10 && count < max_ite 
 
-%     if flag_soft==1
+
     Y = pXRZ - L;
-%     else
-%         Y = pXRZ - L - L2 * (L_t)';
-%     end
 
     if flag_soft==1
         [U, S, V] = rsvd(reshape(Y, [], nSample) / regu_T );
     else
-        [U, S, V] = rsvd( (reshape(Y, [], nSample) - (L2 * (L_t)')) / regu_T );
+        [U, S, V] = rsvd( ( reshape(Y, [], nSample) - (L2 * (L_t)') ) / regu_T );
     end
     
     s = max(diag(S) - 1/mu, 0);
     Y = reshape(rest_svd(U, s, V), k, p, nSample); % nuclear norm
     
     Z = Z - inner(R, pXRZ - Y - L);
-    Z = pout_trans(Z);
+    Z = pout_trans(Z); % eliminate translation component
     
     XRZ = X + outer(R, Z);
     pXRZ = pout_sample(XRZ);
     Q = Y - pXRZ;
 
     Y_temp = reshape(Y, [], nSample);
-    Q2 = (Y_temp*L_t); %-zeros(Y_temp); % el segundo termino 0 es de tañamo 3pXF
+    Q2 = (Y_temp*L_t); 
     
     %%% Covergence check / calculating the cost value %%%
     % Update Lagrange Multipliers 
     L = L + Q;
     L2 = L2 + Q2; % 3pxF
 
-    cost = norm(Q(:))^2;
-%     cost2= norm(Q2(:))^2;
+    cost = norm(Q(:))^2 + norm(Q2(:))^2;
     
     % Update penalty weights
     mu = mu*rho;
     L = L/rho;
+    L2 = L2/rho;
 
     count = count + 1;
 %     if mod(count, 1e2) == 0

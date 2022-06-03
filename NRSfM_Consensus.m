@@ -29,6 +29,7 @@ tic;
 nsamp = 10; % less 55?
 mgroup = 50;
 lambda = 0.1;
+
 idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda); % [55, 358 grupos]
 disp(['select_idx: ' num2str(toc)]);
 
@@ -44,8 +45,11 @@ tID = tic;
 max_ite = 500;
 order_L = 1;
 Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
+flag_soft = false;
 for i=1:ngroup % reconstruye grupo por grupo!!!
-    Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
+%     Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L,flag_soft);
+
     % enviamos las 10 trayctorias/puntos para todos los frames.
     if toc(tID) > 1
         disp(['reconstruct ' num2str(i) ' / ' num2str(ngroup)]);

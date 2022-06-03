@@ -24,37 +24,57 @@
 %% Automatizar el testing
 
 % clear; close all; clc;
-rot_list = {'60','90','120'}; % rot = '60';
-dataname = {'drink', 'pickup', 'stretch', 'yoga'}; %'yoga'; % choice of data set 
-rot_flag = true; 
-if rot_flag==0; rot_list={''}; end
-% dataname = {'walking','dance','jaws','face'};
+rot_list = {'120'}; % '60','90','120' "BETTER ONE BY ONE"
+% dataname = {'drink', 'pickup', 'stretch', 'yoga'};  
+dataname = {'walking','dance','jaws','face'};
+datatype = {'noRotation', 'benchmark'};
 % dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
 
+%-------------------- CHANGE PARAMETRES------------------------
+rot_flag = false; %<--
+datatype_idx= 2;
+if rot_flag==0;datatype_idx= 1;rot_list={''};end 
+
+regu_type = {'SOFT','HARD'}; idx_regu = 1;%<--
+regu_order = [1,2,4]; idx_L = 1; %<--
 
 X_cell = cell(size(rot_list,2) ,size(dataname,2) );
 err_cell = cell(size(rot_list,2) ,size(dataname,2) );
+
+% FALTA RUNEAR ESTO UNA VEZ, PARA VER SI LA FUNCION DE RECONST ESTA BN O
+% NO, SI EL ERROR ES 0.1ALGO ESTA BIEN
+
 for i=1:size(rot_list,2) 
 %     X_cell = cell(1 ,size(dataname,2) );
 %     err_cell = cell(1 ,size(dataname,2) );
-    for j= 1 : size(dataname,2)
-
+    for j= 1 : 1%size(dataname,2)
+        
+        % Load the data
         path_data = ['./Data/' dataname{j} '_rearranged.mat'];
         if rot_flag==1
             path_data = ['./Data/rot_' rot_list{i} '/' dataname{j} '_' rot_list{i} '_rearranged.mat'];
         end
         load(path_data, 'X');
-        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+        
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
+                                    rot_list{i},regu_order(idx_L),regu_type{idx_regu});
 
+
+        % save for each rotation individually
+        
+        path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
+                                regu_type{idx_regu}, regu_order(idx_L), ...
+                                regu_type{idx_regu}, regu_order(idx_L), ...
+                                 datatype{datatype_idx}, rot_list{i}  );
+        save(path_save,'X_cell','err_cell')
     end
-    path_save = sprintf('./Results_error/rot_4datasets_%s_withRegu', rot_list{i});
-    save(path_save,'X_cell','err_cell')
+    
 
 end
 
-
-path_save = sprintf('./Results_error/main_results_dataset_with_L_rot');
-save(path_save,'X_cell','err_cell')
+% path_save = sprintf('./Results_error/datasets_rot_%s_withReguHardOrder_%d', rot_list{1}, regu_order(1));
+% path_save = sprintf('./Results_error/datasets_rot_%s_withReguSoftOrder_%d', rot_list{1}, regu_order(1));
+% save(path_save,'X_cell','err_cell')
 
 %% Plot 3D results
 

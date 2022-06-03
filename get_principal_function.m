@@ -1,7 +1,7 @@
-function [X, err] = get_principal_function(GT,dataname,rot)
-% GT data with gt of 3d structure
-% dataname sting of filename 
-% rot int as rot number
+function [X, err] = get_principal_function(GT,dataname,rot,regu_order,regu_type)
+% GT: data with gt of 3d structure
+% dataname: sting of filename 
+% rot: int as rot number
 
 % noise, miss data generation.
 % generate the diary and calculate the error
@@ -10,29 +10,24 @@ function [X, err] = get_principal_function(GT,dataname,rot)
 
 % Experimental setting
 noise = 0; %10^-3;            % noise level. paper use 10^-3
-rmiss = 0; %.001;            % missing rate, value lower than 1
 
 [k, p, nSample] = size(GT);
 D = zeros(k, p, nSample);
 temp = GT(1:2, :, :);
+
 % add normal random number
 weight_noise = noise*max(abs(reshape(bsxfun(@minus, temp, mean(temp, 2)), [], 1)));
 D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
 
-
 % Diary save for command window
-resulpath = './Results_error/with_paper_rot/';
+resulpath = './Results_error/text_error/';
 final_name_data = [resulpath 'ERROR_' dataname '_' rot '.txt'];
 diary(final_name_data)
-% d = datetime(now,'ConvertFrom','datenum'); % remove
 disp(['***'+string(datetime)+'***'])
 disp(['---'+string(dataname)+'---'])
 
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D);
-
-%
-% load Reconst_matlab_files\X_yoga.mat
 
 %% Evaluation Error
 
@@ -48,24 +43,17 @@ vind = sum((GT(3, :, :)-X(3, :, :)).^2) > sum((GT(3, :, :)+X(3, :, :)).^2);
 X(3, :, vind) = -X(3, :, vind);
 
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
-disp(['---------------' dataname '-' rot '-MEAN ERROR---------------------------'])
+disp(['-------' dataname '-' rot '-L-' string(regu_order) '-' regu_type '--MEAN ERROR-----------'])
 
-if rmiss>0 && noise==0
-    disp(['***WITH:***''Missing rate: '+string(rmiss)+'***'])
-%     disp(['mean error : ' num2str(mean(perf))]); 
-elseif  noise > 0 && rmiss==0
+if noise > 0
     disp(['***WITH:***''Noise rate: '+string(noise)+'***'])
-%     disp(['mean error : ' num2str(mean(perf))]); 
-elseif noise > 0 && rmiss>0
-    disp(['***WITH:***''Noise rate: '+string(noise)+' AND ''Missing rate: '+string(rmiss)+'***'])
 end
-%     disp(['mean error : ' num2str(mean(perf))]); 
-% else
-%     disp(['mean error : ' num2str(mean(perf))]);
-% end
+
 err = num2str(mean(perf)); 
 disp(['mean error : ' err]);
 
+% set diary off
 diary off
+
 
 end
