@@ -1,0 +1,616 @@
+***02-Jun-2022 19:22:03***
+---dance---
+dbcont
+select_idx: 0.3734
+reconstruct 4 / 479
+reconstruct 8 / 479
+reconstruct 12 / 479
+reconstruct 16 / 479
+reconstruct 20 / 479
+reconstruct 23 / 479
+reconstruct 27 / 479
+reconstruct 31 / 479
+reconstruct 35 / 479
+reconstruct 39 / 479
+reconstruct 43 / 479
+reconstruct 46 / 479
+reconstruct 50 / 479
+reconstruct 53 / 479
+reconstruct 57 / 479
+reconstruct 61 / 479
+reconstruct 65 / 479
+reconstruct 69 / 479
+reconstruct 73 / 479
+reconstruct 76 / 479
+reconstruct 78 / 479
+reconstruct 80 / 479
+reconstruct 82 / 479
+reconstruct 83 / 479
+reconstruct 85 / 479
+reconstruct 87 / 479
+reconstruct 88 / 479
+reconstruct 89 / 479
+reconstruct 91 / 479
+reconstruct 93 / 479
+reconstruct 95 / 479
+reconstruct 97 / 479
+reconstruct 98 / 479
+reconstruct 100 / 479
+reconstruct 102 / 479
+reconstruct 105 / 479
+reconstruct 107 / 479
+reconstruct 109 / 479
+reconstruct 111 / 479
+reconstruct 113 / 479
+reconstruct 115 / 479
+reconstruct 118 / 479
+reconstruct 120 / 479
+reconstruct 123 / 479
+reconstruct 127 / 479
+reconstruct 131 / 479
+reconstruct 135 / 479
+reconstruct 138 / 479
+reconstruct 142 / 479
+reconstruct 145 / 479
+reconstruct 149 / 479
+reconstruct 152 / 479
+reconstruct 156 / 479
+reconstruct 159 / 479
+reconstruct 163 / 479
+reconstruct 167 / 479
+reconstruct 170 / 479
+reconstruct 173 / 479
+reconstruct 177 / 479
+reconstruct 181 / 479
+reconstruct 185 / 479
+reconstruct 189 / 479
+reconstruct 193 / 479
+reconstruct 197 / 479
+reconstruct 201 / 479
+reconstruct 205 / 479
+reconstruct 209 / 479
+reconstruct 213 / 479
+reconstruct 217 / 479
+reconstruct 221 / 479
+reconstruct 226 / 479
+reconstruct 230 / 479
+reconstruct 234 / 479
+reconstruct 238 / 479
+reconstruct 241 / 479
+reconstruct 245 / 479
+reconstruct 249 / 479
+reconstruct 253 / 479
+reconstruct 258 / 479
+reconstruct 260 / 479
+reconstruct 262 / 479
+reconstruct 265 / 479
+reconstruct 269 / 479
+reconstruct 273 / 479
+reconstruct 276 / 479
+reconstruct 279 / 479
+reconstruct 282 / 479
+reconstruct 285 / 479
+reconstruct 287 / 479
+reconstruct 290 / 479
+reconstruct 292 / 479
+reconstruct 294 / 479
+reconstruct 296 / 479
+reconstruct 298 / 479
+reconstruct 300 / 479
+reconstruct 302 / 479
+reconstruct 305 / 479
+reconstruct 307 / 479
+reconstruct 309 / 479
+reconstruct 311 / 479
+reconstruct 314 / 479
+reconstruct 316 / 479
+reconstruct 318 / 479
+reconstruct 322 / 479
+reconstruct 326 / 479
+reconstruct 329 / 479
+reconstruct 333 / 479
+reconstruct 336 / 479
+reconstruct 339 / 479
+reconstruct 343 / 479
+reconstruct 346 / 479
+reconstruct 349 / 479
+reconstruct 352 / 479
+reconstruct 356 / 479
+reconstruct 360 / 479
+reconstruct 364 / 479
+reconstruct 367 / 479
+reconstruct 371 / 479
+reconstruct 375 / 479
+reconstruct 377 / 479
+reconstruct 379 / 479
+reconstruct 383 / 479
+reconstruct 386 / 479
+reconstruct 390 / 479
+reconstruct 394 / 479
+reconstruct 397 / 479
+reconstruct 402 / 479
+reconstruct 406 / 479
+reconstruct 409 / 479
+reconstruct 412 / 479
+reconstruct 416 / 479
+reconstruct 420 / 479
+reconstruct 424 / 479
+reconstruct 428 / 479
+reconstruct 432 / 479
+reconstruct 434 / 479
+reconstruct 437 / 479
+reconstruct 441 / 479
+reconstruct 444 / 479
+reconstruct 448 / 479
+reconstruct 452 / 479
+reconstruct 455 / 479
+reconstruct 459 / 479
+reconstruct 463 / 479
+reconstruct 467 / 479
+reconstruct 471 / 479
+reconstruct 475 / 479
+reconstruct 479 / 479
+reconstruct total: 178.6701
+part_reflection 2.571e-09
+part_reflection 9.4031e-10
+part_reflection 2.4038e-10
+part_reflection 1.2026e-10
+part_reflection 7.905e-11
+part_reflection 5.0758e-11
+part_reflection 3.0958e-11
+part_reflection 1.8207e-11
+part_reflection 1.1241e-11
+part_reflection 6.4763e-12
+part_reflection 4.0614e-12
+part_reflection 2.2828e-12
+part_reflection 1.3768e-12
+part_reflection 7.6548e-13
+part_reflection 4.2234e-13
+part_reflection 2.3603e-13
+part_reflection 1.3011e-13
+part_reflection 7.2198e-14
+part_reflection 3.979e-14
+part_reflection 2.1928e-14
+part_reflection 1.2165e-14
+part_reflection 6.7491e-15
+part_reflection 3.7442e-15
+part_reflection 2.0633e-15
+part_reflection 1.137e-15
+part_reflection 6.3927e-16
+part_reflection 3.5465e-16
+part_reflection: 29.1983
+combine 7 / 264
+combine 15 / 264
+combine 23 / 264
+combine 31 / 264
+combine 39 / 264
+combine 47 / 264
+combine 55 / 264
+combine 63 / 264
+combine 71 / 264
+combine 79 / 264
+combine 87 / 264
+combine 95 / 264
+combine 103 / 264
+combine 111 / 264
+combine 119 / 264
+combine 127 / 264
+combine 135 / 264
+combine 143 / 264
+combine 151 / 264
+combine 159 / 264
+combine 167 / 264
+combine 175 / 264
+combine 183 / 264
+combine 191 / 264
+combine 199 / 264
+combine 206 / 264
+combine 214 / 264
+combine 222 / 264
+combine 230 / 264
+combine 238 / 264
+combine 246 / 264
+combine 254 / 264
+combine 262 / 264
+combine: 35.7653
+Elapsed time is 244.015041 seconds.
+Total time: 4m 4s
+---------------dance--MEAN ERROR---------------------------
+mean error : 0.94581
+***02-Jun-2022 19:27:06***
+---dance---
+select_idx: 0.13967
+dbcont
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 150)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',150,0)">line 150</a>)
+Y = XRZ; % final estimate S_bar
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 19:30:00***
+---dance---
+select_idx: 0.17475
+if system_dependent('IsDebugMode')==1, dbquit all; end
+***02-Jun-2022 19:30:50***
+---dance---
+Unrecognized function or variable 'W'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 26)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',26,0)">line 26</a>)
+D = pout_trans(D, W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',26,0)
+***02-Jun-2022 19:31:29***
+---dance---
+select_idx: 0.20278
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 115)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',115,0)">line 115</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 46)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',46,0)">line 46</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE271388965', 'C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m', 46)" style="font-weight:bold">LiveEditorEvaluationHelperE271388965</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+} 
+***02-Jun-2022 19:53:50***
+---dance---
+select_idx: 0.18461
+reconstruct 2 / 481
+reconstruct 4 / 481
+reconstruct 6 / 481
+reconstruct 7 / 481
+reconstruct 9 / 481
+reconstruct 11 / 481
+reconstruct 13 / 481
+reconstruct 15 / 481
+reconstruct 17 / 481
+reconstruct 19 / 481
+reconstruct 21 / 481
+reconstruct 23 / 481
+reconstruct 24 / 481
+reconstruct 26 / 481
+reconstruct 28 / 481
+reconstruct 30 / 481
+reconstruct 32 / 481
+reconstruct 34 / 481
+reconstruct 36 / 481
+reconstruct 38 / 481
+reconstruct 40 / 481
+reconstruct 42 / 481
+reconstruct 44 / 481
+reconstruct 46 / 481
+reconstruct 48 / 481
+reconstruct 50 / 481
+reconstruct 52 / 481
+reconstruct 54 / 481
+reconstruct 56 / 481
+reconstruct 58 / 481
+reconstruct 60 / 481
+reconstruct 62 / 481
+reconstruct 64 / 481
+reconstruct 66 / 481
+reconstruct 68 / 481
+reconstruct 70 / 481
+reconstruct 72 / 481
+reconstruct 74 / 481
+reconstruct 76 / 481
+reconstruct 78 / 481
+reconstruct 80 / 481
+reconstruct 82 / 481
+reconstruct 84 / 481
+reconstruct 86 / 481
+reconstruct 88 / 481
+reconstruct 90 / 481
+reconstruct 92 / 481
+reconstruct 94 / 481
+reconstruct 96 / 481
+reconstruct 98 / 481
+reconstruct 100 / 481
+reconstruct 102 / 481
+reconstruct 104 / 481
+reconstruct 106 / 481
+reconstruct 108 / 481
+reconstruct 110 / 481
+reconstruct 112 / 481
+reconstruct 114 / 481
+reconstruct 116 / 481
+reconstruct 118 / 481
+reconstruct 120 / 481
+reconstruct 122 / 481
+reconstruct 124 / 481
+reconstruct 126 / 481
+reconstruct 128 / 481
+reconstruct 130 / 481
+reconstruct 132 / 481
+reconstruct 134 / 481
+reconstruct 136 / 481
+reconstruct 138 / 481
+reconstruct 140 / 481
+reconstruct 142 / 481
+reconstruct 144 / 481
+reconstruct 146 / 481
+reconstruct 148 / 481
+reconstruct 150 / 481
+reconstruct 152 / 481
+reconstruct 154 / 481
+reconstruct 156 / 481
+reconstruct 158 / 481
+reconstruct 160 / 481
+reconstruct 161 / 481
+reconstruct 163 / 481
+reconstruct 165 / 481
+reconstruct 167 / 481
+reconstruct 169 / 481
+reconstruct 171 / 481
+reconstruct 173 / 481
+reconstruct 175 / 481
+reconstruct 177 / 481
+reconstruct 179 / 481
+reconstruct 181 / 481
+reconstruct 183 / 481
+reconstruct 185 / 481
+reconstruct 187 / 481
+reconstruct 188 / 481
+reconstruct 190 / 481
+reconstruct 191 / 481
+reconstruct 193 / 481
+reconstruct 195 / 481
+reconstruct 196 / 481
+reconstruct 197 / 481
+reconstruct 199 / 481
+reconstruct 200 / 481
+reconstruct 201 / 481
+reconstruct 203 / 481
+reconstruct 205 / 481
+reconstruct 207 / 481
+reconstruct 208 / 481
+reconstruct 209 / 481
+reconstruct 210 / 481
+reconstruct 212 / 481
+reconstruct 213 / 481
+reconstruct 215 / 481
+reconstruct 216 / 481
+reconstruct 217 / 481
+reconstruct 218 / 481
+reconstruct 220 / 481
+reconstruct 222 / 481
+reconstruct 224 / 481
+reconstruct 225 / 481
+reconstruct 227 / 481
+reconstruct 229 / 481
+reconstruct 231 / 481
+reconstruct 233 / 481
+reconstruct 235 / 481
+reconstruct 237 / 481
+reconstruct 239 / 481
+reconstruct 241 / 481
+reconstruct 243 / 481
+reconstruct 245 / 481
+reconstruct 247 / 481
+reconstruct 249 / 481
+reconstruct 251 / 481
+reconstruct 253 / 481
+reconstruct 255 / 481
+reconstruct 257 / 481
+reconstruct 259 / 481
+reconstruct 261 / 481
+reconstruct 263 / 481
+reconstruct 265 / 481
+reconstruct 267 / 481
+reconstruct 268 / 481
+reconstruct 270 / 481
+reconstruct 272 / 481
+reconstruct 274 / 481
+reconstruct 276 / 481
+reconstruct 278 / 481
+reconstruct 280 / 481
+reconstruct 282 / 481
+reconstruct 284 / 481
+reconstruct 286 / 481
+reconstruct 288 / 481
+reconstruct 290 / 481
+reconstruct 292 / 481
+reconstruct 294 / 481
+reconstruct 296 / 481
+reconstruct 298 / 481
+reconstruct 300 / 481
+reconstruct 302 / 481
+reconstruct 304 / 481
+reconstruct 306 / 481
+reconstruct 308 / 481
+reconstruct 310 / 481
+reconstruct 312 / 481
+reconstruct 314 / 481
+reconstruct 316 / 481
+reconstruct 318 / 481
+reconstruct 320 / 481
+reconstruct 322 / 481
+reconstruct 324 / 481
+reconstruct 326 / 481
+reconstruct 327 / 481
+reconstruct 328 / 481
+reconstruct 329 / 481
+reconstruct 330 / 481
+reconstruct 331 / 481
+reconstruct 332 / 481
+reconstruct 333 / 481
+reconstruct 334 / 481
+reconstruct 335 / 481
+reconstruct 336 / 481
+reconstruct 337 / 481
+reconstruct 338 / 481
+reconstruct 339 / 481
+reconstruct 340 / 481
+reconstruct 341 / 481
+reconstruct 342 / 481
+reconstruct 343 / 481
+reconstruct 344 / 481
+reconstruct 345 / 481
+reconstruct 346 / 481
+reconstruct 347 / 481
+reconstruct 348 / 481
+reconstruct 349 / 481
+reconstruct 350 / 481
+reconstruct 351 / 481
+reconstruct 352 / 481
+reconstruct 353 / 481
+reconstruct 354 / 481
+reconstruct 355 / 481
+reconstruct 357 / 481
+reconstruct 359 / 481
+reconstruct 361 / 481
+reconstruct 363 / 481
+reconstruct 365 / 481
+reconstruct 367 / 481
+reconstruct 369 / 481
+reconstruct 370 / 481
+reconstruct 371 / 481
+reconstruct 372 / 481
+reconstruct 374 / 481
+reconstruct 375 / 481
+reconstruct 377 / 481
+reconstruct 378 / 481
+reconstruct 379 / 481
+reconstruct 381 / 481
+reconstruct 383 / 481
+reconstruct 385 / 481
+reconstruct 387 / 481
+reconstruct 389 / 481
+reconstruct 391 / 481
+reconstruct 393 / 481
+reconstruct 395 / 481
+reconstruct 397 / 481
+reconstruct 399 / 481
+reconstruct 401 / 481
+reconstruct 402 / 481
+reconstruct 404 / 481
+reconstruct 406 / 481
+reconstruct 408 / 481
+reconstruct 410 / 481
+reconstruct 412 / 481
+reconstruct 414 / 481
+reconstruct 416 / 481
+reconstruct 418 / 481
+reconstruct 420 / 481
+reconstruct 422 / 481
+reconstruct 424 / 481
+reconstruct 426 / 481
+reconstruct 428 / 481
+reconstruct 430 / 481
+reconstruct 432 / 481
+reconstruct 434 / 481
+reconstruct 436 / 481
+reconstruct 438 / 481
+reconstruct 440 / 481
+reconstruct 442 / 481
+reconstruct 444 / 481
+reconstruct 446 / 481
+reconstruct 448 / 481
+reconstruct 450 / 481
+reconstruct 452 / 481
+reconstruct 454 / 481
+reconstruct 456 / 481
+reconstruct 458 / 481
+reconstruct 460 / 481
+reconstruct 462 / 481
+reconstruct 464 / 481
+reconstruct 466 / 481
+reconstruct 468 / 481
+reconstruct 470 / 481
+reconstruct 472 / 481
+reconstruct 474 / 481
+reconstruct 476 / 481
+reconstruct 478 / 481
+reconstruct 480 / 481
+reconstruct total: 399.8571
+part_reflection 3.088e-09
+part_reflection 1.418e-09
+part_reflection 1.549e-10
+part_reflection 2.0096e-11
+part_reflection 6.9577e-12
+part_reflection 3.9135e-12
+part_reflection 2.4021e-12
+part_reflection 1.4719e-12
+part_reflection 9.1149e-13
+part_reflection 5.6698e-13
+part_reflection 3.7022e-13
+part_reflection 2.263e-13
+part_reflection 1.3678e-13
+part_reflection 8.2659e-14
+part_reflection 4.9947e-14
+part_reflection 3.2228e-14
+part_reflection 2.1726e-14
+part_reflection 1.4486e-14
+part_reflection 9.1941e-15
+part_reflection 5.8353e-15
+part_reflection 4.1323e-15
+part_reflection 2.9263e-15
+part_reflection 1.817e-15
+part_reflection 1.2115e-15
+part_reflection 7.9025e-16
+part_reflection 4.7742e-16
+part_reflection 2.8843e-16
+part_reflection: 29.0444
+combine 6 / 264
+combine 13 / 264
+combine 21 / 264
+combine 29 / 264
+combine 36 / 264
+combine 43 / 264
+combine 50 / 264
+combine 59 / 264
+combine 67 / 264
+combine 75 / 264
+combine 81 / 264
+combine 89 / 264
+combine 97 / 264
+combine 104 / 264
+combine 112 / 264
+combine 120 / 264
+combine 128 / 264
+combine 136 / 264
+combine 144 / 264
+combine 150 / 264
+combine 157 / 264
+combine 164 / 264
+combine 172 / 264
+combine 179 / 264
+combine 187 / 264
+combine 195 / 264
+combine 201 / 264
+combine 207 / 264
+combine 213 / 264
+combine 219 / 264
+combine 226 / 264
+combine 233 / 264
+combine 240 / 264
+combine 247 / 264
+combine 254 / 264
+combine 261 / 264
+combine: 39.7248
+Elapsed time is 468.815361 seconds.
+Total time: 8m 49s
+---------------dance--MEAN ERROR---------------------------
+mean error : 0.070582

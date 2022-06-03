@@ -1,0 +1,97 @@
+***31-May-2022 23:15:49***
+---face_mocap---
+select_idx: 0.11976
+reconstruct 8 / 254
+reconstruct 15 / 254
+reconstruct 23 / 254
+reconstruct 31 / 254
+reconstruct 39 / 254
+reconstruct 47 / 254
+reconstruct 55 / 254
+reconstruct 63 / 254
+reconstruct 71 / 254
+reconstruct 79 / 254
+reconstruct 87 / 254
+reconstruct 95 / 254
+reconstruct 103 / 254
+reconstruct 111 / 254
+reconstruct 119 / 254
+reconstruct 127 / 254
+reconstruct 135 / 254
+reconstruct 143 / 254
+reconstruct 151 / 254
+reconstruct 159 / 254
+reconstruct 167 / 254
+reconstruct 175 / 254
+reconstruct 182 / 254
+reconstruct 190 / 254
+reconstruct 198 / 254
+reconstruct 206 / 254
+reconstruct 214 / 254
+reconstruct 222 / 254
+reconstruct 230 / 254
+reconstruct 238 / 254
+reconstruct 246 / 254
+reconstruct 254 / 254
+reconstruct total: 34.2346
+part_reflection: 0.41388
+combine 13 / 80
+combine 26 / 80
+combine 39 / 80
+combine 53 / 80
+combine 64 / 80
+combine 78 / 80
+combine: 6.3952
+Elapsed time is 41.166032 seconds.
+Total time: 1m 41s
+---------------face_mocap--MEAN ERROR---------------------------
+mean error : 0.75484
+***31-May-2022 23:25:36***
+---face_mocap---
+select_idx: 0.07965
+reconstruct 6 / 253
+reconstruct 13 / 253
+reconstruct 20 / 253
+reconstruct 27 / 253
+reconstruct 35 / 253
+reconstruct 42 / 253
+reconstruct 50 / 253
+reconstruct 58 / 253
+reconstruct 65 / 253
+reconstruct 73 / 253
+reconstruct 80 / 253
+reconstruct 88 / 253
+reconstruct 95 / 253
+reconstruct 102 / 253
+reconstruct 110 / 253
+reconstruct 117 / 253
+reconstruct 124 / 253
+reconstruct 131 / 253
+reconstruct 138 / 253
+reconstruct 145 / 253
+reconstruct 152 / 253
+reconstruct 160 / 253
+reconstruct 167 / 253
+reconstruct 174 / 253
+reconstruct 181 / 253
+reconstruct 188 / 253
+reconstruct 195 / 253
+reconstruct 202 / 253
+reconstruct 210 / 253
+reconstruct 218 / 253
+reconstruct 226 / 253
+reconstruct 233 / 253
+reconstruct 240 / 253
+reconstruct 248 / 253
+reconstruct total: 36.8332
+part_reflection: 0.42101
+combine 15 / 80
+combine 30 / 80
+combine 45 / 80
+combine 60 / 80
+combine 75 / 80
+combine: 5.4774
+Elapsed time is 42.816091 seconds.
+Total time: 1m 43s
+---------------face_mocap--MEAN ERROR---------------------------
+mean error : 0.74554

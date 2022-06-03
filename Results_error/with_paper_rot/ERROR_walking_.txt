@@ -1,0 +1,1347 @@
+***31-May-2022 23:48:30***
+---walking---
+select_idx: 0.18555
+Unrecognized function or variable 'nSample'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 51)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',51,0)">line 51</a>)
+s = 1./sqrt(reshape(sum(sum(D.^2, 1), 2), 1, nSample));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***31-May-2022 23:49:08***
+---walking---
+select_idx: 0.096754
+Undefined function 'Fill' for input arguments of type 'char'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 55)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',55,0)">line 55</a>)
+Fill missing entries if needed
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***31-May-2022 23:50:15***
+---walking---
+select_idx: 0.1514
+Undefined function 'Fill' for input arguments of type 'char'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 55)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',55,0)">line 55</a>)
+Fill missing entries if needed
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',55,0)
+***31-May-2022 23:50:38***
+---walking---
+select_idx: 0.14433
+Unrecognized function or variable 'X'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 39)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',39,0)">line 39</a>)
+[R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % reshape q sea matriz de 10 col, y cada2 filas como va ir cambiando
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(fD(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',39,0)
+clc
+dbcont
+***31-May-2022 23:53:27***
+---walking---
+select_idx: 0.15737
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus>fill_missing', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 130)" style="font-weight:bold">NRSfM_Consensus>fill_missing</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)">line 130</a>)
+    temp = (pout_trans(X+L)-Y).*T;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 58)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)">line 58</a>)
+    fD = reshape(fill_missing(reshape(D, [], p), T), 2, nSample, p);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)
+dbstep
+***31-May-2022 23:55:01***
+---walking---
+select_idx: 0.16397
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus>fill_missing', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 130)" style="font-weight:bold">NRSfM_Consensus>fill_missing</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)">line 130</a>)
+    temp = (pout_trans(X+L)-Y).*T;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 58)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)">line 58</a>)
+    fD = reshape(fill_missing(reshape(D, [], p), T), 2, nSample, p);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+***02-Jun-2022 17:51:26***
+---walking---
+select_idx: 0.51851
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus>fill_missing', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 130)" style="font-weight:bold">NRSfM_Consensus>fill_missing</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)">line 130</a>)
+    temp = (pout_trans(X+L)-Y).*T;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 58)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)">line 58</a>)
+    fD = reshape(fill_missing(reshape(D, [], p), T), 2, nSample, p);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 17:55:34***
+---walking---
+select_idx: 0.19548
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus>fill_missing', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 130)" style="font-weight:bold">NRSfM_Consensus>fill_missing</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)">line 130</a>)
+    temp = (pout_trans(X+L)-Y).*T;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 58)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)">line 58</a>)
+    fD = reshape(fill_missing(reshape(D, [], p), T), 2, nSample, p);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+dbstep in;
+dbcont
+***02-Jun-2022 17:56:12***
+---walking---
+dbstep in;
+dbcont
+select_idx: 0.23377
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus>fill_missing', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 130)" style="font-weight:bold">NRSfM_Consensus>fill_missing</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)">line 130</a>)
+    temp = (pout_trans(X+L)-Y).*T;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 58)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)">line 58</a>)
+    fD = reshape(fill_missing(reshape(D, [], p), T), 2, nSample, p);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',130,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',58,0)
+***02-Jun-2022 18:01:08***
+---walking---
+dbcont
+select_idx: 0.19643
+dbstep in;
+dbcont
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reshape')" style="font-weight:bold">reshape</a>
+Number of elements must not change. Use [] as one of the size inputs to automatically calculate the appropriate size for that
+dimension.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 42)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',42,0)">line 42</a>)
+X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i)
+for all iNICIALI
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(fD(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',42,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',42,0)
+***02-Jun-2022 18:03:59***
+---walking---
+dbstep
+select_idx: 0.24589
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reshape')" style="font-weight:bold">reshape</a>
+Number of elements must not change. Use [] as one of the size inputs to automatically calculate the appropriate size for that
+dimension.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 42)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',42,0)">line 42</a>)
+X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i)
+for all iNICIALI
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(fD(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+uiopen('C:\Users\pansu\OneDrive\Documentos\1-TFG\codes\NRSfM_Consensus\reconstruct.m',1)
+clear
+clc
+***02-Jun-2022 18:06:25***
+---walking---
+dbcont
+select_idx: 0.27928
+dbstep in;
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reshape')" style="font-weight:bold">reshape</a>
+Number of elements must not change. Use [] as one of the size inputs to automatically calculate the appropriate size for that
+dimension.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 42)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',42,0)">line 42</a>)
+X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i)
+for all iNICIALI
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(fD(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 18:08:27***
+---walking---
+dbcont
+select_idx: 0.25843
+dbstep in;
+dbcont
+dbquit
+***02-Jun-2022 18:16:43***
+---walking---
+dbcont
+select_idx: 0.25991
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+Matrix dimensions must agree.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 146)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',146,0)">line 146</a>)
+    [U, S, V] = rsvd(  reshape( Y, [], nSample) \ regu_T );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 18:17:52***
+---walking---
+dbcont
+select_idx: 0.19175
+dbcont
+a = reshape( Y, [], nSample) \ regu_T;
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+Matrix dimensions must agree.
+} 
+a = reshape( Y, [], nSample);
+aa =reshape( Y, [], nSample) \ regu_T ;
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mldivide')" style="font-weight:bold"> \ </a>
+Matrix dimensions must agree.
+} 
+aa =reshape( Y, [], nSample) *inv( regu_T );
+dbquit
+***02-Jun-2022 18:21:10***
+---walking---
+dbcont
+select_idx: 0.21542
+dbcont
+dbstep
+dbcont
+dbcont
+a = reshape( Y, [], nSample) / regu_T;
+dbquit
+***02-Jun-2022 18:22:34***
+---walking---
+dbcont
+select_idx: 0.25765
+dbcont
+dbstep
+dbcont
+a = reshape( Y, [], nSample) ;
+dbquit
+***02-Jun-2022 18:24:22***
+---walking---
+dbcont
+select_idx: 0.2606
+dbcont
+a = reshape( Y, [], nSample);
+if system_dependent('IsDebugMode')==1, dbquit all; end
+***02-Jun-2022 18:34:39***
+---walking---
+dbcont
+select_idx: 0.23899
+dbcont
+Undefined function 'eyes' for input arguments of type 'double'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 112)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',112,0)">line 112</a>)
+I1 = eyes(nSample,nSample);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 18:36:53***
+---walking---
+dbcont
+select_idx: 0.17268
+dbcont
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 180)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',180,0)">line 180</a>)
+Y = XRZ; % final estimate S_bar
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',180,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',180,0)
+clc
+***02-Jun-2022 18:38:12***
+---walking---
+dbcont
+select_idx: 0.22108
+dbcont
+if system_dependent('IsDebugMode')==1, dbquit all; end
+Unrecognized function or variable 'ngroup'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 69)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',69,0)">line 69</a>)
+Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
+
+***02-Jun-2022 18:39:35***
+---walking---
+dbcont
+select_idx: 0.19072
+dbcont
+dbcont
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 180)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',180,0)">line 180</a>)
+Y = XRZ; % final estimate S_bar
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+Unrecognized function or variable 'ngroup'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 69)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',69,0)">line 69</a>)
+Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
+
+***02-Jun-2022 18:40:16***
+---walking---
+dbcont
+select_idx: 0.1512
+dbcont
+dbcont
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 180)" style="font-weight:bold">reconstruct>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',180,0)">line 180</a>)
+Y = XRZ; % final estimate S_bar
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 50)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',50,0)">line 50</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, [])); % X: Input shapes (R*X)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 71)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',71,0)">line 71</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+Unrecognized function or variable 'ngroup'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 69)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',69,0)">line 69</a>)
+Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
+
+***02-Jun-2022 18:41:00***
+---walking---
+dbcont
+select_idx: 0.17366
+dbcont
+if system_dependent('IsDebugMode')==1, dbquit all; end
+clear
+clc
+***02-Jun-2022 19:17:03***
+---walking---
+dbcont
+select_idx: 0.21647
+dbstep in;
+dbcont
+reconstruct 1 / 353
+dbcont
+reconstruct 2 / 353
+dbcont
+reconstruct 3 / 353
+reconstruct 6 / 353
+reconstruct 9 / 353
+reconstruct 13 / 353
+reconstruct 15 / 353
+reconstruct 18 / 353
+reconstruct 21 / 353
+reconstruct 24 / 353
+reconstruct 28 / 353
+reconstruct 31 / 353
+reconstruct 34 / 353
+reconstruct 37 / 353
+reconstruct 40 / 353
+reconstruct 43 / 353
+reconstruct 45 / 353
+reconstruct 47 / 353
+reconstruct 48 / 353
+reconstruct 50 / 353
+reconstruct 52 / 353
+reconstruct 54 / 353
+reconstruct 57 / 353
+reconstruct 60 / 353
+reconstruct 62 / 353
+reconstruct 66 / 353
+reconstruct 68 / 353
+reconstruct 71 / 353
+reconstruct 74 / 353
+reconstruct 77 / 353
+reconstruct 80 / 353
+reconstruct 82 / 353
+reconstruct 85 / 353
+reconstruct 88 / 353
+reconstruct 91 / 353
+reconstruct 94 / 353
+reconstruct 97 / 353
+reconstruct 99 / 353
+reconstruct 102 / 353
+reconstruct 106 / 353
+reconstruct 109 / 353
+reconstruct 113 / 353
+reconstruct 116 / 353
+reconstruct 119 / 353
+reconstruct 121 / 353
+reconstruct 124 / 353
+reconstruct 128 / 353
+reconstruct 131 / 353
+reconstruct 133 / 353
+reconstruct 136 / 353
+reconstruct 140 / 353
+reconstruct 143 / 353
+reconstruct 147 / 353
+reconstruct 151 / 353
+reconstruct 154 / 353
+reconstruct 157 / 353
+reconstruct 161 / 353
+reconstruct 164 / 353
+reconstruct 168 / 353
+reconstruct 172 / 353
+reconstruct 175 / 353
+reconstruct 178 / 353
+reconstruct 182 / 353
+reconstruct 185 / 353
+reconstruct 189 / 353
+reconstruct 192 / 353
+reconstruct 195 / 353
+reconstruct 199 / 353
+reconstruct 202 / 353
+reconstruct 206 / 353
+reconstruct 208 / 353
+reconstruct 211 / 353
+reconstruct 214 / 353
+reconstruct 217 / 353
+reconstruct 218 / 353
+reconstruct 220 / 353
+reconstruct 222 / 353
+reconstruct 224 / 353
+reconstruct 226 / 353
+reconstruct 228 / 353
+reconstruct 230 / 353
+reconstruct 232 / 353
+reconstruct 233 / 353
+reconstruct 235 / 353
+reconstruct 237 / 353
+reconstruct 239 / 353
+reconstruct 241 / 353
+reconstruct 243 / 353
+reconstruct 245 / 353
+reconstruct 247 / 353
+reconstruct 249 / 353
+reconstruct 251 / 353
+reconstruct 253 / 353
+reconstruct 255 / 353
+reconstruct 259 / 353
+reconstruct 262 / 353
+reconstruct 266 / 353
+reconstruct 269 / 353
+reconstruct 272 / 353
+reconstruct 275 / 353
+reconstruct 279 / 353
+reconstruct 283 / 353
+reconstruct 286 / 353
+reconstruct 289 / 353
+reconstruct 292 / 353
+reconstruct 295 / 353
+reconstruct 298 / 353
+reconstruct 302 / 353
+reconstruct 305 / 353
+reconstruct 308 / 353
+reconstruct 312 / 353
+reconstruct 315 / 353
+reconstruct 318 / 353
+reconstruct 320 / 353
+reconstruct 323 / 353
+reconstruct 326 / 353
+reconstruct 330 / 353
+reconstruct 333 / 353
+reconstruct 337 / 353
+reconstruct 339 / 353
+reconstruct 343 / 353
+reconstruct 346 / 353
+reconstruct 350 / 353
+reconstruct total: 171.3806
+part_reflection 2.1925e-13
+part_reflection: 1.9955
+combine 7 / 260
+combine 18 / 260
+combine 29 / 260
+combine 40 / 260
+combine 51 / 260
+combine 62 / 260
+combine 73 / 260
+combine 84 / 260
+combine 95 / 260
+combine 106 / 260
+combine 117 / 260
+combine 128 / 260
+combine 139 / 260
+combine 149 / 260
+combine 158 / 260
+combine 168 / 260
+combine 178 / 260
+combine 187 / 260
+combine 194 / 260
+combine 200 / 260
+combine 205 / 260
+combine 210 / 260
+combine 215 / 260
+combine 220 / 260
+combine 225 / 260
+combine 229 / 260
+combine 234 / 260
+combine 239 / 260
+combine 244 / 260
+combine 248 / 260
+combine 253 / 260
+combine 258 / 260
+combine: 34.7805
+Elapsed time is 208.380148 seconds.
+Total time: 3m 28s
+---------------walking--MEAN ERROR---------------------------
+mean error : 0.99976
+***02-Jun-2022 19:31:51***
+---walking---
+select_idx: 0.13852
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 115)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',115,0)">line 115</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 46)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',46,0)">line 46</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE271388965', 'C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m', 46)" style="font-weight:bold">LiveEditorEvaluationHelperE271388965</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+} 
+***02-Jun-2022 19:32:13***
+---walking---
+select_idx: 0.13447
+dbcont
+dbcont
+dbcont
+dbcont
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>rsvd', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 204)" style="font-weight:bold">reconstruct2>rsvd</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',204,0)">line 204</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 115)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',115,0)">line 115</a>)
+    [U, S, V] = rsvd(reshape(Y, [], nSample) / regu_T );
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 46)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',46,0)">line 46</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE271388965', 'C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m', 46)" style="font-weight:bold">LiveEditorEvaluationHelperE271388965</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_lkrhu\LiveEditorEvaluationHelperE271388965.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+} 
+clc
+***02-Jun-2022 19:33:44***
+---walking---
+select_idx: 0.14267
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 138)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)">line 138</a>)
+Y = XRZ;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)
+***02-Jun-2022 19:34:25***
+---walking---
+select_idx: 0.11534
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 138)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)">line 138</a>)
+Y = XRZ;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)
+***02-Jun-2022 19:34:45***
+---walking---
+dbstep
+select_idx: 0.22225
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 138)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)">line 138</a>)
+Y = XRZ;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 19:35:06***
+dbstep
+---walking---
+dbstep
+select_idx: 0.20117
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 138)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)">line 138</a>)
+Y = XRZ;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 19:35:34***
+dbstep
+---walking---
+dbstep in;
+dbstep
+dbstep
+dbstep
+dbstep
+dbcont
+select_idx: 7.8174
+dbstep in;
+dbcont
+dbstep in;
+dbcont
+dbcont
+Unrecognized function or variable 'XRZ'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 138)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',138,0)">line 138</a>)
+Y = XRZ;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 19:36:43***
+dbcont
+---walking---
+dbcont
+select_idx: 0.21308
+dbcont
+dbcont
+dbstep
+if system_dependent('IsDebugMode')==1, dbquit all; end
+***02-Jun-2022 19:37:51***
+dbcont
+---walking---
+select_idx: 0.2474
+dbcont
+dbcont
+dbcont
+reconstruct 1 / 358
+reconstruct 3 / 358
+reconstruct 5 / 358
+reconstruct 7 / 358
+reconstruct 9 / 358
+reconstruct 11 / 358
+reconstruct 13 / 358
+reconstruct 15 / 358
+reconstruct 17 / 358
+reconstruct 19 / 358
+reconstruct 21 / 358
+reconstruct 23 / 358
+reconstruct 25 / 358
+reconstruct 27 / 358
+***02-Jun-2022 19:42:55***
+---walking---
+select_idx: 0.61487
+reconstruct 1 / 356
+reconstruct 2 / 356
+reconstruct 3 / 356
+reconstruct 4 / 356
+reconstruct 5 / 356
+reconstruct 6 / 356
+reconstruct 7 / 356
+reconstruct 8 / 356
+reconstruct 9 / 356
+reconstruct 10 / 356
+reconstruct 12 / 356
+reconstruct 13 / 356
+reconstruct 14 / 356
+reconstruct 16 / 356
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 115)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',115,0)">line 115</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE2024487323', 'C:\Users\pansu\AppData\Local\Temp\Editor_stpjg\LiveEditorEvaluationHelperE2024487323.m', 46)" style="font-weight:bold">LiveEditorEvaluationHelperE2024487323</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_stpjg\LiveEditorEvaluationHelperE2024487323.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+} 
+clc
+***02-Jun-2022 19:43:32***
+---walking---
+select_idx: 0.11496
+reconstruct 2 / 352
+reconstruct 4 / 352
+reconstruct 6 / 352
+reconstruct 8 / 352
+reconstruct 10 / 352
+reconstruct 12 / 352
+reconstruct 14 / 352
+reconstruct 15 / 352
+reconstruct 17 / 352
+reconstruct 18 / 352
+reconstruct 20 / 352
+reconstruct 22 / 352
+reconstruct 24 / 352
+reconstruct 26 / 352
+reconstruct 27 / 352
+reconstruct 28 / 352
+reconstruct 29 / 352
+reconstruct 30 / 352
+reconstruct 31 / 352
+reconstruct 32 / 352
+reconstruct 33 / 352
+reconstruct 34 / 352
+reconstruct 35 / 352
+reconstruct 36 / 352
+reconstruct 37 / 352
+reconstruct 38 / 352
+reconstruct 39 / 352
+reconstruct 40 / 352
+reconstruct 41 / 352
+reconstruct 42 / 352
+reconstruct 43 / 352
+reconstruct 44 / 352
+reconstruct 45 / 352
+reconstruct 46 / 352
+reconstruct 47 / 352
+reconstruct 48 / 352
+reconstruct 49 / 352
+reconstruct 50 / 352
+reconstruct 51 / 352
+reconstruct 52 / 352
+reconstruct 53 / 352
+reconstruct 54 / 352
+reconstruct 55 / 352
+reconstruct 56 / 352
+reconstruct 57 / 352
+reconstruct 58 / 352
+reconstruct 59 / 352
+reconstruct 60 / 352
+reconstruct 61 / 352
+reconstruct 62 / 352
+reconstruct 63 / 352
+reconstruct 65 / 352
+reconstruct 67 / 352
+reconstruct 68 / 352
+reconstruct 69 / 352
+reconstruct 71 / 352
+reconstruct 73 / 352
+reconstruct 75 / 352
+reconstruct 77 / 352
+reconstruct 79 / 352
+reconstruct 81 / 352
+reconstruct 83 / 352
+reconstruct 84 / 352
+reconstruct 85 / 352
+reconstruct 86 / 352
+reconstruct 87 / 352
+reconstruct 88 / 352
+reconstruct 89 / 352
+reconstruct 91 / 352
+reconstruct 93 / 352
+reconstruct 95 / 352
+reconstruct 96 / 352
+reconstruct 97 / 352
+reconstruct 99 / 352
+reconstruct 101 / 352
+reconstruct 103 / 352
+reconstruct 105 / 352
+reconstruct 106 / 352
+reconstruct 108 / 352
+reconstruct 110 / 352
+reconstruct 111 / 352
+reconstruct 113 / 352
+reconstruct 114 / 352
+reconstruct 115 / 352
+reconstruct 116 / 352
+reconstruct 118 / 352
+reconstruct 120 / 352
+reconstruct 122 / 352
+reconstruct 123 / 352
+reconstruct 124 / 352
+reconstruct 125 / 352
+reconstruct 126 / 352
+reconstruct 128 / 352
+reconstruct 129 / 352
+reconstruct 130 / 352
+reconstruct 131 / 352
+reconstruct 132 / 352
+reconstruct 133 / 352
+reconstruct 134 / 352
+reconstruct 135 / 352
+reconstruct 136 / 352
+reconstruct 137 / 352
+reconstruct 138 / 352
+reconstruct 139 / 352
+reconstruct 140 / 352
+reconstruct 141 / 352
+reconstruct 142 / 352
+reconstruct 143 / 352
+reconstruct 144 / 352
+reconstruct 145 / 352
+reconstruct 146 / 352
+reconstruct 147 / 352
+reconstruct 148 / 352
+reconstruct 149 / 352
+reconstruct 150 / 352
+reconstruct 152 / 352
+reconstruct 153 / 352
+reconstruct 154 / 352
+reconstruct 155 / 352
+reconstruct 156 / 352
+reconstruct 157 / 352
+reconstruct 158 / 352
+reconstruct 159 / 352
+reconstruct 160 / 352
+reconstruct 161 / 352
+reconstruct 162 / 352
+reconstruct 163 / 352
+reconstruct 164 / 352
+reconstruct 166 / 352
+reconstruct 167 / 352
+reconstruct 169 / 352
+reconstruct 171 / 352
+reconstruct 172 / 352
+reconstruct 174 / 352
+reconstruct 176 / 352
+reconstruct 178 / 352
+reconstruct 180 / 352
+reconstruct 182 / 352
+reconstruct 184 / 352
+reconstruct 186 / 352
+reconstruct 188 / 352
+reconstruct 189 / 352
+reconstruct 190 / 352
+reconstruct 192 / 352
+reconstruct 193 / 352
+reconstruct 194 / 352
+reconstruct 195 / 352
+reconstruct 196 / 352
+reconstruct 197 / 352
+reconstruct 198 / 352
+reconstruct 199 / 352
+reconstruct 200 / 352
+reconstruct 201 / 352
+reconstruct 202 / 352
+reconstruct 203 / 352
+reconstruct 204 / 352
+reconstruct 205 / 352
+reconstruct 206 / 352
+reconstruct 207 / 352
+reconstruct 208 / 352
+reconstruct 209 / 352
+reconstruct 210 / 352
+reconstruct 211 / 352
+reconstruct 212 / 352
+reconstruct 213 / 352
+reconstruct 214 / 352
+reconstruct 215 / 352
+reconstruct 216 / 352
+reconstruct 217 / 352
+reconstruct 218 / 352
+reconstruct 219 / 352
+reconstruct 220 / 352
+reconstruct 221 / 352
+reconstruct 222 / 352
+reconstruct 223 / 352
+reconstruct 224 / 352
+reconstruct 225 / 352
+reconstruct 226 / 352
+reconstruct 227 / 352
+reconstruct 228 / 352
+reconstruct 229 / 352
+reconstruct 230 / 352
+reconstruct 231 / 352
+reconstruct 232 / 352
+reconstruct 233 / 352
+reconstruct 234 / 352
+reconstruct 235 / 352
+reconstruct 236 / 352
+reconstruct 237 / 352
+reconstruct 238 / 352
+reconstruct 239 / 352
+reconstruct 240 / 352
+reconstruct 241 / 352
+reconstruct 242 / 352
+reconstruct 243 / 352
+reconstruct 244 / 352
+reconstruct 245 / 352
+reconstruct 246 / 352
+reconstruct 247 / 352
+reconstruct 248 / 352
+reconstruct 249 / 352
+reconstruct 250 / 352
+reconstruct 251 / 352
+reconstruct 252 / 352
+reconstruct 253 / 352
+reconstruct 254 / 352
+reconstruct 255 / 352
+reconstruct 256 / 352
+reconstruct 257 / 352
+reconstruct 258 / 352
+reconstruct 259 / 352
+reconstruct 260 / 352
+reconstruct 261 / 352
+reconstruct 262 / 352
+reconstruct 263 / 352
+reconstruct 264 / 352
+reconstruct 265 / 352
+reconstruct 266 / 352
+reconstruct 267 / 352
+reconstruct 268 / 352
+reconstruct 269 / 352
+reconstruct 270 / 352
+reconstruct 271 / 352
+reconstruct 272 / 352
+reconstruct 273 / 352
+reconstruct 274 / 352
+reconstruct 275 / 352
+reconstruct 276 / 352
+reconstruct 277 / 352
+reconstruct 278 / 352
+reconstruct 279 / 352
+reconstruct 280 / 352
+reconstruct 281 / 352
+reconstruct 282 / 352
+reconstruct 283 / 352
+reconstruct 284 / 352
+reconstruct 285 / 352
+reconstruct 286 / 352
+reconstruct 287 / 352
+reconstruct 288 / 352
+reconstruct 289 / 352
+reconstruct 290 / 352
+reconstruct 292 / 352
+reconstruct 293 / 352
+reconstruct 294 / 352
+reconstruct 295 / 352
+reconstruct 296 / 352
+reconstruct 297 / 352
+reconstruct 298 / 352
+reconstruct 299 / 352
+reconstruct 300 / 352
+reconstruct 301 / 352
+reconstruct 302 / 352
+reconstruct 303 / 352
+reconstruct 304 / 352
+reconstruct 305 / 352
+reconstruct 306 / 352
+reconstruct 307 / 352
+reconstruct 308 / 352
+reconstruct 309 / 352
+reconstruct 311 / 352
+reconstruct 312 / 352
+reconstruct 313 / 352
+reconstruct 314 / 352
+reconstruct 315 / 352
+reconstruct 316 / 352
+reconstruct 317 / 352
+reconstruct 318 / 352
+reconstruct 319 / 352
+reconstruct 320 / 352
+reconstruct 321 / 352
+reconstruct 322 / 352
+reconstruct 323 / 352
+reconstruct 324 / 352
+reconstruct 325 / 352
+reconstruct 326 / 352
+reconstruct 327 / 352
+reconstruct 328 / 352
+reconstruct 329 / 352
+reconstruct 330 / 352
+reconstruct 331 / 352
+reconstruct 332 / 352
+reconstruct 333 / 352
+reconstruct 334 / 352
+reconstruct 335 / 352
+reconstruct 336 / 352
+reconstruct 337 / 352
+reconstruct 338 / 352
+reconstruct 339 / 352
+reconstruct 340 / 352
+reconstruct 341 / 352
+reconstruct 342 / 352
+reconstruct 343 / 352
+reconstruct 344 / 352
+reconstruct 345 / 352
+reconstruct 346 / 352
+reconstruct 347 / 352
+reconstruct 348 / 352
+reconstruct 349 / 352
+reconstruct 350 / 352
+reconstruct 351 / 352
+reconstruct 352 / 352
+reconstruct total: 477.9319
+part_reflection 4.4929e-10
+part_reflection 9.0331e-14
+part_reflection: 4.3023
+combine 2 / 260
+combine 6 / 260
+combine 11 / 260
+combine 17 / 260
+combine 22 / 260
+combine 28 / 260
+combine 33 / 260
+combine 39 / 260
+combine 44 / 260
+combine 49 / 260
+combine 55 / 260
+combine 60 / 260
+combine 66 / 260
+combine 72 / 260
+combine 78 / 260
+combine 84 / 260
+combine 90 / 260
+combine 96 / 260
+combine 102 / 260
+combine 108 / 260
+combine 114 / 260
+combine 119 / 260
+combine 125 / 260
+combine 131 / 260
+combine 137 / 260
+combine 143 / 260
+combine 149 / 260
+combine 155 / 260
+combine 160 / 260
+combine 165 / 260
+combine 171 / 260
+combine 177 / 260
+combine 183 / 260
+combine 188 / 260
+combine 194 / 260
+combine 199 / 260
+combine 204 / 260
+combine 210 / 260
+combine 215 / 260
+combine 220 / 260
+combine 226 / 260
+combine 231 / 260
+combine 237 / 260
+combine 241 / 260
+combine 246 / 260
+combine 251 / 260
+combine 256 / 260
+combine: 52.826
+Elapsed time is 535.187757 seconds.
+Total time: 9m 55s
+---------------walking--MEAN ERROR---------------------------
+mean error : 0.063317
+***02-Jun-2022 20:29:26***
+---walking---
+select_idx: 0.16466
+dbstep
+dbstep
+Unrecognized function or variable 'flag_soft'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 117)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',117,0)">line 117</a>)
+    if flag_soft
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+***02-Jun-2022 20:30:05***
+---walking---
+select_idx: 0.17158
+dbstep
+dbstep
+dbstep
+dbquit
+***02-Jun-2022 20:30:30***
+---walking---
+select_idx: 0.16685
+dbstep
+dbstep
+dbstep
+Y = pXRZ - L - L2 * (L_t)';
+{Arrays have incompatible sizes for this operation.
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+} 
+L2 = zeros(size(nSample));
+L2 = zeros(size(nSample))
+
+L2 =
+
+     0
+
+if system_dependent('IsDebugMode')==1, dbquit all; end
+***02-Jun-2022 20:31:37***
+---walking---
+select_idx: 0.20054
+dbstep
+dbstep
+Y = pXRZ - L - L2 * (L_t)';
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix matches the number of
+rows in the second matrix. To perform elementwise multiplication, use '.*'.
+
+<a href="matlab:helpview('matlab','error_innerdim')" style="font-weight:bold">Related documentation</a>
+} 
+dbquit
+***02-Jun-2022 20:36:17***
+---walking---
+select_idx: 0.17113
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 126)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',126,0)">line 126</a>)
+        [U, S, V] = rsvd(reshape(Y, [], nSample) - L2 * (L_t)' / regu_T );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+***02-Jun-2022 20:37:17***
+---walking---
+select_idx: 0.2233
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Arrays have incompatible sizes for this operation.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2>BMM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 126)" style="font-weight:bold">reconstruct2>BMM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',126,0)">line 126</a>)
+        [U, S, V] = rsvd((reshape(Y, [], nSample) - (L2 * (L_t)')) / regu_T );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct2', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m', 54)" style="font-weight:bold">reconstruct2</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct2.m',54,0)">line 54</a>)
+X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 47)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',47,0)">line 47</a>)
+    Xi{i} = reconstruct2(D(:, idx(:, i), :), rotK_ratio,max_ite);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 32)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',32,0)">line 32</a>)
+X = NRSfM_Consensus(D);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 46)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',46,0)">line 46</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+
+demo
+***02-Jun-2022 20:37:29***
+---walking---
+select_idx: 0.17283
+dbcont
+a =(L2 * (L_t)');
+aa = (reshape(Y, [], nSample) - (L2 * (L_t)');
+ aa = (reshape(Y, [], nSample) - (L2 * (L_t)');
+                                              ↑
+{Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+aa = (reshape(Y, [], nSample) - (L2 * (L_t)'));
+{Arrays have incompatible sizes for this operation.
+
+<a href="matlab:helpview('matlab','error_sizeDimensionsMustMatch')" style="font-weight:bold">Related documentation</a>
+} 
+a = (L2 * (L_t)');
+aa=(reshape(Y, [], nSample) ;
+ aa=(reshape(Y, [], nSample) ;
+                             ↑
+{Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched
+delimiters.
+} 
+aa=(reshape(Y, [], nSample) );
+if system_dependent('IsDebugMode')==1, dbquit all; end
+clc

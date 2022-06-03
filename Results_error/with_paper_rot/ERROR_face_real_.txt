@@ -1,0 +1,49 @@
+***31-May-2022 23:26:19***
+---face_real---
+select_idx: 0.06702
+reconstruct 8 / 251
+reconstruct 16 / 251
+reconstruct 24 / 251
+reconstruct 31 / 251
+reconstruct 38 / 251
+reconstruct 45 / 251
+reconstruct 53 / 251
+reconstruct 60 / 251
+reconstruct 67 / 251
+reconstruct 74 / 251
+reconstruct 81 / 251
+reconstruct 89 / 251
+reconstruct 96 / 251
+reconstruct 103 / 251
+reconstruct 110 / 251
+reconstruct 117 / 251
+reconstruct 125 / 251
+reconstruct 133 / 251
+reconstruct 140 / 251
+reconstruct 147 / 251
+reconstruct 154 / 251
+reconstruct 161 / 251
+reconstruct 168 / 251
+reconstruct 175 / 251
+reconstruct 182 / 251
+reconstruct 190 / 251
+reconstruct 197 / 251
+reconstruct 204 / 251
+reconstruct 211 / 251
+reconstruct 218 / 251
+reconstruct 226 / 251
+reconstruct 233 / 251
+reconstruct 240 / 251
+reconstruct 247 / 251
+reconstruct total: 36.5109
+part_reflection: 0.37933
+combine 15 / 80
+combine 31 / 80
+combine 46 / 80
+combine 60 / 80
+combine 70 / 80
+combine: 5.8969
+Elapsed time is 42.855451 seconds.
+Total time: 1m 43s
+---------------face_real--MEAN ERROR---------------------------
+mean error : 0.74687

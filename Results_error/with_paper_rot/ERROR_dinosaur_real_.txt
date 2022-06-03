@@ -1,0 +1,239 @@
+***31-May-2022 23:10:47***
+---dinosaur_real---
+Undefined function 'Remove' for input arguments of type 'char'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 25)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',25,0)">line 25</a>)
+Remove translation components / normalize
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 39)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',39,0)">line 39</a>)
+X = NRSfM_Consensus(D,W);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 44)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',44,0)">line 44</a>)
+        [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
+
+opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',25,0)
+dbcont
+***31-May-2022 23:11:53***
+---dinosaur_real---
+select_idx: 0.22964
+reconstruct 3 / 325
+reconstruct 6 / 325
+reconstruct 10 / 325
+reconstruct 13 / 325
+reconstruct 16 / 325
+reconstruct 20 / 325
+reconstruct 24 / 325
+reconstruct 27 / 325
+reconstruct 32 / 325
+reconstruct 36 / 325
+reconstruct 40 / 325
+reconstruct 45 / 325
+reconstruct 49 / 325
+reconstruct 54 / 325
+reconstruct 58 / 325
+reconstruct 62 / 325
+reconstruct 67 / 325
+reconstruct 71 / 325
+reconstruct 75 / 325
+reconstruct 79 / 325
+reconstruct 84 / 325
+reconstruct 88 / 325
+reconstruct 92 / 325
+reconstruct 96 / 325
+reconstruct 100 / 325
+reconstruct 104 / 325
+reconstruct 108 / 325
+reconstruct 111 / 325
+reconstruct 115 / 325
+reconstruct 119 / 325
+reconstruct 123 / 325
+reconstruct 127 / 325
+reconstruct 131 / 325
+reconstruct 135 / 325
+reconstruct 139 / 325
+reconstruct 143 / 325
+reconstruct 147 / 325
+reconstruct 152 / 325
+reconstruct 156 / 325
+reconstruct 161 / 325
+reconstruct 165 / 325
+reconstruct 169 / 325
+reconstruct 174 / 325
+reconstruct 179 / 325
+reconstruct 183 / 325
+reconstruct 187 / 325
+reconstruct 191 / 325
+reconstruct 194 / 325
+reconstruct 199 / 325
+reconstruct 204 / 325
+reconstruct 208 / 325
+reconstruct 212 / 325
+reconstruct 216 / 325
+reconstruct 221 / 325
+reconstruct 226 / 325
+reconstruct 230 / 325
+reconstruct 235 / 325
+reconstruct 240 / 325
+reconstruct 244 / 325
+reconstruct 249 / 325
+reconstruct 253 / 325
+reconstruct 258 / 325
+reconstruct 262 / 325
+reconstruct 266 / 325
+reconstruct 270 / 325
+reconstruct 275 / 325
+reconstruct 280 / 325
+reconstruct 284 / 325
+reconstruct 288 / 325
+reconstruct 292 / 325
+reconstruct 296 / 325
+reconstruct 300 / 325
+reconstruct 304 / 325
+reconstruct 308 / 325
+reconstruct 312 / 325
+reconstruct 316 / 325
+reconstruct 320 / 325
+reconstruct 324 / 325
+reconstruct total: 87.3403
+part_reflection 1.5317e-10
+part_reflection 3.0054e-10
+part_reflection: 3.3387
+combine 9 / 231
+combine 20 / 231
+combine 31 / 231
+combine 42 / 231
+combine 50 / 231
+combine 60 / 231
+combine 71 / 231
+combine 81 / 231
+combine 92 / 231
+combine 103 / 231
+combine 114 / 231
+combine 125 / 231
+combine 136 / 231
+combine 147 / 231
+combine 158 / 231
+combine 169 / 231
+combine 180 / 231
+combine 191 / 231
+combine 202 / 231
+combine 213 / 231
+combine 224 / 231
+combine: 22.6411
+Elapsed time is 113.556805 seconds.
+Total time: 2m 54s
+---------------dinosaur_real--MEAN ERROR---------------------------
+mean error : 0.63186
+***31-May-2022 23:23:40***
+---dinosaur_real---
+select_idx: 0.10458
+reconstruct 4 / 324
+reconstruct 8 / 324
+reconstruct 12 / 324
+reconstruct 16 / 324
+reconstruct 20 / 324
+reconstruct 24 / 324
+reconstruct 28 / 324
+reconstruct 33 / 324
+reconstruct 38 / 324
+reconstruct 42 / 324
+reconstruct 47 / 324
+reconstruct 51 / 324
+reconstruct 55 / 324
+reconstruct 60 / 324
+reconstruct 64 / 324
+reconstruct 68 / 324
+reconstruct 73 / 324
+reconstruct 77 / 324
+reconstruct 82 / 324
+reconstruct 86 / 324
+reconstruct 90 / 324
+reconstruct 94 / 324
+reconstruct 98 / 324
+reconstruct 102 / 324
+reconstruct 106 / 324
+reconstruct 110 / 324
+reconstruct 115 / 324
+reconstruct 120 / 324
+reconstruct 124 / 324
+reconstruct 128 / 324
+reconstruct 132 / 324
+reconstruct 136 / 324
+reconstruct 141 / 324
+reconstruct 145 / 324
+reconstruct 149 / 324
+reconstruct 153 / 324
+reconstruct 157 / 324
+reconstruct 161 / 324
+reconstruct 165 / 324
+reconstruct 170 / 324
+reconstruct 174 / 324
+reconstruct 178 / 324
+reconstruct 182 / 324
+reconstruct 186 / 324
+reconstruct 191 / 324
+reconstruct 196 / 324
+reconstruct 200 / 324
+reconstruct 204 / 324
+reconstruct 208 / 324
+reconstruct 212 / 324
+reconstruct 216 / 324
+reconstruct 220 / 324
+reconstruct 224 / 324
+reconstruct 228 / 324
+reconstruct 232 / 324
+reconstruct 236 / 324
+reconstruct 240 / 324
+reconstruct 244 / 324
+reconstruct 248 / 324
+reconstruct 252 / 324
+reconstruct 256 / 324
+reconstruct 260 / 324
+reconstruct 263 / 324
+reconstruct 267 / 324
+reconstruct 271 / 324
+reconstruct 275 / 324
+reconstruct 279 / 324
+reconstruct 283 / 324
+reconstruct 287 / 324
+reconstruct 291 / 324
+reconstruct 295 / 324
+reconstruct 299 / 324
+reconstruct 303 / 324
+reconstruct 307 / 324
+reconstruct 311 / 324
+reconstruct 315 / 324
+reconstruct 319 / 324
+reconstruct 323 / 324
+reconstruct total: 88.0097
+part_reflection 3.0951e-10
+part_reflection 1.4802e-08
+part_reflection: 3.2205
+combine 9 / 231
+combine 19 / 231
+combine 29 / 231
+combine 39 / 231
+combine 49 / 231
+combine 59 / 231
+combine 69 / 231
+combine 79 / 231
+combine 89 / 231
+combine 99 / 231
+combine 109 / 231
+combine 119 / 231
+combine 129 / 231
+combine 139 / 231
+combine 149 / 231
+combine 159 / 231
+combine 169 / 231
+combine 179 / 231
+combine 189 / 231
+combine 199 / 231
+combine 209 / 231
+combine 219 / 231
+combine 229 / 231
+combine: 24.5517
+Elapsed time is 115.890052 seconds.
+Total time: 2m 56s
+---------------dinosaur_real--MEAN ERROR---------------------------
+mean error : 0.60844

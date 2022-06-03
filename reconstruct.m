@@ -15,14 +15,14 @@ function X = reconstruct(D, rotK_th)
 
 % translate and normalize
 [X, TX] = pout_trans(D);
-sX = sqrt(sum(sum(X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
+sX = sqrt(sum(sum(X.^2)));
 X = bsxfun(@rdivide, X, sX); % divide con el sX
-
 
 % calculate rotation
 [R, ts] = cal_rotation(K_P_F2KF_P(X(1:2, :, :)), rotK_th); % reshape q sea matriz de 10 col, y cada2 filas como va ir cambiando
 sX = sX.*ts;
 X = bsxfun(@rdivide, X, ts); % X(:, :, i) <- X(:, :, i)/ts(i) for all i
+
 X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))), k, p, f); % X(:, :, i) <- R(:, :, i)'*X(:, :, i) for all iNICIALI
 % correct reflections
 [X, R] = correct_reflection(X, R); 
@@ -86,47 +86,21 @@ L = zeros(size(X));
 
 % MULTIPLICATION L AND L^T 
 L_tt = L_t*(L_t.') ;
-
-% translate and normalize the regu term ?
-% [L_tt_X, L_tt_TX] = pout_trans(L_tt_old);
-% L_tt_sX = sqrt(sum(sum(L_tt_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
-% L_tt = bsxfun(@rdivide, L_tt_X, L_tt_sX);
-
-I1 = ones(nSample,nSample);
-% I1_o = ones(nSample,nSample);
-% [I1_X, I1_TX] = pout_trans(I1_o);
-% I1_sX = sqrt(sum(sum(I1_X.^2))); % para cada frame, de la trayectoria X data, hacemos la raiz cuadradada de la suma
-% I1 = bsxfun(@rdivide, I1_X, I1_sX);
-
+I1 = eye(nSample);
 regu_T = L_tt + I1;
-% regu_T = pout_trans(regu_T); % normalize
 
 
-while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
+
+while cost > 1e-10 && count<400 % Check Convergence
     
     % Update Model Parameters
     % since Y is a tensor, we have to apply reshape to conv it as a matrix 
     Y = pXRZ - L;
 
-%----Add my temporal regulatization:----
-    % vectorizar cada Y(:,:,1), para que tenga el shape de S^#
-%     Y_3pF_old = reshape(permute(Y,[2 1 3]),3*p,[]); % x...x,y...y,z....z
-%     Y_3pF = Y_3pF_old / regu_T; % same using inv in matlab()
-
-    % all in one line:
-%     Y_3pF = reshape(permute(pXRZ - L,[2 1 3]), 3*p ,[]) / (regu_T); % x...x,y...y,z....z
-    
-    % back to before shape 
-    % mezclar para q tenga la estructura de antes, [xyz,p,F]
-%     Y = permute(reshape(Y_3pF, p,3,[]),[2 1 3]); 
-%----------------------------------------
-
-    Y_reshape = reshape( Y, [], nSample) ; 
-%     whos
-%     pause
-
+%----Add my temporal regulatization:
+ 
     % prepares for Nuclear Minimization
-    [U, S, V] = rsvd(Y_reshape); 
+    [U, S, V] = rsvd(  reshape( Y, [], nSample)/( regu_T )); 
     s = max(diag(S) - 1/mu, 0); % nuclear norm
     Y = reshape(rest_svd(U, s, V), k, p, nSample); % back to structure tensor
    
@@ -148,10 +122,6 @@ while cost > 1e-10 %&& cost_2 > 1e-5 % Check Convergence
     % Update penalty weights
     mu = mu*rho;
     L = L/rho;
-
-%  to see the parameters size!
-%     whos
-%     pause
 
     count = count + 1;
 %     if mod(count, 1e2) == 0

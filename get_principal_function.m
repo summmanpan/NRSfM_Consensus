@@ -10,7 +10,7 @@ function [X, err] = get_principal_function(GT,dataname,rot)
 
 % Experimental setting
 noise = 0; %10^-3;            % noise level. paper use 10^-3
-rmiss = 0;            % missing rate, value lower than 1
+rmiss = 0; %.001;            % missing rate, value lower than 1
 
 [k, p, nSample] = size(GT);
 D = zeros(k, p, nSample);
@@ -19,13 +19,6 @@ temp = GT(1:2, :, :);
 weight_noise = noise*max(abs(reshape(bsxfun(@minus, temp, mean(temp, 2)), [], 1)));
 D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
 
-% missing data
-W = true(k, p, nSample);
-W(3, :, :) = false;
-
-ind = rand(p*nSample, 1) < rmiss;
-D(1:2, ind) = 0; % set them to 0
-W(1:2, ind) = false;
 
 % Diary save for command window
 resulpath = './Results_error/with_paper_rot/';
@@ -36,7 +29,7 @@ disp(['***'+string(datetime)+'***'])
 disp(['---'+string(dataname)+'---'])
 
 % Consensus of Non-Rigid Reconstructions
-X = NRSfM_Consensus(D,W);
+X = NRSfM_Consensus(D);
 
 %
 % load Reconst_matlab_files\X_yoga.mat

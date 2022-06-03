@@ -1,4 +1,4 @@
-function X = NRSfM_Consensus(D,W)
+function X = NRSfM_Consensus(D)
 % function X = NRSfM_Consensus(D)
 %
 % Solve NRSfM by obtaining consensus from part reconstructions
@@ -19,13 +19,7 @@ tID_total = tic;
 % D(3, 1) = 0;
 D = pout_trans(D);
 
-% ----VERSION CON W----
-% [k, p, nSample] = size(D);
-% tdim = k*p;
-% Remove translation components / normalize
-% D = pout_trans(D, W);
-% nD = sqrt(mse(D(W))*tdim);
-% D = D/nD;
+
 
 %% 1) RANDOM SAMPLING
 tic;
@@ -41,17 +35,17 @@ disp(['select_idx: ' num2str(toc)]);
 ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
 % spy(idx);title("IDX of 365 ngruops of walking dataser") ;
 
-% SI AL FINAL AÑADO EL MISSING DATA CON MATRIX COMPLETION
-% TENGO QUE HACER W_index?? CREO Q SERA MUY COMPLICADO:(
 
 %% 2) WEAK RECONSTRUCTION
 
 tic;
 % solve for each group
 tID = tic;
+max_ite = 500;
+order_L = 1;
 Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
 for i=1:ngroup % reconstruye grupo por grupo!!!
-    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio);
+    Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
     % enviamos las 10 trayctorias/puntos para todos los frames.
     if toc(tID) > 1
         disp(['reconstruct ' num2str(i) ' / ' num2str(ngroup)]);
@@ -59,6 +53,7 @@ for i=1:ngroup % reconstruye grupo por grupo!!!
     end
 end
 disp(['reconstruct total: ' num2str(toc)]);
+
 
 %% 3) REFLECTION CORRECTION
 
@@ -83,3 +78,4 @@ fprintf(1, 'Total time: %dm %ds\n', ...
      int16( toc(tID_total)/60), int16(mod( toc(tID_total), 60)) );
 
 end
+

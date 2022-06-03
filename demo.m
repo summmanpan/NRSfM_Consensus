@@ -26,21 +26,34 @@
 % clear; close all; clc;
 rot_list = {'60','90','120'}; % rot = '60';
 dataname = {'drink', 'pickup', 'stretch', 'yoga'}; %'yoga'; % choice of data set 
+rot_flag = true; 
+if rot_flag==0; rot_list={''}; end
+% dataname = {'walking','dance','jaws','face'};
+% dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
 
-X_cell = cell(3,4);
-err_cell = cell(3,4);
-for i=2:size(rot_list,2) % change to 1
-    for j=1:size(dataname,2)
-        load(['./Data/rot_' rot_list{i} '/' dataname{j} '_' rot_list{i} '_rearranged.mat'], 'X');
-%         GT = X; % load the X as GT,or save it as X
+
+X_cell = cell(size(rot_list,2) ,size(dataname,2) );
+err_cell = cell(size(rot_list,2) ,size(dataname,2) );
+for i=1:size(rot_list,2) 
+%     X_cell = cell(1 ,size(dataname,2) );
+%     err_cell = cell(1 ,size(dataname,2) );
+    for j= 1 : size(dataname,2)
+
+        path_data = ['./Data/' dataname{j} '_rearranged.mat'];
+        if rot_flag==1
+            path_data = ['./Data/rot_' rot_list{i} '/' dataname{j} '_' rot_list{i} '_rearranged.mat'];
+        end
+        load(path_data, 'X');
         [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j},rot_list{i});
 
     end
+    path_save = sprintf('./Results_error/rot_4datasets_%s_withRegu', rot_list{i});
+    save(path_save,'X_cell','err_cell')
+
 end
 
-%%
 
-path_save = sprintf('./Results_error/main_results');
+path_save = sprintf('./Results_error/main_results_dataset_with_L_rot');
 save(path_save,'X_cell','err_cell')
 
 %% Plot 3D results
