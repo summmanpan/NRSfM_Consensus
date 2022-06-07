@@ -656,3 +656,13 @@ reconstruct 190 / 261
 reconstruct 191 / 261
 reconstruct 192 / 261
 reconstruct 193 / 261
+
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+X_path = sprintf('./variables_for_debug/data_drink_reconst_L2_rot60_SOFT_i_194.mat');
+%save(X_path,"Xi","ngroup","idx","rotK_ratio","D",'order_L')
+save(X_path)
+if system_dependent('IsDebugMode')==1, dbquit all; end
