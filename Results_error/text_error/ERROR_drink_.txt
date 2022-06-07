@@ -1,0 +1,14 @@
+***07-Jun-2022 19:52:30***
+---drink---
+select_idx: 0.16464
+reconstruct 1 / 265
+reconstruct 2 / 265
+reconstruct 3 / 265
+reconstruct 4 / 265
+reconstruct 5 / 265
+reconstruct 6 / 265
+reconstruct 7 / 265
+reconstruct 8 / 265
+reconstruct 9 / 265
+reconstruct 10 / 265
+reconstruct 11 / 265
