@@ -62,7 +62,9 @@ for i=1:ngroup % reconstruye grupo por grupo!!!
 end
 disp(['reconstruct total: ' num2str(toc)]);
 
-
+% X_path = sprintf('./variables_for_debug/data_drink_reconst_L2_rot60_SOFT_i_194.mat');
+% %save(X_path,"Xi","ngroup","idx","rotK_ratio","D",'order_L')
+% save(X_path)
 %% 3) REFLECTION CORRECTION
 
 tic;

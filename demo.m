@@ -24,7 +24,7 @@
 %% Automatizar el testing
 
 % clear; close all; clc;
-rot_list = {'90'}; % '60','90','120' "BETTER ONE BY ONE"<----
+rot_list = {'120'}; % '60','90','120' "BETTER ONE BY ONE"<----
 % dataname = {'pickup', 'stretch', 'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 dataname = {'drink'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 
@@ -36,45 +36,48 @@ rot_flag = 1; %<--
 datatype_idx= 2;
 if rot_flag==0;datatype_idx= 1;rot_list={''};dataname = {'walking','dance','jaws','face'};end 
 
-regu_type = {'SOFT','HARD'}; idx_regu = 2;%<--
+regu_type = {'SOFT','HARD'}; %idx_regu = 1;%<--
 regu_order = [1,2,4]; idx_L = 3; %<--
 
+idx_regu = 0;
+for type=1: size(regu_type,2)
+    idx_regu = idx_regu + 1;
+    for odr= 1: size(regu_order,2)
+        X_cell = cell(size(rot_list,2) ,size(dataname,2) );
+        err_cell = cell(size(rot_list,2) ,size(dataname,2) );
 
-for odr= 2: size(regu_order,2)
-    X_cell = cell(size(rot_list,2) ,size(dataname,2) );
-    err_cell = cell(size(rot_list,2) ,size(dataname,2) );
+        for i=1:size(rot_list,2) 
 
-    for i=1:size(rot_list,2) 
-    
-        for j= 1 : size(dataname,2)
-            
-            % Load the data
-            path_data = ['./Data/' dataname{j} '_rearranged.mat'];
-            if rot_flag==1
-                path_data = ['./Data/rot_' rot_list{i} '/' dataname{j} '_' rot_list{i} '_rearranged.mat'];
-            end
-            load(path_data, 'X');
-            
-            [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
-                                        rot_list{i},regu_order(idx_L),regu_type{idx_regu});
-            
-            
-    
-            % save for each dataset rotation individually
-            path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-                                    regu_type{idx_regu}, regu_order(odr), ...
-                                    regu_type{idx_regu}, regu_order(odr), ...
-                                     datatype{datatype_idx}, rot_list{i}  );
-            if dataname{1} == "drink"
+            for j= 1 : size(dataname,2)
+
+                % Load the data
+                path_data = ['./Data/' dataname{j} '_rearranged.mat'];
+                if rot_flag==1
+                    path_data = ['./Data/rot_' rot_list{i} '/' dataname{j} '_' rot_list{i} '_rearranged.mat'];
+                end
+                load(path_data, 'X');
+
+                [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
+                                            rot_list{i},regu_order(odr),regu_type{idx_regu});
+
+
+
+                % save for each dataset rotation individually
                 path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-                                    regu_type{idx_regu}, regu_order(odr), ...
-                                    regu_type{idx_regu}, regu_order(odr), ...
-                                     dataname{1}, rot_list{i}  );
+                                        regu_type{idx_regu}, regu_order(odr), ...
+                                        regu_type{idx_regu}, regu_order(odr), ...
+                                         datatype{datatype_idx}, rot_list{i}  );
+                if dataname{1} == "drink"
+                    path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
+                                        regu_type{idx_regu}, regu_order(odr), ...
+                                        regu_type{idx_regu}, regu_order(odr), ...
+                                         dataname{1}, rot_list{i}  );
+                end
+                save(path_save,'X_cell','err_cell')
             end
-            save(path_save,'X_cell','err_cell')
+
+
         end
-        
-    
     end
 end
 
