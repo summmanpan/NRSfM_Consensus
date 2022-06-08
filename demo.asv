@@ -28,26 +28,27 @@ rot_list = {'90'}; % '60','90','120' "BETTER ONE BY ONE"<----
 % dataname = {'pickup', 'stretch', 'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 dataname = {'drink'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 
-datatype = {'noRotation', 'benchmark'};
+datatype = {'originalRotation','noRotation', 'benchmark'};
 % dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
 
 %-------------------- CHANGE PARAMETRES------------------------
 rot_flag = 0; %<--
 datatype_idx= 2;
 if rot_flag==0;
-    datatype_idx = 1;
+    datatype_idx = 1; % IF ORIGINAL ROTATION!!IF NOT, 2
     rot_list={''};
-    dataname = {'drink','pickup', 'stretch', 'yoga'};
+%     dataname = {'drink','pickup', 'stretch', 'yoga'}; % drink -> ESTE APARTE PERO LUEGO PONER!!!
     %dataname = {'walking','dance','jaws','face'};
 end 
 
-regu_type = {'SOFT','HARD'}; %idx_regu = 1;%<--
-regu_order = [1,2,4]; idx_L = 3; %<--
-
-idx_regu = 0;
-for type_r = 1:size(regu_type,2)
-    idx_regu = idx_regu+1;
-    for odr = 1:size(regu_order,2)
+regu_type = {'SOFT','HARD'}; %type_regu = 1;%<--
+regu_order = [1,2,4]; %odr = 3; %<--
+% suman de mañana, ejecutar tal cual esto, para el hard....
+type_regu = 0; 
+path_save='';
+% for type_r = 1:size(regu_type,2)
+    type_regu = type_regu+1;
+    for odr = 2 :size(regu_order,2)
         X_cell = cell(size(rot_list,2) ,size(dataname,2) );
         err_cell = cell(size(rot_list,2) ,size(dataname,2) );
     
@@ -63,31 +64,32 @@ for type_r = 1:size(regu_type,2)
                 load(path_data, 'X');
                 
                 [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
-                                            rot_list{i},regu_order(odr),regu_type{idx_regu}); %idx_L
+                                            rot_list{i},regu_order(odr),regu_type{type_regu}); 
                 
                 
         
                 % save for each dataset rotation individually
-                path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-                                        regu_type{idx_regu}, regu_order(odr), ...
-                                        regu_type{idx_regu}, regu_order(odr), ...
-                                         datatype{datatype_idx}, rot_list{i}  );
+                
 %                 if dataname{1} == "drink"
 %                     path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-%                                         regu_type{idx_regu}, regu_order(odr), ...
-%                                         regu_type{idx_regu}, regu_order(odr), ...
+%                                         regu_type{type_regu}, regu_order(odr), ...
+%                                         regu_type{type_regu}, regu_order(odr), ...
 %                                          dataname{1}, rot_list{i}  );
 %                 end
-%                 
+%                 save(path_save,'X_cell','err_cell')
             end
-            
+            path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
+                                        regu_type{type_regu}, regu_order(odr), ...
+                                        regu_type{type_regu}, regu_order(odr), ...
+                                         datatype{datatype_idx}, rot_list{i}  );
             save(path_save,'X_cell','err_cell')
         end
     end
-end
+% end
+
 % path_save = sprintf('./Results_error/datasets_rot_%s_withReguHardOrder_%d', rot_list{1}, regu_order(1));
 % path_save = sprintf('./Results_error/datasets_rot_%s_withReguSoftOrder_%d', rot_list{1}, regu_order(1));
-save(path_save,'X_cell','err_cell')
+% save(path_save,'X_cell','err_cell')
 
 %% Plot 3D results
 
