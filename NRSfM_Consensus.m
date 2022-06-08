@@ -42,7 +42,7 @@ ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
 tic;
 % solve for each group
 tID = tic;
-Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
+% Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
 % CHANGE VARIABLES:
 %--------------------
 max_ite = 500;
@@ -50,7 +50,7 @@ order_L = regu_order;
 flag_soft = true; % if false-> hard, if true soft
 if regu_type == "HARD"; flag_soft = false; end
 %--------------------
-for i=1:ngroup % reconstruye grupo por grupo!!!
+for i=194+1:ngroup % reconstruye grupo por grupo!!!
 %     Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
     Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio, max_ite, order_L, flag_soft);
 
