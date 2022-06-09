@@ -24,7 +24,7 @@
 %% Automatizar el testing
 
 % clear; close all; clc;
-rot_list = {'90'}; % '60','90','120' "BETTER ONE BY ONE"<----
+rot_list = {'120'}; % '60','90','120' "BETTER ONE BY ONE"<----
 % dataname = {'pickup', 'stretch', 'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 dataname = {'drink'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 
@@ -32,8 +32,8 @@ datatype = {'originalRotation','noRotation', 'benchmark'};
 % dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
 
 %-------------------- CHANGE PARAMETRES------------------------
-rot_flag = 0; %<--
-datatype_idx= 2;
+rot_flag = 1; %<--
+datatype_idx= 3;
 if rot_flag==0;
     datatype_idx = 1; % IF ORIGINAL ROTATION!!IF NOT, 2
     rot_list={''};
