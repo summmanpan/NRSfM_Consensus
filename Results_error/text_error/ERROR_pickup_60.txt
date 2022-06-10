@@ -1584,3 +1584,134 @@ Total time: 15m 20s
 ---pickup--MEAN ERROR--Regu type---HARD
 ---60-L-4----------
 mean error : 0.26883
+***09-Jun-2022 23:14:28***
+---pickup---
+select_idx: 0.07402
+reconstruct 3 / 270
+reconstruct 6 / 270
+reconstruct 9 / 270
+reconstruct 12 / 270
+reconstruct 15 / 270
+reconstruct 18 / 270
+reconstruct 21 / 270
+reconstruct 24 / 270
+reconstruct 27 / 270
+reconstruct 30 / 270
+reconstruct 33 / 270
+reconstruct 35 / 270
+reconstruct 37 / 270
+reconstruct 40 / 270
+reconstruct 43 / 270
+reconstruct 46 / 270
+reconstruct 48 / 270
+reconstruct 50 / 270
+reconstruct 52 / 270
+reconstruct 54 / 270
+reconstruct 56 / 270
+reconstruct 59 / 270
+reconstruct 62 / 270
+reconstruct 65 / 270
+reconstruct 68 / 270
+reconstruct 71 / 270
+reconstruct 74 / 270
+reconstruct 77 / 270
+reconstruct 79 / 270
+reconstruct 82 / 270
+reconstruct 84 / 270
+reconstruct 87 / 270
+reconstruct 90 / 270
+reconstruct 93 / 270
+reconstruct 96 / 270
+reconstruct 99 / 270
+reconstruct 102 / 270
+reconstruct 105 / 270
+reconstruct 108 / 270
+reconstruct 111 / 270
+reconstruct 114 / 270
+reconstruct 117 / 270
+reconstruct 120 / 270
+reconstruct 123 / 270
+reconstruct 125 / 270
+reconstruct 127 / 270
+reconstruct 128 / 270
+reconstruct 130 / 270
+reconstruct 132 / 270
+reconstruct 134 / 270
+reconstruct 136 / 270
+reconstruct 138 / 270
+reconstruct 141 / 270
+reconstruct 144 / 270
+reconstruct 146 / 270
+reconstruct 149 / 270
+reconstruct 152 / 270
+reconstruct 154 / 270
+reconstruct 157 / 270
+reconstruct 160 / 270
+reconstruct 163 / 270
+reconstruct 166 / 270
+reconstruct 169 / 270
+reconstruct 172 / 270
+reconstruct 175 / 270
+reconstruct 178 / 270
+reconstruct 180 / 270
+reconstruct 183 / 270
+reconstruct 186 / 270
+reconstruct 189 / 270
+reconstruct 191 / 270
+reconstruct 194 / 270
+reconstruct 197 / 270
+reconstruct 200 / 270
+reconstruct 203 / 270
+reconstruct 206 / 270
+reconstruct 209 / 270
+reconstruct 212 / 270
+reconstruct 215 / 270
+reconstruct 218 / 270
+reconstruct 221 / 270
+reconstruct 224 / 270
+reconstruct 227 / 270
+reconstruct 230 / 270
+reconstruct 233 / 270
+reconstruct 236 / 270
+reconstruct 239 / 270
+reconstruct 242 / 270
+reconstruct 245 / 270
+reconstruct 247 / 270
+reconstruct 250 / 270
+reconstruct 253 / 270
+reconstruct 256 / 270
+reconstruct 259 / 270
+reconstruct 262 / 270
+reconstruct 265 / 270
+reconstruct 268 / 270
+reconstruct total: 123.4873
+part_reflection: 0.88621
+combine 16 / 357
+combine 32 / 357
+combine 48 / 357
+combine 63 / 357
+combine 79 / 357
+combine 95 / 357
+combine 111 / 357
+combine 127 / 357
+combine 142 / 357
+combine 158 / 357
+combine 174 / 357
+combine 190 / 357
+combine 206 / 357
+combine 221 / 357
+combine 237 / 357
+combine 253 / 357
+combine 269 / 357
+combine 285 / 357
+combine 300 / 357
+combine 316 / 357
+combine 332 / 357
+combine 347 / 357
+combine: 23.5044
+Elapsed time is 147.953802 seconds.
+Total time: 2m 28s
+---pickup--MEAN ERROR--Regu type---NO_REGU
+---60-L-0----------
+***WITH:***'Noise rate: 0.001***
+mean error : 0.13454

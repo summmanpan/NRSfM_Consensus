@@ -24,37 +24,42 @@
 %% Automatizar el testing
 
 % clear; close all; clc;
-rot_list = {'90'}; % '60','90','120' "BETTER ONE BY ONE"<----
-% dataname = {'pickup', 'stretch', 'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
-dataname = {'drink'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 
-datatype = {'originalRotation','noRotation', 'benchmark'};
-% dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
+with_noise = {'Noise','NoNoise'};
+with_regu= {'Regu','NoRegu'};
+
+regu_type = {'SOFT','HARD'}; 
+regu_order = [1,2,4]; 
+with_rot = {'Rot','noRot'};
+rot_list = {'120'}; % '','60','90','120' " % save for each dataset rotation individually<-------
+
+dataname = {'drink','pickup', 'stretch', 'yoga'};  %drink   
+% dataname = {'drink'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
+%     dataname = {'drink','pickup', 'stretch', 'yoga'}; % drink -> ESTE APARTE PERO LUEGO PONER!!!
+%     dataname = {'walking','dance','jaws','face'};
 
 %-------------------- CHANGE PARAMETRES------------------------
-rot_flag = 0; %<--
-datatype_idx= 2;
-if rot_flag==0;
-    datatype_idx = 1; % IF ORIGINAL ROTATION!!IF NOT, 2
-    rot_list={''};
-%     dataname = {'drink','pickup', 'stretch', 'yoga'}; % drink -> ESTE APARTE PERO LUEGO PONER!!!
-    %dataname = {'walking','dance','jaws','face'};
-end 
+flag_noise = 2 ; %<--
+flag_regu = 1 ;% 1- regu, 2-no Regu
+% only when with regu:
+flag_regu_type = 2 ;% 1-soft or 2-hard
 
-regu_type = {'SOFT','HARD'}; %type_regu = 1;%<--
-regu_order = [1,2,4]; %odr = 3; %<--
-% suman de mañana, ejecutar tal cual esto, para el hard....
-type_regu = 0; 
-path_save='';
+flag_rot = 1 ; % 1-rot 2-no rot
+if flag_rot ==2; rot_list = {''}; end
+noise = 0.001;
+odr = 3;
+
+
 % for type_r = 1:size(regu_type,2)
-    type_regu = type_regu+1;
-    for odr = 2 :size(regu_order,2)
+    
+%     for odr = 1 :size(regu_order,2)
+        
         X_cell = cell(size(rot_list,2) ,size(dataname,2) );
         err_cell = cell(size(rot_list,2) ,size(dataname,2) );
     
-        for i=1:size(rot_list,2) 
+        for i=1:size(rot_list,2) % rot number
         
-            for j= 1 : size(dataname,2)
+            for j= 1 : size(dataname,2) 
                 
                 % Load the data
                 path_data = ['./Data/' dataname{j} '_rearranged.mat'];
@@ -63,33 +68,64 @@ path_save='';
                 end
                 load(path_data, 'X');
                 
-                [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
-                                            rot_list{i},regu_order(odr),regu_type{type_regu}); 
+                % Diary save for command window
+                resulpath = './Results_error/text_error/';
+                final_name_data = [resulpath 'ERROR_' dataname{j} '_' rot_list{i} '.txt'];
                 
+%                 diary(final_name_data)
+                disp(['***'+string(datetime)+'***'])
+                disp(['---'+string(dataname{j})+'---'])
+
+%                 [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
+%                                             flag_regu, , ...
+%                                             regu_type{flag_regu_type},noise); 
                 
-        
-                % save for each dataset rotation individually
-                
-%                 if dataname{1} == "drink"
-%                     path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-%                                         regu_type{type_regu}, regu_order(odr), ...
-%                                         regu_type{type_regu}, regu_order(odr), ...
-%                                          dataname{1}, rot_list{i}  );
-%                 end
-%                 save(path_save,'X_cell','err_cell')
+                %regu_order,flag_regu,regu_type,noise
+               
+                if flag_noise ==1
+                    disp(['***WITH:***''Noise rate: ' num2str(noise) '***'])
+                end
+                if flag_regu == 2 % NO regu
+                    
+                    str = sprintf('%s_%s_%s', ...
+                                    with_regu{flag_regu}, with_rot{flag_rot}, ...
+                                    rot_list{i});
+                    
+                else
+                    str = sprintf('%s_%s_L%d_%s_%s', ...
+                                    with_regu{flag_regu},regu_type{flag_regu_type}, ...
+                                    regu_order(odr),with_rot{flag_rot}, ...
+                                    rot_list{i});
+                end
+                disp(str)
+                 % set diary off
+%                  diary off
             end
-            path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
-                                        regu_type{type_regu}, regu_order(odr), ...
-                                        regu_type{type_regu}, regu_order(odr), ...
-                                         datatype{datatype_idx}, rot_list{i}  );
-            save(path_save,'X_cell','err_cell')
+    
+            principal_path= './Results_error/';
+            noise_path = sprintf('%s/', with_noise{flag_noise});
+            if flag_regu == 2  % no regu
+                regu_path = sprintf('%s/data_%s_%s_%s', ...
+                                    with_regu{flag_regu}, ...
+                                    with_regu{flag_regu}, with_rot{flag_rot}, ...
+                                    rot_list{i});
+            else
+                regu_path = sprintf('%s/%s/L%d/data_%s_%s_L%d_%s_%s,', ...
+                                    with_regu{flag_regu},regu_type{flag_regu_type}, ...
+                                    regu_order(odr), ... % data_final_path
+                                    with_regu{flag_regu},regu_type{flag_regu_type}, ...
+                                    regu_order(odr),with_rot{flag_rot}, ...
+                                    rot_list{i});
+            end
+            final_save_path = [principal_path noise_path regu_path];
+%             save(final_save_path,'X_cell','err_cell','noise')
+            disp(final_save_path)
+           
         end
-    end
+%     end
 % end
 
-% path_save = sprintf('./Results_error/datasets_rot_%s_withReguHardOrder_%d', rot_list{1}, regu_order(1));
-% path_save = sprintf('./Results_error/datasets_rot_%s_withReguSoftOrder_%d', rot_list{1}, regu_order(1));
-% save(path_save,'X_cell','err_cell')
+
 
 %% Plot 3D results
 
@@ -114,3 +150,36 @@ path_save='';
 % saveas(Figure 1,dataname)
 
 % clusters_3d_plots(Xi)
+
+
+% dataname = {'dinosaur_real','face_mocap','face_real','face','FRGC'}; %ogre_synthetic
+%             if type_regu~=3
+%                 path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
+%                                             regu_type{type_regu}, regu_order(odr), ...
+%                                             regu_type{type_regu}, regu_order(odr), ...
+%                                              datatype{datatype_idx}, rot_list{i});
+%                 save(path_save,'X_cell','err_cell','noise')
+%             end
+            
+%             path_save = sprintf('./Results_error/%s/data_%s_%s_rot_%s_Motion', ...
+%                         regu_type{type_regu},regu_type{type_regu}, ...
+%                          datatype{datatype_idx},rot_list{i});
+%             save(path_save,'X_cell','err_cell','noise')
+
+                % save for each dataset rotation individually
+                
+%                 if dataname{1} == "drink"
+%                     path_save = sprintf('./Results_error/%s/L%d/data_%s_L%d_%s_rot_%s', ...
+%                                         regu_type{type_regu}, regu_order(odr), ...
+%                                         regu_type{type_regu}, regu_order(odr), ...
+%                                          dataname{1}, rot_list{i}  );
+%                 end
+%                 save(path_save,'X_cell','err_cell')
+
+
+% datatype = {'originalRotation','noRotation', 'benchmark'};
+
+% path_save = sprintf('./Results_error/datasets_rot_%s_withReguHardOrder_%d', rot_list{1}, regu_order(1));
+% path_save = sprintf('./Results_error/datasets_rot_%s_withReguSoftOrder_%d', rot_list{1}, regu_order(1));
+% save(path_save,'X_cell','err_cell')
+

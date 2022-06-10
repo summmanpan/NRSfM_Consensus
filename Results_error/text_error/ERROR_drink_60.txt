@@ -1999,3 +1999,268 @@ Total time: 107m 57s
 ---drink--MEAN ERROR--Regu type---HARD
 ---60-L-4----------
 mean error : 0.067032
+***09-Jun-2022 23:07:39***
+---drink---
+select_idx: 0.12264
+reconstruct 2 / 265
+reconstruct 4 / 265
+reconstruct 5 / 265
+reconstruct 7 / 265
+reconstruct 9 / 265
+reconstruct 11 / 265
+reconstruct 13 / 265
+reconstruct 15 / 265
+reconstruct 17 / 265
+reconstruct 19 / 265
+reconstruct 21 / 265
+reconstruct 23 / 265
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>rsvd', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 271)" style="font-weight:bold">reconstruct>rsvd</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',271,0)">line 271</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct>BMM_old', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 89)" style="font-weight:bold">reconstruct>BMM_old</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',89,0)">line 89</a>)
+    [U, S, V] = rsvd(reshape(Y, [], nSample));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reconstruct', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m', 33)" style="font-weight:bold">reconstruct</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\reconstruct.m',33,0)">line 33</a>)
+    X = BMM_old(X, reshape(R(3, :, :), 3, 1, []));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 55)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',55,0)">line 55</a>)
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio, max_ite, order_L, flag_soft, flag_temp_regu);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 30)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',30,0)">line 30</a>)
+X = NRSfM_Consensus(D, regu_order,regu_type, flag_temp_regu );
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('LiveEditorEvaluationHelperE551146490', 'C:\Users\pansu\AppData\Local\Temp\Editor_qalvo\LiveEditorEvaluationHelperE551146490.m', 71)" style="font-weight:bold">LiveEditorEvaluationHelperE551146490</a> (<a href="matlab: opentoline('C:\Users\pansu\AppData\Local\Temp\Editor_qalvo\LiveEditorEvaluationHelperE551146490.m',71,0)">line 71</a>)
+                [X_cell{i,j}, err_cell{i,j}] = get_principal_function(X,dataname{j}, ...
+} 
+demo
+***09-Jun-2022 23:09:17***
+---drink---
+select_idx: 0.1142
+reconstruct 2 / 265
+reconstruct 4 / 265
+reconstruct 6 / 265
+reconstruct 8 / 265
+reconstruct 10 / 265
+reconstruct 12 / 265
+reconstruct 14 / 265
+reconstruct 15 / 265
+reconstruct 16 / 265
+reconstruct 18 / 265
+reconstruct 19 / 265
+reconstruct 20 / 265
+reconstruct 22 / 265
+reconstruct 24 / 265
+reconstruct 26 / 265
+reconstruct 27 / 265
+reconstruct 29 / 265
+reconstruct 31 / 265
+reconstruct 33 / 265
+reconstruct 34 / 265
+reconstruct 36 / 265
+reconstruct 37 / 265
+reconstruct 39 / 265
+reconstruct 40 / 265
+reconstruct 41 / 265
+reconstruct 42 / 265
+reconstruct 44 / 265
+reconstruct 45 / 265
+reconstruct 47 / 265
+reconstruct 49 / 265
+reconstruct 51 / 265
+reconstruct 53 / 265
+reconstruct 55 / 265
+reconstruct 57 / 265
+reconstruct 59 / 265
+reconstruct 60 / 265
+reconstruct 62 / 265
+reconstruct 64 / 265
+reconstruct 66 / 265
+reconstruct 68 / 265
+reconstruct 70 / 265
+reconstruct 72 / 265
+reconstruct 74 / 265
+reconstruct 76 / 265
+reconstruct 78 / 265
+reconstruct 80 / 265
+reconstruct 81 / 265
+reconstruct 82 / 265
+reconstruct 83 / 265
+reconstruct 84 / 265
+reconstruct 86 / 265
+reconstruct 88 / 265
+reconstruct 90 / 265
+reconstruct 92 / 265
+reconstruct 94 / 265
+reconstruct 96 / 265
+reconstruct 98 / 265
+reconstruct 100 / 265
+reconstruct 102 / 265
+reconstruct 104 / 265
+reconstruct 105 / 265
+reconstruct 107 / 265
+reconstruct 109 / 265
+reconstruct 111 / 265
+reconstruct 113 / 265
+reconstruct 115 / 265
+reconstruct 117 / 265
+reconstruct 119 / 265
+reconstruct 121 / 265
+reconstruct 123 / 265
+reconstruct 125 / 265
+reconstruct 126 / 265
+reconstruct 128 / 265
+reconstruct 130 / 265
+reconstruct 132 / 265
+reconstruct 134 / 265
+reconstruct 136 / 265
+reconstruct 138 / 265
+reconstruct 140 / 265
+reconstruct 142 / 265
+reconstruct 144 / 265
+reconstruct 146 / 265
+reconstruct 148 / 265
+reconstruct 150 / 265
+reconstruct 152 / 265
+reconstruct 154 / 265
+reconstruct 156 / 265
+reconstruct 158 / 265
+reconstruct 160 / 265
+reconstruct 162 / 265
+reconstruct 164 / 265
+reconstruct 166 / 265
+reconstruct 168 / 265
+reconstruct 170 / 265
+reconstruct 172 / 265
+reconstruct 174 / 265
+reconstruct 176 / 265
+reconstruct 178 / 265
+reconstruct 180 / 265
+reconstruct 182 / 265
+reconstruct 184 / 265
+reconstruct 186 / 265
+reconstruct 188 / 265
+reconstruct 190 / 265
+reconstruct 192 / 265
+reconstruct 194 / 265
+reconstruct 196 / 265
+reconstruct 198 / 265
+reconstruct 200 / 265
+reconstruct 202 / 265
+reconstruct 204 / 265
+reconstruct 205 / 265
+reconstruct 206 / 265
+reconstruct 208 / 265
+reconstruct 210 / 265
+reconstruct 211 / 265
+reconstruct 213 / 265
+reconstruct 215 / 265
+reconstruct 217 / 265
+reconstruct 218 / 265
+reconstruct 219 / 265
+reconstruct 221 / 265
+reconstruct 222 / 265
+reconstruct 223 / 265
+reconstruct 225 / 265
+reconstruct 227 / 265
+reconstruct 229 / 265
+reconstruct 231 / 265
+reconstruct 233 / 265
+reconstruct 235 / 265
+reconstruct 237 / 265
+reconstruct 239 / 265
+reconstruct 241 / 265
+reconstruct 243 / 265
+reconstruct 245 / 265
+reconstruct 247 / 265
+reconstruct 249 / 265
+reconstruct 251 / 265
+reconstruct 253 / 265
+reconstruct 255 / 265
+reconstruct 257 / 265
+reconstruct 259 / 265
+reconstruct 261 / 265
+reconstruct 263 / 265
+reconstruct 265 / 265
+reconstruct total: 231.6154
+part_reflection 2.293e-12
+part_reflection: 3.1896
+combine 15 / 1102
+combine 31 / 1102
+combine 47 / 1102
+combine 62 / 1102
+combine 78 / 1102
+combine 94 / 1102
+combine 110 / 1102
+combine 126 / 1102
+combine 142 / 1102
+combine 158 / 1102
+combine 174 / 1102
+combine 190 / 1102
+combine 206 / 1102
+combine 222 / 1102
+combine 238 / 1102
+combine 254 / 1102
+combine 267 / 1102
+combine 278 / 1102
+combine 290 / 1102
+combine 306 / 1102
+combine 322 / 1102
+combine 336 / 1102
+combine 352 / 1102
+combine 368 / 1102
+combine 377 / 1102
+combine 385 / 1102
+combine 399 / 1102
+combine 415 / 1102
+combine 429 / 1102
+combine 442 / 1102
+combine 453 / 1102
+combine 467 / 1102
+combine 481 / 1102
+combine 495 / 1102
+combine 511 / 1102
+combine 526 / 1102
+combine 541 / 1102
+combine 557 / 1102
+combine 572 / 1102
+combine 586 / 1102
+combine 599 / 1102
+combine 614 / 1102
+combine 629 / 1102
+combine 644 / 1102
+combine 659 / 1102
+combine 674 / 1102
+combine 690 / 1102
+combine 706 / 1102
+combine 722 / 1102
+combine 738 / 1102
+combine 754 / 1102
+combine 770 / 1102
+combine 786 / 1102
+combine 802 / 1102
+combine 818 / 1102
+combine 834 / 1102
+combine 850 / 1102
+combine 866 / 1102
+combine 882 / 1102
+combine 895 / 1102
+combine 909 / 1102
+combine 925 / 1102
+combine 941 / 1102
+combine 957 / 1102
+combine 973 / 1102
+combine 989 / 1102
+combine 1004 / 1102
+combine 1020 / 1102
+combine 1036 / 1102
+combine 1052 / 1102
+combine 1067 / 1102
+combine 1083 / 1102
+combine 1099 / 1102
+combine: 76.0063
+Elapsed time is 310.930862 seconds.
+Total time: 5m 11s
+---drink--MEAN ERROR--Regu type---NO_REGU
+---60-L-0----------
+***WITH:***'Noise rate: 0.001***
+mean error : 0.044169

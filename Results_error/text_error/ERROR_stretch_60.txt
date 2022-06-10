@@ -1704,3 +1704,143 @@ Total time: 19m 3s
 ---stretch--MEAN ERROR--Regu type---HARD
 ---60-L-4----------
 mean error : 0.21292
+***09-Jun-2022 23:16:56***
+---stretch---
+select_idx: 0.078381
+reconstruct 3 / 293
+reconstruct 6 / 293
+reconstruct 8 / 293
+reconstruct 10 / 293
+reconstruct 13 / 293
+reconstruct 16 / 293
+reconstruct 19 / 293
+reconstruct 22 / 293
+reconstruct 25 / 293
+reconstruct 28 / 293
+reconstruct 31 / 293
+reconstruct 34 / 293
+reconstruct 37 / 293
+reconstruct 40 / 293
+reconstruct 43 / 293
+reconstruct 46 / 293
+reconstruct 49 / 293
+reconstruct 52 / 293
+reconstruct 55 / 293
+reconstruct 58 / 293
+reconstruct 61 / 293
+reconstruct 64 / 293
+reconstruct 67 / 293
+reconstruct 70 / 293
+reconstruct 73 / 293
+reconstruct 76 / 293
+reconstruct 79 / 293
+reconstruct 82 / 293
+reconstruct 85 / 293
+reconstruct 87 / 293
+reconstruct 90 / 293
+reconstruct 93 / 293
+reconstruct 96 / 293
+reconstruct 99 / 293
+reconstruct 102 / 293
+reconstruct 105 / 293
+reconstruct 108 / 293
+reconstruct 111 / 293
+reconstruct 114 / 293
+reconstruct 117 / 293
+reconstruct 120 / 293
+reconstruct 123 / 293
+reconstruct 126 / 293
+reconstruct 129 / 293
+reconstruct 131 / 293
+reconstruct 134 / 293
+reconstruct 136 / 293
+reconstruct 138 / 293
+reconstruct 140 / 293
+reconstruct 143 / 293
+reconstruct 146 / 293
+reconstruct 149 / 293
+reconstruct 152 / 293
+reconstruct 155 / 293
+reconstruct 158 / 293
+reconstruct 160 / 293
+reconstruct 163 / 293
+reconstruct 166 / 293
+reconstruct 169 / 293
+reconstruct 171 / 293
+reconstruct 174 / 293
+reconstruct 177 / 293
+reconstruct 180 / 293
+reconstruct 183 / 293
+reconstruct 186 / 293
+reconstruct 188 / 293
+reconstruct 191 / 293
+reconstruct 194 / 293
+reconstruct 197 / 293
+reconstruct 200 / 293
+reconstruct 202 / 293
+reconstruct 205 / 293
+reconstruct 208 / 293
+reconstruct 211 / 293
+reconstruct 214 / 293
+reconstruct 217 / 293
+reconstruct 220 / 293
+reconstruct 223 / 293
+reconstruct 225 / 293
+reconstruct 227 / 293
+reconstruct 230 / 293
+reconstruct 233 / 293
+reconstruct 236 / 293
+reconstruct 239 / 293
+reconstruct 242 / 293
+reconstruct 245 / 293
+reconstruct 248 / 293
+reconstruct 250 / 293
+reconstruct 253 / 293
+reconstruct 256 / 293
+reconstruct 259 / 293
+reconstruct 262 / 293
+reconstruct 265 / 293
+reconstruct 268 / 293
+reconstruct 271 / 293
+reconstruct 274 / 293
+reconstruct 277 / 293
+reconstruct 279 / 293
+reconstruct 282 / 293
+reconstruct 285 / 293
+reconstruct 288 / 293
+reconstruct 291 / 293
+reconstruct total: 129.8407
+part_reflection 2.1399e-15
+part_reflection: 1.568
+combine 14 / 370
+combine 28 / 370
+combine 42 / 370
+combine 56 / 370
+combine 70 / 370
+combine 85 / 370
+combine 100 / 370
+combine 113 / 370
+combine 127 / 370
+combine 141 / 370
+combine 155 / 370
+combine 170 / 370
+combine 185 / 370
+combine 199 / 370
+combine 214 / 370
+combine 229 / 370
+combine 244 / 370
+combine 259 / 370
+combine 273 / 370
+combine 288 / 370
+combine 303 / 370
+combine 318 / 370
+combine 333 / 370
+combine 348 / 370
+combine 363 / 370
+combine: 26.5904
+Elapsed time is 158.079299 seconds.
+Total time: 3m 38s
+---stretch--MEAN ERROR--Regu type---NO_REGU
+---60-L-0----------
+***WITH:***'Noise rate: 0.001***
+mean error : 0.094905

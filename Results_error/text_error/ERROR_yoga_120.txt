@@ -1813,3 +1813,127 @@ Total time: 9m 54s
 ---yoga--MEAN ERROR--Regu type---HARD
 ---120-L-4----------
 mean error : 0.22348
+***10-Jun-2022 08:23:03***
+---yoga---
+select_idx: 0.064957
+reconstruct 3 / 261
+reconstruct 6 / 261
+reconstruct 8 / 261
+reconstruct 10 / 261
+reconstruct 13 / 261
+reconstruct 15 / 261
+reconstruct 18 / 261
+reconstruct 21 / 261
+reconstruct 24 / 261
+reconstruct 27 / 261
+reconstruct 30 / 261
+reconstruct 33 / 261
+reconstruct 35 / 261
+reconstruct 38 / 261
+reconstruct 41 / 261
+reconstruct 44 / 261
+reconstruct 47 / 261
+reconstruct 50 / 261
+reconstruct 52 / 261
+reconstruct 55 / 261
+reconstruct 57 / 261
+reconstruct 60 / 261
+reconstruct 63 / 261
+reconstruct 65 / 261
+reconstruct 68 / 261
+reconstruct 71 / 261
+reconstruct 74 / 261
+reconstruct 77 / 261
+reconstruct 80 / 261
+reconstruct 82 / 261
+reconstruct 85 / 261
+reconstruct 88 / 261
+reconstruct 91 / 261
+reconstruct 94 / 261
+reconstruct 97 / 261
+reconstruct 100 / 261
+reconstruct 103 / 261
+reconstruct 106 / 261
+reconstruct 108 / 261
+reconstruct 111 / 261
+reconstruct 114 / 261
+reconstruct 116 / 261
+reconstruct 119 / 261
+reconstruct 122 / 261
+reconstruct 125 / 261
+reconstruct 128 / 261
+reconstruct 131 / 261
+reconstruct 134 / 261
+reconstruct 137 / 261
+reconstruct 140 / 261
+reconstruct 143 / 261
+reconstruct 146 / 261
+reconstruct 149 / 261
+reconstruct 152 / 261
+reconstruct 155 / 261
+reconstruct 158 / 261
+reconstruct 161 / 261
+reconstruct 164 / 261
+reconstruct 167 / 261
+reconstruct 170 / 261
+reconstruct 172 / 261
+reconstruct 175 / 261
+reconstruct 178 / 261
+reconstruct 181 / 261
+reconstruct 184 / 261
+reconstruct 186 / 261
+reconstruct 188 / 261
+reconstruct 191 / 261
+reconstruct 194 / 261
+reconstruct 196 / 261
+reconstruct 199 / 261
+reconstruct 202 / 261
+reconstruct 205 / 261
+reconstruct 207 / 261
+reconstruct 210 / 261
+reconstruct 213 / 261
+reconstruct 216 / 261
+reconstruct 218 / 261
+reconstruct 220 / 261
+reconstruct 222 / 261
+reconstruct 225 / 261
+reconstruct 228 / 261
+reconstruct 231 / 261
+reconstruct 234 / 261
+reconstruct 237 / 261
+reconstruct 240 / 261
+reconstruct 243 / 261
+reconstruct 246 / 261
+reconstruct 248 / 261
+reconstruct 251 / 261
+reconstruct 254 / 261
+reconstruct 257 / 261
+reconstruct 260 / 261
+reconstruct total: 119.2396
+part_reflection: 1.0347
+combine 15 / 307
+combine 31 / 307
+combine 47 / 307
+combine 63 / 307
+combine 79 / 307
+combine 95 / 307
+combine 111 / 307
+combine 127 / 307
+combine 143 / 307
+combine 158 / 307
+combine 174 / 307
+combine 190 / 307
+combine 205 / 307
+combine 221 / 307
+combine 237 / 307
+combine 253 / 307
+combine 268 / 307
+combine 283 / 307
+combine 299 / 307
+combine: 20.3703
+Elapsed time is 140.711237 seconds.
+Total time: 2m 21s
+---yoga--MEAN ERROR--Regu type---NO_REGU
+---120-L-0----------
+***WITH:***'Noise rate: 0.001***
+mean error : 0.13111

@@ -1,4 +1,4 @@
-function X = reconstruct(D, rotK_th,max_ite,order_L,flag_soft)
+function X = reconstruct(D, rotK_th,max_ite,order_L,flag_soft,flag_regu)
 % function X = reconstruct(D, rotK_th)
 %
 % Weak reconstructor
@@ -29,7 +29,12 @@ X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, k, 1, p, f))),
 [X, R] = correct_reflection(X, R); % correct reflections
 
 % calculate shapes
-X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite,order_L,flag_soft);
+if flag_regu==2 % FLAG REGU IF 2 MEANS NO REGU
+    X = BMM_old(X, reshape(R(3, :, :), 3, 1, []));
+else
+    X = BMM(X, reshape(R(3, :, :), 3, 1, []),max_ite, order_L, flag_soft);
+end
+
 
 % restore coordinates
 X = reshape(sum(bsxfun(@times, reshape(R, k, k, 1, f), reshape(X, 1, k, p, f)), 2), k, p, f);
@@ -43,6 +48,69 @@ function Y = K_P_F2KF_P(X)
 % Convert (k x p x f) tensor to (kf x p) matrix
 
     Y = reshape(permute(X, [1 3 2]), [], size(X, 2));
+end
+
+
+function Y = BMM_old(X, R)
+% Block matrix method
+%
+% X: 2D shapes (aligned in 3D)
+% R: Third rows of rotation matrices
+% Y: Reconstructed shapes
+%
+% This is a modified version of the block matrix method in
+% Yuchao Dai, Hongdong Li, and Mingyi He,
+% "A Simple Prior-free Method for Non-Rigid Structure-from-Motion Factorization,"
+% CVPR 2012, Providence, Rhode Island, June 16-21, 2012.
+% and
+% Yuchao Dai, Hongdong Li, and Mingyi He,
+% "A Simple Prior-free Method for Non-rigid Structure-from-Motion Factorization,"
+% Int'l J. Computer Vision, vol. 107, no. 2, pp. 101-122, April 2014.
+
+[k, p, nSample] = size(X);
+
+mu = 1e-0;
+rho = 1.02;
+
+if k*p < nSample
+    rest_svd = @(u, s, v) (bsxfun(@times, u, s')*v');
+else
+    rest_svd = @(u, s, v) (u*bsxfun(@times, s, v'));
+end
+
+count = 0;
+cost = inf;
+Z = zeros(1, p, nSample);
+pXRZ = pout_sample(X);
+L = zeros(size(X));
+while cost > 1e-10
+
+    Y = pXRZ - L;
+    [U, S, V] = rsvd(reshape(Y, [], nSample));
+    s = max(diag(S) - 1/mu, 0);
+    Y = reshape(rest_svd(U, s, V), k, p, nSample);
+    
+    Z = Z - inner(R, pXRZ - Y - L);
+    Z = pout_trans(Z);
+    
+    XRZ = X + outer(R, Z);
+    pXRZ = pout_sample(XRZ);
+    Q = Y - pXRZ;
+    L = L + Q;
+    cost = norm(Q(:))^2;
+
+    mu = mu*rho;
+    L = L/rho;
+
+    count = count + 1;
+%     if mod(count, 1e2) == 0
+%         disp(['init ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
+%     end
+end
+% disp(['reconstruct ' num2str(count) ' : ' num2str(sum(s)) ' / ' num2str(cost) ' / ' num2str(mu)]);
+
+Y = XRZ;
+
 end
 
 

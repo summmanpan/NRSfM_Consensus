@@ -1,7 +1,9 @@
-function [X, err] = get_principal_function(GT,dataname,rot,regu_order,regu_type)
+function [X, err] = get_principal_function(GT,dataname,flag_regu, regu_type, regu_order,noise)
 % GT: data with gt of 3d structure
 % dataname: sting of filename 
-% rot: int as rot number
+% flag_regu: FLAG OF APPLY REGU OR NOT --- 1,2 INTEGER
+% regu_type: REGU TYPE ---SOFT OR HARD --- string
+% regu_order: ORDER OF REGULARIZATION--- 1,2,4---INTEGER
 
 % noise, miss data generation.
 % generate the diary and calculate the error
@@ -9,7 +11,7 @@ function [X, err] = get_principal_function(GT,dataname,rot,regu_order,regu_type)
 %% Input data generation
 
 % Experimental setting
-noise = 0; %10^-3;            % noise level. paper use 10^-3
+% noise = 0; %10^-3;            % noise level. paper use 10^-3
 
 [k, p, nSample] = size(GT);
 D = zeros(k, p, nSample);
@@ -19,15 +21,8 @@ temp = GT(1:2, :, :);
 weight_noise = noise*max(abs(reshape(bsxfun(@minus, temp, mean(temp, 2)), [], 1)));
 D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
 
-% Diary save for command window
-resulpath = './Results_error/text_error/';
-final_name_data = [resulpath 'ERROR_' dataname '_' rot '.txt'];
-diary(final_name_data)
-disp(['***'+string(datetime)+'***'])
-disp(['---'+string(dataname)+'---'])
-
 % Consensus of Non-Rigid Reconstructions
-X = NRSfM_Consensus(D, regu_order,regu_type );
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
 
 %% Evaluation Error
 
@@ -43,18 +38,11 @@ vind = sum((GT(3, :, :)-X(3, :, :)).^2) > sum((GT(3, :, :)+X(3, :, :)).^2);
 X(3, :, vind) = -X(3, :, vind);
 
 perf = sqrt(reshape(sum(sum((GT-X).^2)), 1, [])./reshape(sum(sum(GT.^2)), 1, []));
-disp(['---' dataname '--MEAN ERROR--Regu type---' regu_type])
-disp(['---' rot '-L-' num2str(regu_order) '----------'])
-
-if noise > 0
-    disp(['***WITH:***''Noise rate: '+string(noise)+'***'])
-end
 
 err = num2str(mean(perf)); 
+disp(['---' dataname '---------MEAN ERROR---------'])
 disp(['mean error : ' err]);
 
-% set diary off
-diary off
 
 
 end

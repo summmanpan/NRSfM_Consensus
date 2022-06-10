@@ -1,4 +1,4 @@
-function X = NRSfM_Consensus(D, regu_order,regu_type)
+function X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order)
 % function X = NRSfM_Consensus(D)
 %
 % Solve NRSfM by obtaining consensus from part reconstructions
@@ -45,14 +45,15 @@ tID = tic;
 Xi = cell(1, ngroup); % x grupos, cada grupo hay como 10 tray??
 % CHANGE VARIABLES:
 %--------------------
-max_ite = 500;
+max_ite = 500; %<---
 order_L = regu_order; 
 flag_soft = true; % if false-> hard, if true soft
 if regu_type == "HARD"; flag_soft = false; end
+
 %--------------------
 for i=1:ngroup % reconstruye grupo por grupo!!!
 %     Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
-    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio, max_ite, order_L, flag_soft);
+    Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio, max_ite, order_L, flag_soft, flag_regu);
 
     % enviamos las 10 trayctorias/puntos para todos los frames.
     if toc(tID) > 1

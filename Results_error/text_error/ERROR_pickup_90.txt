@@ -1626,3 +1626,133 @@ Total time: 16m 47s
 ---pickup--MEAN ERROR--Regu type---HARD
 ---90-L-4----------
 mean error : 0.40856
+***09-Jun-2022 23:35:35***
+---pickup---
+select_idx: 0.07081
+reconstruct 3 / 276
+reconstruct 6 / 276
+reconstruct 9 / 276
+reconstruct 12 / 276
+reconstruct 15 / 276
+reconstruct 18 / 276
+reconstruct 21 / 276
+reconstruct 24 / 276
+reconstruct 27 / 276
+reconstruct 30 / 276
+reconstruct 33 / 276
+reconstruct 36 / 276
+reconstruct 39 / 276
+reconstruct 42 / 276
+reconstruct 45 / 276
+reconstruct 48 / 276
+reconstruct 51 / 276
+reconstruct 54 / 276
+reconstruct 57 / 276
+reconstruct 60 / 276
+reconstruct 63 / 276
+reconstruct 66 / 276
+reconstruct 69 / 276
+reconstruct 72 / 276
+reconstruct 75 / 276
+reconstruct 78 / 276
+reconstruct 81 / 276
+reconstruct 84 / 276
+reconstruct 87 / 276
+reconstruct 90 / 276
+reconstruct 93 / 276
+reconstruct 96 / 276
+reconstruct 98 / 276
+reconstruct 100 / 276
+reconstruct 103 / 276
+reconstruct 106 / 276
+reconstruct 109 / 276
+reconstruct 112 / 276
+reconstruct 115 / 276
+reconstruct 118 / 276
+reconstruct 121 / 276
+reconstruct 124 / 276
+reconstruct 126 / 276
+reconstruct 129 / 276
+reconstruct 132 / 276
+reconstruct 134 / 276
+reconstruct 137 / 276
+reconstruct 140 / 276
+reconstruct 143 / 276
+reconstruct 146 / 276
+reconstruct 149 / 276
+reconstruct 152 / 276
+reconstruct 155 / 276
+reconstruct 158 / 276
+reconstruct 161 / 276
+reconstruct 164 / 276
+reconstruct 167 / 276
+reconstruct 170 / 276
+reconstruct 173 / 276
+reconstruct 176 / 276
+reconstruct 179 / 276
+reconstruct 182 / 276
+reconstruct 185 / 276
+reconstruct 188 / 276
+reconstruct 191 / 276
+reconstruct 194 / 276
+reconstruct 197 / 276
+reconstruct 200 / 276
+reconstruct 203 / 276
+reconstruct 206 / 276
+reconstruct 209 / 276
+reconstruct 212 / 276
+reconstruct 215 / 276
+reconstruct 218 / 276
+reconstruct 221 / 276
+reconstruct 224 / 276
+reconstruct 227 / 276
+reconstruct 230 / 276
+reconstruct 233 / 276
+reconstruct 236 / 276
+reconstruct 239 / 276
+reconstruct 242 / 276
+reconstruct 245 / 276
+reconstruct 248 / 276
+reconstruct 251 / 276
+reconstruct 254 / 276
+reconstruct 257 / 276
+reconstruct 260 / 276
+reconstruct 263 / 276
+reconstruct 266 / 276
+reconstruct 269 / 276
+reconstruct 272 / 276
+reconstruct 274 / 276
+reconstruct 276 / 276
+reconstruct total: 118.6899
+part_reflection: 0.77016
+combine 14 / 357
+combine 28 / 357
+combine 42 / 357
+combine 57 / 357
+combine 71 / 357
+combine 85 / 357
+combine 100 / 357
+combine 114 / 357
+combine 128 / 357
+combine 143 / 357
+combine 158 / 357
+combine 172 / 357
+combine 186 / 357
+combine 201 / 357
+combine 216 / 357
+combine 231 / 357
+combine 245 / 357
+combine 259 / 357
+combine 273 / 357
+combine 288 / 357
+combine 303 / 357
+combine 317 / 357
+combine 332 / 357
+combine 346 / 357
+combine: 25.6374
+Elapsed time is 145.169751 seconds.
+Total time: 2m 25s
+---pickup--MEAN ERROR--Regu type---NO_REGU
+---90-L-0----------
+***WITH:***'Noise rate: 0.001***
+mean error : 0.094219
