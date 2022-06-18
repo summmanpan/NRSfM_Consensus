@@ -1,16 +1,16 @@
-function plot_NRSfM(D, W, list, gX, rX, vidObj)
-% function plot_NRSfM(D, W, gX, rX, vidObj)
+function plot_NRSfM( list, gX, rX, vidObj, flag_imgplot)
+% function plot_NRSfM(D,  gX, rX, vidObj)
 %
 % Plot reconstructed results
 %
 % Inputs:
 %     D: Observations                                 (3 x p x n)
-%     W: Weights - observed (true) or missing (false) (3 x p x n)
+%     
 %     gX: Ground truth shapes                         (3 x p x n)
 %     list: lines btw each points (lines, 2)
 %     rX: Reconstructed shapes                        (3 x p x n)
 %     vidObj: VideoWriter object (write a video file if specified)
-%
+%     flag_imgplot: if diff with 0, we plot that frame ---integer
 % Ref: Minsik Lee, Jungchan Cho, Chong-Ho Choi, and Songhwai Oh,
 % "Procrustean Normal Distribution for Non-Rigid Structure from Motion,"
 % CVPR 2013, Portland, Oregon, June 23-28, 2013.
@@ -35,27 +35,23 @@ function plot_NRSfM(D, W, list, gX, rX, vidObj)
 %
 % You should have received a copy of the GNU General Public License
 % along with NRSfM_PND.  If not, see <http://www.gnu.org/licenses/>.
+D = gX(1:2,:,:);
 
 % init for vidObj
-if  nargin < 6 || isempty(vidObj) %(nargin == 5 && ~ me lie en como gestionar para que list sea tamb variable vacio sin pasar desde el princiìo
+if  nargin < 5 || isempty(vidObj) %(nargin == 5 && ~ me lie en como gestionar para que list sea tamb variable vacio sin pasar desde el princiìo
     f_rate = 30;
     v_flag = false;
     % q entre cuando OBj es vacio
 else
-    open(vidObj) %
+    open(vidObj) 
     f_rate = vidObj.FrameRate;
     v_flag = true;
 end
 
-% if isempty(list) %nargin < 4
-%     list = [];
-% end
-
-
 nSample = size(D, 3);
 nP = size(D, 2);
 
-D = bsxfun(@minus, D, sum(D.*W, 2)./sum(W, 2)).*W;
+% D = bsxfun(@minus, D, sum(D, 2)./sum(W, 2)).*W;
 D(isnan(D)) = 0; % quizas la linea de arriba borrar, y dejarlo con D(3,:)=0 ya de fuera
 gX = bsxfun(@minus, gX, mean(gX, 2)); % estas medias son muy pequeñas
 rX = bsxfun(@minus, rX, mean(rX, 2));
@@ -63,7 +59,7 @@ ind = sum((gX(3, :, :)-rX(3, :, :)).^2) > sum((gX(3, :, :)+rX(3, :, :)).^2);
 rX(3, :, ind) = -rX(3, :, ind);
 
 % axis
-axD = [min(D(1, W(1, :))) max(D(1, W(1, :))) min(D(2, W(2, :))) max(D(2, W(2, :)))];
+axD = [min(D(1, :)) max(D(1, :)) min(D(2, :)) max(D(2, :))];
 axX = [min([gX(1, :) rX(1, :)]) max([gX(1, :) rX(1, :)]) min([gX(3, :) rX(3, :)]) max([gX(3, :) rX(3, :)]) min([gX(2, :) rX(2, :)]) max([gX(2, :) rX(2, :)])];
 
 h = clf('reset');
@@ -88,44 +84,86 @@ if ~isempty(list)
 %     zp_e = [z_e(:,list(:,1)),z_e(:,list(:,2))];
 end
 
-for k=1:nSample
-    TT = tic;
-    set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
-    % 2D observation
-    subplot('Position',[0 0 1/3 0.9]);
-    ind = all(W(1:2, :, k));
-    scatter(D(1, ind, k), D(2, ind, k), 'k.');
-    axis('equal', axD, 'off'); grid off;
-    title('Input 2D tracks');
 
-    % view 1
-    subplot('Position',[1/3 0 1/3 0.9]);
-    scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
-    hold on;
-    if ~isempty(list); draw_lines(list,xp,yp,zp,k); end
-    scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
-    hold off;
-    axis('equal', axX, 'off'); grid off; 
-    view(45, 30); title('3D view 1');
-    
-    % view 2
-    subplot('Position',[2/3 0 1/3 0.9]);
-    scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
-    hold on;
-    if ~isempty(list); draw_lines(list,xp,yp,zp,k);end
-    scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
-    hold off;
-    axis('equal', axX, 'off'); grid off;
-    view(-45, 30); title('3D view 2');
-    
-    legend('Ground truth', 'Reconstructed', 'Location', 'SouthEast');
-    drawnow limitrate;
+% flag_all =0; % false
+if flag_imgplot ~= 0
+     % OJO CON LO DE ABAJO A LO MEJOR HAY QUE CAMBIAR PARA Q ESTE COMO
+     % ESTABA
+        k =flag_imgplot;
+        set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
+        % 2D observation
+      
+%         subplot('Position',[0 0 1/3 0.9]);
 
-    if v_flag
-        writeVideo(vidObj, getframe(h));
+%         scatter(D(1, :, k), D(2, :, k), 'k.');
+%         axis('equal', axD, 'off'); grid off;
+%         title('Input 2D tracks');
+    
+        % view 1
+        subplot('Position',[1/3 0 1/3 0.9]);
+        scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k),'MarkerEdgeColor','k',...
+        'MarkerFaceColor',[0 .75 .75]); 
+%         hold on;
+%         scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+% %         if ~isempty(list); draw_lines(list,xp,yp,zp,k); end
+%         hold off;
+        axis('equal', axX, 'off'); grid off; 
+        view(-45, 30); 
+        %title('3D view 1');
+        
+        % view 2
+%         subplot('Position',[2/3 0 1/3 0.9]);
+%         scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
+%         hold on;
+%         scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+%         if ~isempty(list); draw_lines(list,xp,yp,zp,k);end
+%         hold off;
+%         axis('equal', axX, 'off'); grid off;
+%         view(-45, 30); title('3D view 2');
+
+%         legend('Ground truth','Reconstructed', 'Location', 'SouthEast');
+        drawnow limitrate;
+
+else 
+    for k=1:nSample
+        TT = tic;
+        set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
+        % 2D observation
+        subplot('Position',[0 0 1/3 0.9]);
+    %     ind = all(W(1:2, :, k));
+        scatter(D(1, :, k), D(2, :, k), 'k.');
+        axis('equal', axD, 'off'); grid off;
+        title('Input 2D tracks');
+    
+        % view 1
+        subplot('Position',[1/3 0 1/3 0.9]);
+        scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
+        hold on;
+        scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+        if ~isempty(list); draw_lines(list,xp,yp,zp,k); end
+        hold off;
+        axis('equal', axX, 'off'); grid off; 
+        view(45, 30); title('3D view 1');
+        
+        % view 2
+        subplot('Position',[2/3 0 1/3 0.9]);
+        scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
+        hold on;
+        scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+        if ~isempty(list); draw_lines(list,xp,yp,zp,k);end
+        hold off;
+        axis('equal', axX, 'off'); grid off;
+        view(-45, 30); title('3D view 2');
+        
+        legend('Ground truth','Reconstructed', 'Location', 'SouthEast');
+        drawnow limitrate;
+    
+        if v_flag
+            writeVideo(vidObj, getframe(h));
+        end
+        
+        pause(1/f_rate-toc(TT));
     end
-    
-    pause(1/f_rate-toc(TT));
 end
 
 %

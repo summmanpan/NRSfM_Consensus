@@ -23,7 +23,12 @@ D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
 
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+save("back_sparse_reconst",'X')
+err=0;
 
+if dataname == "back_sparse"
+    return
+end
 %% Evaluation Error
 
 GT = bsxfun(@minus, GT, mean(GT, 2));

@@ -52,7 +52,6 @@ if regu_type == "HARD"; flag_soft = false; end
 
 %--------------------
 for i=1:ngroup % reconstruye grupo por grupo!!!
-%     Xi{i} = reconstruct_h(D(:, idx(:, i), :), rotK_ratio,max_ite,order_L);
     Xi{i} = reconstruct(D(:, idx(:, i), :), rotK_ratio, max_ite, order_L, flag_soft, flag_regu);
 
     % enviamos las 10 trayctorias/puntos para todos los frames.
@@ -61,6 +60,7 @@ for i=1:ngroup % reconstruye grupo por grupo!!!
         tID = tic;
     end
 end
+save('heart_reconst_antes_correctino')
 disp(['reconstruct total: ' num2str(toc)]);
 
 
