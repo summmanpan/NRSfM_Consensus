@@ -56,7 +56,7 @@ rot_list = {'90'}; % '','60','90','120' " % save for each dataset rotation indiv
 % dataname = {'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 %     dataname = {'drink','pickup', 'stretch', 'yoga'}; % drink -> ESTE APARTE PERO LUEGO PONER!!!
 %     dataname = {'walking','dance','jaws','face'};
-dataname = {'dinosaur_real'};
+dataname = {'drink'};
 %-------------------- CHANGE PARAMETRES------------------------
 flag_noise = 2 ; % 1- noise, 2- no noise
 flag_regu = 1 ; % 1- regu, 2-no Regu
@@ -78,7 +78,7 @@ if flag_noise == 2; noise=0; end
     
             for j= 1 : size(dataname,2) 
 %                 dataname, flag_rot,rot_list, flag_list
-                [X,~] = get_load_data(dataname{j}, flag_rot,rot_list{i},0);
+                [X,~] = get_load_data(dataname{j}, flag_rot,rot_list{i}, 0);
                 
                 
                 % Diary save for command window
@@ -150,10 +150,10 @@ if flag_noise == 2; noise=0; end
 %% Plot 3D results
 
 for i=1:size(GT,3)
-%     scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% LO TIENE REVES, Y PINTA Y -> AXIZ Z
-%     hold on; 
-    scatter3(rX(1, :, i), rX(3, :, i), -rX(2, :, i), 'b.');
-%     hold off;
+    scatter3(GT(1, :, i), GT(3, :, i), GT(2, :, i), 'ro');% LO TIENE REVES, Y PINTA Y -> AXIZ Z
+    hold on; 
+    scatter3(rX(1, :, i), rX(3, :, i), rX(2, :, i), 'b.');
+    hold off;
     axis equal; title(dataname); drawnow;
 end
 
@@ -161,11 +161,11 @@ end
 %% GENERATE VIDEO ETC
 
 % GT
-dataname = 'dinosaur_real';
+dataname = 'drink';
 flag_rot=0;
 rot_list ='90';
-flag_list=0;
-[GT,list] = get_load_data(dataname, flag_rot,rot_list, flag_list);
+flag_list=1;
+[GT,list] = get_load_data(dataname, flag_rot, rot_list, flag_list);
 
 %% get reconstruct data from folder
 
@@ -191,11 +191,11 @@ flag_list=0;
 rX = X_cell{1,1};
 %%
 
-list = [];
+% list = [];
 % rX = X_waliking;
 % extras = [rot_list '__SOFT_L4'];
 % video saver:
-v_obj = VideoWriter(['./results/videos/' dataname '_dino_soft_l4_video.avi']);
+v_obj = VideoWriter(['./results/videos/' dataname '_drink_orig_video.avi']);
 plot_NRSfM(list, GT, rX, v_obj,0);
 
 %% Export figure frame by frame
