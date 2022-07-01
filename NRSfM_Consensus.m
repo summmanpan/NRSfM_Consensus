@@ -36,6 +36,35 @@ disp(['select_idx: ' num2str(toc)]);
 ngroup = size(idx, 2); %set(gcf,'color','w') backgruond of plot to white
 % spy(idx);title("IDX of 365 ngruops of walking dataser") ;
 
+%% cluster plot
+
+% flag_imgplot_list = [1, 20, 50, 70];
+% 
+% coger la funcion de cluster 3d plot y hacerlo en 2d plots.
+% quiero ploterar todas las prates 2d divididas...
+% plotear las partes reconst ?
+% plotear antes de consensu -> 3d plot
+% 
+% 
+% for j=1:size(flag_imgplot_list,2)
+%     for i=1:ngroup % reconstruye grupo por grupo!!!
+%         plot_NRSfM([], D(:, idx(:, i), :), ...
+%             D(:, idx(:, i), :), ...
+%             [], flag_imgplot_list(j) );
+%         
+%     end
+%     cluster_3d_plots();    
+% end
+% cluster = D(:, idx(:, 1), :);
+% for i=1:size(cluster,3)
+%     scatter3(cluster(1, :, i), cluster(3, :, i), cluster(2, :, i), 'b.');
+%     axis equal; title(dataname); drawnow;
+% end
+% 
+% 
+
+
+
 
 %% 2) WEAK RECONSTRUCTION
 
@@ -60,7 +89,7 @@ for i=1:ngroup % reconstruye grupo por grupo!!!
         tID = tic;
     end
 end
-save('heart_reconst_antes_correctino')
+
 disp(['reconstruct total: ' num2str(toc)]);
 
 

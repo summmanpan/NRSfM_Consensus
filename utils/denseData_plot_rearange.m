@@ -10,7 +10,7 @@ T=size(W2D,1)/2; % number of frames
 W2d=zeros(size(W2D));
 
 for i=1:T
-
+    % W2D tiene todos los puntos X como bloque arriba, y Y abajo
     W2d(2*i-1,:)=W2D(i,:) ; 
     W2d(2*i,:)=W2D(i+T,:); 
 

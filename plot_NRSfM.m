@@ -84,45 +84,103 @@ if ~isempty(list)
 %     zp_e = [z_e(:,list(:,1)),z_e(:,list(:,2))];
 end
 
+back_plot = 0; % harkodeado
+if back_plot == 1
+    %% back plot
+    k =flag_imgplot;
+    set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
 
-% flag_all =0; % false
-if flag_imgplot ~= 0
-     % OJO CON LO DE ABAJO A LO MEJOR HAY QUE CAMBIAR PARA Q ESTE COMO
-     % ESTABA
-        k =flag_imgplot;
+    subplot('Position',[1/3 0 1/3 0.9]);
+%     scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k),'MarkerEdgeColor','k',...
+%     'MarkerFaceColor',[0 .75 .75]); 
+    scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k),'filled'); 
+    axis('equal', axX, 'off'); grid off; 
+    view(-45, 30); 
+
+    drawnow limitrate;
+    return
+else
+    for k=1:nSample
+        TT = tic;
         set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
         % 2D observation
-      
-%         subplot('Position',[0 0 1/3 0.9]);
-
-%         scatter(D(1, :, k), D(2, :, k), 'k.');
-%         axis('equal', axD, 'off'); grid off;
-%         title('Input 2D tracks');
+        subplot('Position',[0 0 1/3 0.9]);
+        scatter(D(1, :, k), D(2, :, k), 'k.');
+        axis('equal', axD, 'off'); grid off;
+        title('Input 2D tracks');
     
         % view 1
         subplot('Position',[1/3 0 1/3 0.9]);
-        scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k),'MarkerEdgeColor','k',...
+        scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k),'MarkerEdgeColor','k',...
         'MarkerFaceColor',[0 .75 .75]); 
-%         hold on;
-%         scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
-% %         if ~isempty(list); draw_lines(list,xp,yp,zp,k); end
-%         hold off;
+%         surf(rX(1, :, k), rX(3, :, k), rX(2, :, k))
         axis('equal', axX, 'off'); grid off; 
-        view(-45, 30); 
-        %title('3D view 1');
+        view(45, 30); title('3D view 1');
         
         % view 2
-%         subplot('Position',[2/3 0 1/3 0.9]);
-%         scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
-%         hold on;
-%         scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
-%         if ~isempty(list); draw_lines(list,xp,yp,zp,k);end
-%         hold off;
-%         axis('equal', axX, 'off'); grid off;
-%         view(-45, 30); title('3D view 2');
-
-%         legend('Ground truth','Reconstructed', 'Location', 'SouthEast');
+        subplot('Position',[2/3 0 1/3 0.9]);
+        scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k),'MarkerEdgeColor','k',...
+        'MarkerFaceColor',[0 .75 .75]); 
+        axis('equal', axX, 'off'); grid off;
+        view(-45, 30); title('3D view 2');
+        
+        legend('Reconstructed', 'Location', 'SouthEast');
         drawnow limitrate;
+    
+        if v_flag
+            writeVideo(vidObj, getframe(h));
+        end
+        
+        pause(1/f_rate-toc(TT));
+    end
+    
+    if v_flag
+        close(vidObj);
+    end
+    return 
+end
+
+
+% flag_all =0; % false
+if flag_imgplot ~= 0
+    k = flag_imgplot;
+    set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
+    % 2D observation
+    subplot('Position',[0 0 1/3 0.9]);
+    scatter(D(1, :, k), D(2, :, k), 'k.');
+    axis('equal', axD, 'off'); grid off;
+    title('Input 2D tracks');
+
+    % view 1
+    subplot('Position',[1/3 0 1/3 0.9]);
+    scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
+    
+    hold on;
+%     scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+%     if ~isempty(list); draw_lines(list,xp,yp,zp,k); end
+%     hold off;
+
+%     axis('equal', axX, 'off'); 
+    axis('equal','off');
+    grid off; 
+    view(45, 30); title('3D view 1');
+    
+    % view 2
+    subplot('Position',[2/3 0 1/3 0.9]);
+    scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k), 'ro'); 
+    
+    hold on;
+%     scatter3(rX(1, :, k), rX(3, :, k), rX(2, :, k), 'b+'); 
+%     if ~isempty(list); draw_lines(list,xp,yp,zp,k);end
+%     hold off;
+    
+%     axis('equal', axX, 'off'); 
+    axis('equal','off');
+    grid off;
+    view(-45, 30); title('3D view 2');
+    
+%     legend('Ground truth','Reconstructed', 'Location', 'SouthEast');
+    drawnow limitrate;
 
 else 
     for k=1:nSample
@@ -164,12 +222,12 @@ else
         
         pause(1/f_rate-toc(TT));
     end
+    if v_flag
+        close(vidObj);
+    end
 end
 
-%
-if v_flag
-    close(vidObj);
-end
+
 
 end
 
@@ -187,3 +245,15 @@ end
 end
 
 
+%% back plot
+%         k =flag_imgplot;
+%         set(h, 'Name', [num2str(k) ' / ' num2str(nSample)]);
+% 
+%         subplot('Position',[1/3 0 1/3 0.9]);
+%         scatter3(gX(1, :, k), gX(3, :, k), gX(2, :, k),'MarkerEdgeColor','k',...
+%         'MarkerFaceColor',[0 .75 .75]); 
+% 
+%         axis('equal', axX, 'off'); grid off; 
+%         view(-45, 30); 
+% 
+%         drawnow limitrate;

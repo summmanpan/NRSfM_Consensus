@@ -5450,3 +5450,376 @@ Total time: 3m 2s
 ----L-0----------
 ***WITH:***'Noise rate: 0.001***
 mean error : 0.086557
+***25-Jun-2022 00:38:02***
+---dance---
+dbcont
+select_idx: 0.43397
+dbstep
+cddfd
+{Unrecognized function or variable 'cddfd'.
+} 
+clc
+dbquit
+dbquit
+***25-Jun-2022 00:41:40***
+---dance---
+select_idx: 0.26183
+dbstep
+dbstep
+dbstep
+dbquit
+***25-Jun-2022 00:41:56***
+---dance---
+select_idx: 0.20848
+dbstep
+dbstep
+dbstep
+Undefined function 'cluster_3d_plots' for input arguments of type 'double'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 41)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',41,0)">line 41</a>)
+    cluster_3d_plots(D(:, idx(:, i), :));
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] =
+                get_principal_function(X,dataname{j}, ...
+
+***25-Jun-2022 00:42:14***
+---dance---
+select_idx: 0.23214
+dbstep
+a = D(:, idx(:, i), :);
+{Unrecognized function or variable 'i'.
+} 
+a = D(:, idx(:, 1), :);
+dbquit
+***25-Jun-2022 00:45:30***
+---dance---
+select_idx: 0.23627
+dbstep
+dbstep
+dbstep
+dbstep
+dbquit
+else if help
+ else if help
+ ↑
+{Error: Illegal use of reserved keyword "else".
+} 
+help elseif
+ <strong>elseif</strong> IF statement condition.
+    <strong>elseif</strong> is used with IF. The statements after the <strong>elseif</strong> are
+    executed if the expression is true and all the preceding IF and
+    <strong>elseif</strong> expressions are false. An expression is considered true if
+    the real part has all non-zero elements.  
+ 
+    <strong>elseif</strong> does not need a matching END, while ELSE IF does.
+ 
+    The general form of the IF statement is
+       IF expression
+         statements
+       <strong>elseif</strong> expression
+         statements
+       ELSE
+         statements
+       END
+ 
+    See also <a href="matlab:help if -displayBanner">if</a>, <a href="matlab:help else -displayBanner">else</a>, <a href="matlab:help end -displayBanner">end</a>.
+
+    <a href="matlab:doc elseif">Documentation for elseif</a>
+
+***25-Jun-2022 00:54:01***
+---dance---
+select_idx: 0.2286
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.axis.Axes/set')" style="font-weight:bold">matlab.graphics.axis.Axes/set</a>
+Value must be a 1x2 vector of numeric type in which the second element is greater than the first
+element or is Inf.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 292)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',292,0)">line 292</a>)
+    set(ax,...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 113)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',113,0)">line 113</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 107)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',107,0)">line 107</a>)
+    axis('equal', axX, 'off'); grid off;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+        plot_NRSfM([], D(:, idx(:, i), flag_imgplot_list(j)), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j}, ...
+
+***25-Jun-2022 00:54:40***
+---dance---
+select_idx: 0.20403
+dbstep in;
+dbstep in;
+dbstep in;
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.axis.Axes/set')" style="font-weight:bold">matlab.graphics.axis.Axes/set</a>
+Value must be a 1x2 vector of numeric type in which the second element is greater than
+the first element or is Inf.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 292)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',292,0)">line 292</a>)
+    set(ax,...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 113)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',113,0)">line 113</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 107)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',107,0)">line 107</a>)
+    axis('equal', axX, 'off'); grid off;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+        plot_NRSfM([], D(:, idx(:, i), flag_imgplot_list(j)), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j},
+                ...
+
+***25-Jun-2022 00:56:39***
+---dance---
+select_idx: 0.22419
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.axis.Axes/set')" style="font-weight:bold">matlab.graphics.axis.Axes/set</a>
+Value must be a 1x2 vector of numeric type in which the second element is greater than
+the first element or is Inf.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 292)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',292,0)">line 292</a>)
+    set(ax,...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 113)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',113,0)">line 113</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 107)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',107,0)">line 107</a>)
+    axis('equal', axX, 'off'); grid off;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+        plot_NRSfM([], D(:, idx(:, i), :), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j},
+                ...
+
+***25-Jun-2022 00:56:59***
+---dance---
+select_idx: 0.21241
+dbstep
+dbstep in;
+dbstep in;
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.axis.Axes/set')" style="font-weight:bold">matlab.graphics.axis.Axes/set</a>
+Value must be a 1x2 vector of numeric type in which the second element is greater than
+the first element or is Inf.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 292)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',292,0)">line 292</a>)
+    set(ax,...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 113)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',113,0)">line 113</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 107)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',107,0)">line 107</a>)
+    axis('equal', axX, 'off'); grid off;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+        plot_NRSfM([], D(:, idx(:, i), :), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j},
+                ...
+
+***25-Jun-2022 00:58:31***
+---dance---
+select_idx: 0.20652
+dbstep in;
+dbstep
+dbstep in;
+dbcont
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('matlab.graphics.axis.Axes/set')" style="font-weight:bold">matlab.graphics.axis.Axes/set</a>
+Value must be a 1x2 vector of numeric type in which the second element is greater than
+the first element or is Inf.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 292)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',292,0)">line 292</a>)
+    set(ax,...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m', 113)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\graph2d\axis.m',113,0)">line 113</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 120)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',120,0)">line 120</a>)
+    axis('equal', axX, 'off'); grid off;
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+        plot_NRSfM([], D(:, idx(:, i), :), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j},
+                ...
+
+***25-Jun-2022 01:00:18***
+---dance---
+select_idx: 0.22605
+dbstep in;
+dbstep in;
+dbstep in;
+dbstep in;
+dbcont
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbquit
+Unrecognized function or variable 'ngroup'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 44)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',44,0)">line 44</a>)
+    for i=1:ngroup % reconstruye grupo por grupo!!!
+
+***25-Jun-2022 01:02:35***
+---dance---
+select_idx: 0.26463
+dbcont
+dbstep
+dbstep
+dbcont
+clc
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbstep
+dbquit
+dbquit
+***25-Jun-2022 01:04:57***
+---dance---
+select_idx: 0.24192
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbcont
+dbquit
+***25-Jun-2022 01:06:15***
+---dance---
+select_idx: 0.14453
+dbquit
+***25-Jun-2022 01:06:35***
+---dance---
+select_idx: 0.17494
+dbstep
+dbstep
+dbcont
+Unrecognized function or variable 'h'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_NRSfM', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m', 66)" style="font-weight:bold">plot_NRSfM</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\plot_NRSfM.m',66,0)">line 66</a>)
+set(h, 'Color', 'w');
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NRSfM_Consensus', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m', 45)" style="font-weight:bold">NRSfM_Consensus</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\NRSfM_Consensus.m',45,0)">line 45</a>)
+        plot_NRSfM([], D(:, idx(:, i), :), ...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_principal_function', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m', 25)" style="font-weight:bold">get_principal_function</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\get_principal_function.m',25,0)">line 25</a>)
+X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('demo', 'C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m', 93)" style="font-weight:bold">demo</a> (<a href="matlab: opentoline('C:\Users\pansu\OneDrive\Documentos\1-TFG\1_NRSfM_Consensus\demo.m',93,0)">line 93</a>)
+                [X_cell{1,j}, err_cell{1,j}] = get_principal_function(X,dataname{j}, ...
+
