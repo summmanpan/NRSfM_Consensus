@@ -56,10 +56,10 @@ rot_list = {'90'}; % '','60','90','120' " % save for each dataset rotation indiv
 % dataname = {'yoga'};  %drink   ESTE COMO TARDA MUCHO, LO PONDRE A PARTE!!
 %     dataname = {'drink','pickup', 'stretch', 'yoga'}; % drink -> ESTE APARTE PERO LUEGO PONER!!!
 %     dataname = {'walking','dance','jaws','face'};
-dataname = {'drink'};
+dataname = {'pickup'};
 %-------------------- CHANGE PARAMETRES------------------------
 flag_noise = 2 ; % 1- noise, 2- no noise
-flag_regu = 1 ; % 1- regu, 2-no Regu
+flag_regu = 2 ; % 1- regu, 2-no Regu
 flag_regu_type = 1;% 1-soft or 2-hard % only when with regu:
 flag_rot = 2 ; % 1-rot 2-no rot
  
@@ -72,7 +72,7 @@ if flag_noise == 2; noise=0; end
     
     for i=1:size(rot_list,2) % rot number
         
-        for odr = 1 : size(regu_order,2) 
+        for odr = 1 : 1%size(regu_order,2) 
             X_cell = cell(size(1,2) ,size(dataname,2) );
             err_cell = cell(size(1,2) ,size(dataname,2) );
     
@@ -132,12 +132,12 @@ if flag_noise == 2; noise=0; end
             end
 
             final_save_path = [principal_path noise_path regu_path];
-            if dataname{j}=="drink"
-                final_save_path = [final_save_path 'drink'];
-            elseif dataname{j}=="dinosaur_real"
-                final_save_path = [final_save_path 'dinosaur'];
-            end
-
+%             if dataname{j}=="drink"
+%                 final_save_path = [final_save_path 'drink'];
+%             elseif dataname{j}=="dinosaur_real"
+%                 final_save_path = [final_save_path 'dinosaur'];
+%             end
+          
             save(final_save_path,'X_cell','err_cell','noise')
             disp(final_save_path)
            
@@ -159,12 +159,12 @@ end
 
 
 %% GENERATE VIDEO ETC
-
+clear
 % GT
-dataname = 'drink';
-flag_rot=0;
-rot_list ='90';
-flag_list=1;
+dataname = 'face';
+flag_rot = 2;
+rot_list ='0';
+flag_list=0;
 [GT,list] = get_load_data(dataname, flag_rot, rot_list, flag_list);
 
 %% get reconstruct data from folder
@@ -188,15 +188,15 @@ flag_list=1;
 % flag_regu_type = 1 ;% 1-soft or 2-hard % only when with regu:
 % flag_rot = 1 ; % 1-rot 2-no rot
 %  
-rX = X_cell{1,1};
+rX = X_cell{1,4};
 %%
 
 % list = [];
 % rX = X_waliking;
 % extras = [rot_list '__SOFT_L4'];
 % video saver:
-v_obj = VideoWriter(['./results/videos/' dataname '_drink_orig_video.avi']);
-plot_NRSfM(list, GT, rX, v_obj,0);
+v_obj = VideoWriter(['./results/videos/' dataname '_HARD_l4_video.avi']);
+plot_NRSfM(list, GT, rX, v_obj,0); 
 
 %% Export figure frame by frame
 list = [];
