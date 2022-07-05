@@ -9,19 +9,21 @@
 % W is the weight mask that indicates whether the
 % elements are missing or not. (false = missing)
 %% Sparse back 
-
-dataname = 'back_sparse'; % mostly imposible to run in my computer..., 'back'
+clear all
+dataname = 'actriz';%'back2_sparse';% mostly imposible to run in my computer..., 'back'
 
 load(['./Data/' dataname '_rearranged.mat']);
 
 if size(D,1)==2
     D(3,1)=0;
 end
+
 %%
 flag_regu = 1; % 1 si regu, 2 no regu, 
+save_name = 'actriz_REGU_S1_ns4_ng_12';
 [X, ~] = get_principal_function(D, dataname, ...
-                    flag_regu, 'HARD', ...
-                    3, 0); 
+                    flag_regu, 'SOFT', ...
+                    1, 0 , save_name); 
 
 %% Dense Data Set
 % dataname = {'back'}; % mostly imposible to run in my computer..., 'back'
@@ -192,13 +194,17 @@ flag_list=0;
 % flag_rot = 1 ; % 1-rot 2-no rot
 %  
 rX = X_cell{1,2};
+%% VIDEO GENERATOR
+% load('./results/actriz/actriz_NO_REGU.mat')
+% dataname = 'actriz';
 %%
-
 list = [];
 % rX = X_waliking;
 % extras = [rot_list '__SOFT_L4'];
 % video saver:
-v_obj = VideoWriter(['./results/videos/' dataname '_back_C_H2_video.avi']);
+v_obj = VideoWriter(['./results/videos/' dataname '_Regu_S1_reduced_ns4_ng_12.avi']);
+GT = X;
+rX = X;
 plot_NRSfM(list, GT, rX, v_obj,0);
 
 %% Export figure frame by frame

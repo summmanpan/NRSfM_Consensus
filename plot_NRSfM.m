@@ -64,7 +64,8 @@ axX = [min([gX(1, :) rX(1, :)]) max([gX(1, :) rX(1, :)]) min([gX(3, :) rX(3, :)]
 
 h = clf('reset');
 set(h, 'Color', 'w');
-
+% set(gcf, 'Position', [100,100,950,580]); seqq human
+set(gcf, 'Position', [100,100,700,400]); % back
 
 % put the access variables separalately to accelerate the coordinate access
 if ~isempty(list)
@@ -85,6 +86,7 @@ if ~isempty(list)
 end
 
 back_plot = 0; % harkodeado
+% if actriz, change the z,y to negative
 if back_plot == 1
     %% back plot
     k =flag_imgplot;

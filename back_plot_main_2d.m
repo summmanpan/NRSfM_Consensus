@@ -68,11 +68,47 @@ for i = 1:n_frames
     plot(W_back(1,:,i), W_back(2,:,i),'.k')
     
     axis equal
-%     pause(0.1);
-%     pause
-    drawnow limitrate;
+    pause(0.1);
+    pause
+%     drawnow limitrate;
 end
 
 %% save
 D = W_back;
 save('./Data/back_sparse_rearranged','D')
+
+
+%% ACTRIZ
+
+load './Data/point2D_ref_actriz.mat'
+W=[];
+for i=1:102
+    W=[W; AllShapes(1:68,i)'; AllShapes(69:136,i)'];
+end
+
+%%
+W2d=W;
+n_frames = size(W2d,1)/2;
+x = W2d(1:2:end, :);
+y = W2d(2:2:end, :);
+
+W_actriz = zeros(2, size(W2d,2), n_frames);
+for i = 1:n_frames
+   % in the paper, the author change z as y
+   W_actriz(:,:,i) = [x(i,:);y(i,:)]; % put them last tensor position the index of the frame
+end
+
+%%
+for i = 1:n_frames
+    plot(W_actriz(1,:,i), -W_actriz(2,:,i),'.k')
+    
+    axis equal
+%     pause(0.1);
+%     pause
+    drawnow limitrate;
+end
+
+%%
+D = W_actriz;
+save('./Data/actriz_rearranged','D')
+

@@ -1,4 +1,4 @@
-function [X, err] = get_principal_function(GT,dataname,flag_regu, regu_type, regu_order,noise)
+function [X, err] = get_principal_function(GT,dataname,flag_regu, regu_type, regu_order,noise,save_name)
 % GT: data with gt of 3d structure
 % dataname: sting of filename 
 % flag_regu: FLAG OF APPLY REGU OR NOT --- 1,2 INTEGER
@@ -23,12 +23,14 @@ D(1:2, :, :) = temp + weight_noise*randn(2, p, nSample);
 
 % Consensus of Non-Rigid Reconstructions
 X = NRSfM_Consensus(D, flag_regu, regu_type, regu_order );
-
-% save("back_sparse_reconst_with_Regu_soft_l2",'X')
 err=0;
-
-if dataname == "back_sparse"
-    save("./back_plots/back_sparse_reconst_with_C_Hard_2",'X')
+if dataname == "back2_sparse"
+    save(['./back_plots/' save_name],'X')
+    return
+end
+if dataname == "actriz"
+   
+    save(['./results/actriz/' save_name],'X')
     return
 end
 %% Evaluation Error

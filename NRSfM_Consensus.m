@@ -26,8 +26,8 @@ tic;
 % select random groups
 
 % parameters to change for user
-nsamp = 10; % less 55?
-mgroup = 50;
+nsamp = 10; %4; % no less 3
+mgroup = 50; %12;
 lambda = 0.1;
 
 idx = select_idx(D(1:2, :, :), nsamp, mgroup, lambda); % [55, 358 grupos]

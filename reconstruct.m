@@ -244,7 +244,7 @@ function L = get_L(frames, order)
             end
             L(1,frames)=0; 
         otherwise
-            disp('no exist')
+            disp('no exist filter order')
             L=0;
     end
 end
